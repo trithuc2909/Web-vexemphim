@@ -1,0 +1,8 @@
+body {
+    margin: 0;
+    height: 100vh; /* Chiều cao đầy đủ của viewport */
+    background-image: url('https://ikffdubai.com/wp-content/uploads/2020/02/film-making-workshop.jpg'); /* Thay thế bằng link hình ảnh của bạn */
+    background-size: cover; /* Để hình ảnh phủ đầy toàn bộ */
+    background-position: center; /* Để căn giữa hình ảnh */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+}

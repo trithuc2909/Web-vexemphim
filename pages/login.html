@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href ="../css/login.css">
+</head>
+<body>
+  <style>
+    body {
+        margin: 0;
+        height: 100vh; /* Chiều cao đầy đủ của viewport */
+        background-image: url('https://img.freepik.com/free-photo/organized-desk-with-copy-space_23-2148219270.jpg'); /* Thay thế bằng link hình ảnh  */
+        background-size: cover; /* Để hình ảnh phủ đầy toàn bộ */
+        background-position: center; /* Để căn giữa hình ảnh */
+        background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+    }
+</style>
+    <div
+    style ="height: 100vh;" 
+    class="container d-flex justify-content-center align-items-center">
+        <form id = "formLogin" style= "width: 400px;">
+            <h3 class ="text-center">
+                Đăng nhập tài khoản
+            </h3>
+            <div class="mb-3">
+                <label for="email" class="form-label"> Email </label>
+                <input type="text" class="form-control" id="email" placeholder="Nhập Email">
+                    <!--Throw lỗi emailError-->
+                    <div id = "emailError" style= "color: red; display: none">
+                        Email không được để trống
+                    </div>  
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label"> Mật khẩu </label>
+                <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+                <!-- Throw lỗi của password -->
+                <div id = "passwordError" style= "color: red; display: none;">
+                    Mật khẩu không được để trống
+                </div>      
+            </div>
+            <div>
+                <button type ="submit" style="width: 100%"  class="btn btn-primary">
+                    Đăng nhập
+                </button>
+            </div>  
+            <p class="text-center" mt-2>
+                Bạn chưa có tài khoản? <a href="./register.html"> Đăng ký </a>
+            </p>
+        </form>
+    </div>
+
+    <!-- script -->
+    <script src="../js/login.js"> </script>
+</body>
+</html>
