@@ -8,7 +8,7 @@ html, body {
 
 /* Thiết lập hình nền cho body */
 body {
-    background-image: url('Image/movie.jpg'); /* Hình nền */
+    background-image: url('../Image/movie.jpg'); /* Hình nền */
     background-size: cover; /* Chiếm toàn bộ không gian */
     background-position: center; /* Căn giữa hình nền */
     background-repeat: no-repeat; /* Không lặp lại hình nền */

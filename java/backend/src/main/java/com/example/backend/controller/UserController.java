@@ -55,7 +55,7 @@ public class UserController {
             return new ResponseEntity<>(user.get(), HttpStatus.OK);
         }
         else {
-            return new ResponseEntity<>("User not found!", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Không tìm thấy người dùng", HttpStatus.NOT_FOUND);
         }
     }
 }

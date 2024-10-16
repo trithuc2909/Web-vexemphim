@@ -73,7 +73,7 @@ formLogin.addEventListener("submit", async function(e) {
         console.log("Người dùng đã đăng nhap:", result);
         
         if (response.ok) {
-            window.location.href = "indext.html";  // Đăng nhập thành công
+            window.location.href = "index.html";  // Đăng nhập thành công
         } else {
             alertError.style.display = "block";
             // alertError.innerHTML = "Email hoặc mật khẩu không đúng.";
