@@ -6,6 +6,10 @@ const passwordElement = document.getElementById("password");
 // Elements liên quan đến lỗi
 const emailError = document.getElementById("emailError");
 const passwordError = document.getElementById("passwordError");
+const alertError = document.getElementById("alertError");
+
+    // Lấy dữ liệu từ local về
+    // const userLocal = JSON.parse(localStorage.getItem("users")) || [];
 /**
  * Validate địa chỉ email
  * @param {*} email: chuỗi email mà user nhập vào 
@@ -23,9 +27,12 @@ function validateEmail (email) {
 
 
 // Lắng nghe sự kiện submit form đăng nhập tài khoản
-formLogin.addEventListener("submit", function(e){
+formLogin.addEventListener("submit", async function(e) { 
     // Ngăn chặn sự kiện load lại trang
     e.preventDefault();
+
+    const emailInput = emailElement.value;
+    const password = passwordElement.value;
 
     //Validate dữ liệu đầu vào
     //email
@@ -41,11 +48,10 @@ formLogin.addEventListener("submit", function(e){
             emailError.style.display = "block";
             emailError.innerHTML = "Email không đúng định dạng."; //sửa throw error trực tiếp
         }
-        }  
+    }  
+
     //password  
     if (!passwordElement.value){
-        //    alert("Tên không được để trống");
-    
             //Hiển thị lỗi
             passwordError.style.display = "block"
     } else{
@@ -53,19 +59,35 @@ formLogin.addEventListener("submit", function(e){
             passwordError.style.display = "none";
     }    
 
-    // Lấy dữ liệu từ local về
-    const userLocal = JSON.parse(localStorage.getItem("users")) || [];
+     // Gửi yêu cầu đăng nhập tới API
+     try {
+        const response = await fetch("http://localhost:8080/rg/users/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ emailInput, password }),
+        });
 
-    // Tìm kiếm email và password mà users nhập vào có tồn tại trên local không
-    const findUser = userLocal.find( 
-        (user) => 
-        user.email === emailElement.value && 
-        user.password === passwordElement.value
-    );
-    console.log(findUser);
-
-    //nếu có thì đăng nhập thành công và chuyển hướng về trang chủ
-
-    // nếu không thì thông báo cho người dùng nhập lại dữ liệu
-
-})
+        const result = await response.json()
+        console.log("Người dùng đã đăng nhap:", result);
+        
+        if (response.ok) {
+            window.location.href = "indext.html";  // Đăng nhập thành công
+        } else {
+            alertError.style.display = "block";
+            // alertError.innerHTML = "Email hoặc mật khẩu không đúng.";
+        }
+        // if (!findUser){
+        //     // nếu không thì thông báo cho người dùng nhập lại dữ liệu
+        //     alertError.style.display ="block";
+        // } else {
+        //     //nếu có thì đăng nhập thành công và chuyển hướng về trang chủ
+        //     window.location.href = "indext.html";
+        // }
+    } catch (error) {
+        console.error("Lỗi kết nối:", error);
+        alertError.style.display = "block";
+        alertError.innerHTML = "Có lỗi xảy ra khi đăng nhập.";
+    }
+});

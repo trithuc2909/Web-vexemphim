@@ -1,0 +1,445 @@
+/* Đảm bảo thẻ html và body chiếm toàn bộ chiều cao của khung nhìn */
+html, body {
+    height: 100%; /* Chiều cao 100% của khung nhìn */
+    margin: 0; /* Xóa khoảng cách mặc định của trình duyệt */
+    padding: 0; /* Xóa khoảng cách mặc định của trình duyệt */
+    font-family: Arial, sans-serif; /* Đặt phông chữ mặc định */
+}
+
+/* Thiết lập hình nền cho body */
+body {
+    background-image: url('Image/movie.jpg'); /* Hình nền */
+    background-size: cover; /* Chiếm toàn bộ không gian */
+    background-position: center; /* Căn giữa hình nền */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+    background-attachment: fixed; /* Hình nền cố định khi cuộn */
+}
+
+/* Thiết lập cho thanh đầu trang (header) */
+header {
+    display: flex; /* Sử dụng Flexbox để bố trí */
+    justify-content: space-between; /* Khoảng cách đều giữa các phần tử */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 20px; /* Padding cho header */
+    background-color: rgba(0, 0, 0, 0.7); /* Nền bán trong suốt */
+    width: 100%; /* Chiều rộng 100% */
+    top: 0; /* Đặt ở trên cùng */
+    z-index: 1000; /* Đảm bảo ở trên cùng so với các phần tử khác */
+    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng nếu không đủ không gian */
+}
+
+/* Thiết lập cho logo trong header */
+.logo {
+    flex: 1; /* Chiếm không gian còn lại */
+}
+
+/* Kích thước của hình ảnh logo */
+.logo img {
+    height: 100px; /* Chiều cao logo */
+}
+
+/* Thiết lập cho vùng chứa các nút hành động */
+.actions {
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các nút */
+    flex: 2; /* Chiếm không gian lớn hơn */
+    justify-content: center; /* Căn giữa */
+}
+
+/* Nút màu vàng */
+.btn-yellow {
+    background-color: #ff0; /* Màu nền vàng */
+    color: #000; /* Màu chữ đen */
+    padding: 10px 20px; /* Padding cho nút */
+    border:none ; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    border-radius: 100px; 
+    overflow: hidden;
+   
+
+    
+}
+.btn-yellow:hover{
+    background-color: #54a2f0 ; /*Đổi màu khi hover*/
+}
+
+
+/* Nút màu tím */
+.btn-purple {
+    background-color: #800080; /* Màu nền tím */
+    color: #fff; /* Màu chữ trắng */
+    padding: 10px 20px; /* Padding cho nút */
+    border: none; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    border-radius: 100px;
+    overflow: hidden;
+}
+.btn-purple:hover{
+    background-color:rgb(239, 135, 31);
+}
+
+/* Thiết lập cho vùng tìm kiếm */
+.search-container {
+    position: relative; /* Vị trí tương đối để chứa biểu tượng tìm kiếm */
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Thanh tìm kiếm */
+.search-bar {
+    padding: 8px; /* Padding cho thanh tìm kiếm */
+    border-radius: 5px; /* Bo tròn góc */
+    border: 1px solid #ccc; /* Viền xám nhạt */
+    width: 200px; /* Chiều rộng của thanh tìm kiếm */
+    padding-left: 30px; /* Padding bên trái để tạo khoảng cách cho biểu tượng tìm kiếm */
+}
+
+/* Biểu tượng tìm kiếm */
+.search-icon {
+    position: absolute; /* Vị trí tuyệt đối trong container */
+    left: 10px; /* Khoảng cách từ bên trái */
+    font-size: 16px; /* Kích thước chữ */
+    color: #888; /* Màu xám cho biểu tượng */
+}
+
+/* Nút đăng nhập */
+.btn-login {
+    background: none; /* Không nền */
+    color: white; /* Màu chữ trắng */
+    padding: 10px 20px; /* Padding cho nút */
+    border: none; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    font-size: 16px; /* Kích thước chữ */
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 5px; /* Khoảng cách giữa các phần tử bên trong */
+}
+.btn-login a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-login a:hover {
+    color: #ff0;
+}
+
+
+/* Hiệu ứng hover cho nút đăng nhập */
+.btn-login:hover {
+    color: #ff0; /* Thay đổi màu chữ khi hover */
+}
+
+/* Nút đăng ký */
+.btn-register {
+    background: none; /* Không nền */
+    color: white; /* Màu chữ trắng */
+    padding: 10px 20px; /* Padding cho nút */
+    border: none; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    font-size: 16px; /* Kích thước chữ */
+}
+
+.btn-register a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-register a:hover {
+    color: #ff0;
+}
+
+/* Hiệu ứng hover cho nút đăng ký */
+.btn-register:hover {
+    color: #ff0; /* Thay đổi màu chữ khi hover */
+}
+
+/* Dấu phân cách giữa các phần tử */
+.separator {
+    color: white; /* Màu chữ trắng */
+    padding: 0 10px; /* Padding bên trái và bên phải */
+    font-size: 16px; /* Kích thước chữ */
+}
+
+/* Thiết lập cho thanh điều hướng */
+nav {
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.9); /* Nền bán trong suốt */
+    padding: 10px 0; /* Padding cho nav */
+    position: relative; /* Vị trí tương đối */
+    z-index: 999; /* Đảm bảo nằm dưới header */
+}
+
+/* Danh sách điều hướng */
+.main-nav {
+    list-style: none; /* Không có dấu chấm đầu dòng */
+    display: flex; /* Sử dụng Flexbox */
+    justify-content: center; /* Căn giữa */
+    gap: 20px; /* Khoảng cách giữa các mục */
+    margin: 0; /* Xóa margin mặc định */
+    padding: 0; /* Xóa padding mặc định */
+}
+
+/* Liên kết trong điều hướng */
+.main-nav li a {
+    color: #fff; /* Màu chữ trắng */
+    text-decoration: none; /* Không gạch chân */
+    padding: 10px; /* Padding cho liên kết */
+    border-radius: 5px; /* Bo tròn góc */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi cho nền */
+}
+
+/* Hiệu ứng hover cho liên kết trong điều hướng */
+.main-nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Thay đổi màu nền khi hover */
+}
+.banner {
+    height: 70vh; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img {
+    width: 100%; 
+    height: auto;
+}
+
+/* Cập nhật .container để chiếm hết chiều dài màn hình */
+.container {
+    background-color: #f0f0f0; /* Đặt màu nền cho container */
+    padding: 15px; /* Khoảng cách bên trong container */
+    border-radius: 10px; /* Bo tròn góc của container */
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử bên trong */
+    align-items: center; /* Căn các phần tử theo chiều dọc (giữa container) */
+    width: 100%; /* Chiều rộng 100% */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng của container */
+}
+
+/* Tạo kiểu cho tiêu đề (title) */
+.title {
+    font-size: 25px; /* Kích thước chữ của tiêu đề */
+    font-weight: bold; /* Đặt độ đậm của chữ thành in đậm */
+    margin-right: 20px; /* Khoảng cách bên phải của tiêu đề */
+}
+
+/* Tạo kiểu cho menu thả xuống (dropdown) */
+.dropdown {
+    color: #4e1b81;
+    margin-right: 10px; /* Khoảng cách bên phải của menu thả xuống */
+    flex: 1; /* Chiếm đều không gian cho các dropdown */
+}
+
+/* Tạo kiểu cho phần tử chọn trong menu thả xuống */
+.dropdown select {
+    padding: 15px; /* Khoảng cách bên trong của phần tử chọn */
+    font-size: 16px; /* Kích thước chữ của phần tử chọn */
+    color: #4e1b81; /* Màu chữ */
+    width: 100%;
+}
+
+/* Tạo kiểu cho nút bấm */
+.button {
+    background-color: #4e1b81; /* Đặt màu nền cho nút bấm */
+    color: white; /* Màu chữ của nút bấm */
+    padding: 15px 20px; /* Khoảng cách bên trong của nút (trên, dưới: 15px; trái, phải: 20px) */
+    font-size: 16px; /* Kích thước chữ của nút bấm */
+    border: none; /* Loại bỏ viền của nút */
+    border-radius: 5px; /* Bo tròn góc của nút */
+    cursor: pointer; /* Thay đổi con trỏ thành hình bàn tay khi di chuột qua nút */
+}
+.movie-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.movie {
+    text-align: center;
+    width: 20%;
+    cursor: pointer;
+}
+
+.movie img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4e1b81;
+}
+
+/* Đổi màu chữ khi hover qua ảnh hoặc chữ */
+.movie:hover p {
+    color: yellow;
+}
+
+
+.book-button {
+    background-color: yellow;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Khi nút được nhấn, đổi màu thành tím */
+.book-button:hover {
+    background-color: purple;
+    color: white;
+}
+.movie-container1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.movie1 {
+    text-align: center;
+    width: 20%;
+    cursor: pointer;
+}
+
+.movie1 img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie1 p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4e1b81;
+}
+
+/* Đổi màu chữ khi hover qua ảnh hoặc chữ */
+.movie1:hover p {
+    color: yellow;
+}
+
+
+.book-button1 {
+    background-color: yellow;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Khi nút được nhấn, đổi màu thành tím */
+.book-button1:hover {
+    background-color: purple;
+    color: white;
+}
+.contact-section {
+    /* Thiết lập flex để các phần tử trong phần liên hệ xếp theo hàng ngang */
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+    color: white; /* Màu chữ là màu trắng */
+    padding: 20px; /* Khoảng cách bên trong của toàn bộ phần liên hệ */
+    justify-content: center;
+}
+
+ .contact-info {
+    /* Màu nền xanh đậm cho các khối liên hệ và thông tin */
+    background-color: #1e3a8a;
+    padding: 20px; /* Khoảng cách bên trong của từng khối */
+    border-radius: 8px; /* Bo góc cho các khối */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tạo hiệu ứng bóng cho các khối */
+}
+
+.social-links h2, .contact-info h3 {
+    /* Thiết lập khoảng cách và căn giữa tiêu đề của các khối */
+    margin: 60px ; /* Cách tiêu đề ra khỏi phần trên và dưới */
+    text-align: center; /* Căn giữa tiêu đề */
+
+}
+
+.social-links a {
+    /* Thiết lập kiểu hiển thị cho các liên kết */
+    display: block; /* Hiển thị theo khối */
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    margin: 10px 0; /* Khoảng cách giữa các liên kết */
+}
+
+.facebook-button, .zalo-button {
+    /* Cài đặt kiểu dáng chung cho các nút Facebook và Zalo */
+    display: flex; /* Thiết lập flex để căn giữa các phần tử bên trong */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+    background-color: #004dff; /* Màu nền của nút */
+    padding: 10px; /* Khoảng cách bên trong của nút */
+    border-radius: 8px; /* Bo góc nút */
+    color: white; /* Màu chữ trắng */
+    font-weight: bold; /* In đậm chữ */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi khi hover */
+}
+
+
+.facebook-button:hover, .zalo-button:hover {
+    /* Giảm độ mờ khi hover vào nút để tạo hiệu ứng */
+    opacity: 0.8;
+}
+
+.button-content img {
+    /* Kích thước và khoảng cách cho các icon bên trong nút */
+    width: 80px; /* Chiều rộng của icon */
+    height: 80px; /* Chiều cao của icon */
+    margin-right: 8px; /* Khoảng cách giữa icon và text */
+}
+
+.contact-info p {
+    /* Thiết lập khoảng cách cho các đoạn văn trong phần thông tin liên hệ */
+    margin: 20px ;
+}
+
+form {
+    /* Thiết lập flex cho form để các phần tử xếp theo cột */
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form textarea {
+    /* Cài đặt kiểu cho các ô input và textarea */
+    margin-bottom: 10px; /* Khoảng cách giữa các ô */
+    padding: 10px; /* Khoảng cách bên trong của ô */
+    border: none; /* Loại bỏ viền mặc định */
+    border-radius: 4px; /* Bo góc cho ô */
+}
+
+form button {
+    /* Cài đặt kiểu cho nút submit */
+    padding: 10px; /* Khoảng cách bên trong của nút */
+    border: none; /* Loại bỏ viền của nút */
+    border-radius: 4px; /* Bo góc nút */
+    background-color: yellow; /* Màu nền ban đầu của nút */
+    font-weight: bold; /* In đậm chữ */
+    cursor: pointer; /* Đổi con trỏ khi hover vào nút */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+}
+
+form button:hover {
+    /* Đổi màu nền và chữ khi hover vào nút */
+    background-color: purple;
+    color: white;
+}
+* {
+    margin: 0; /* Xóa bỏ khoảng cách mặc định */
+    padding: 0; /* Xóa bỏ khoảng đệm mặc định */
+    box-sizing: border-box; /* Đảm bảo padding và border được tính trong tổng chiều rộng và chiều cao của phần tử */
+}
+

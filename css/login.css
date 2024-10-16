@@ -1,1 +1,15 @@
 
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url('../Image/movie.jpg'); /* Hình nền */
+    background-size: cover; /* Chiếm toàn bộ không gian */
+    background-position: center; /* Căn giữa hình nền */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+    background-attachment: fixed; /* Hình nền cố định khi cuộn */
+}
+
+#alertError {
+    position:relative;
+    top:5px;
+}

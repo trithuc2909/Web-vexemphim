@@ -15,7 +15,7 @@ const addressError = document.getElementById("addressError");
 
 // lấy dữ liệu từ localStorage
      // Phải ép kiểu vì dạng JSON không thao tác được với JS 
-const userLocal = JSON.parse(localStorage.getItem("users")) || [];  //getItem là một mảng lưu trữ các users trên local nếu như chưa có user nào thì mặc định cho là mảng rỗng
+// const userLocal = JSON.parse(localStorage.getItem("users")) || [];  //getItem là một mảng lưu trữ các users trên local nếu như chưa có user nào thì mặc định cho là mảng rỗng
                                         
 /**
  * Validate địa chỉ email
@@ -34,7 +34,7 @@ function validateEmail (email) {
 
 
 // lắng nghe sự kiện submit form đăng ký tài khoản
-formRegister.addEventListener("submit",function(e){
+formRegister.addEventListener("submit", async function(e){
     // ngăn chặn sự kiện load lại trang
     e.preventDefault();
 
@@ -103,25 +103,53 @@ formRegister.addEventListener("submit",function(e){
     validateEmail(emailElement.value)    
     ) {
     //Lấy dữ liệu từ form và gộp thành đối tượng user
-    const user = {
-        userId: Math.ceil(Math.random() * 100000000000),    // Hàm có sẵn trong JS để làm tròn số  để tạo ra một id ngẫu nhiên
-        userName: userNameElement.value,
-        email: emailElement.value,
-        password: passwordElement.value, 
-        // address: addressElement.value,
-    };
+    // const user = {
+    //     userId: Math.ceil(Math.random() * 100000000000),    // Hàm có sẵn trong JS để làm tròn số  để tạo ra một id ngẫu nhiên
+    //     userName: userNameElement.value,
+    //     email: emailElement.value,
+    //     password: passwordElement.value, 
+    //     // address: addressElement.value,
+    // };
+
       //Push user vào trong mảng userLocal vì mảng đang rỗng
-      userLocal.push(user);
+    //   userLocal.push(user);
 
-    //Lưu trữ dữ liệu lên local
-    localStorage.setItem("users", JSON.stringify(userLocal));
     
+    //Lưu trữ dữ liệu lên local
+    // localStorage.setItem("users", JSON.stringify(userLocal));
+    const user = {
+        username: userNameElement.value,
+        email: emailElement.value,
+        password: passwordElement.value,
+    };
+// Gửi yêu cầu POST tới API đăng ký
+    try {
+        const response = await fetch("http://localhost:8080/rg/users/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        });
 
-    // setTimeout: Giúp chúng ta làm một hành động gì đó sau thời gian mà chúng ta cài đặt
-    setTimeout(function () {
-    // Chuyẻn hướng về trang đăng nhập sau 1s
-    window.location.href = "login.html";
-    }, 1000); // 1000 = 1000 m/s
+        if (!response.ok) {
+            throw new Error("Đăng ký không thành công");
+        }
+
+        const result = await response.json();
+        console.log("Người dùng đã đăng ký:", result);
+        // Chuyển hướng về trang đăng nhập sau khi đăng ký thành công
+        // setTimeout: Giúp chúng ta làm một hành động gì đó sau thời gian mà chúng ta cài đặt
+        setTimeout(function () {
+                // Chuyẻn hướng về trang đăng nhập sau 1s
+                window.location.href = "login.html";
+                }, 1000); // 1000 = 1000 m/s
+    } 
+    catch (err) {
+        console.log("Lỗi trong quá trình đăng ký:", err);
+    // Hiển thị thông báo lỗi
+}
+
 
 } 
 
