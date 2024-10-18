@@ -1,0 +1,238 @@
+body{
+    background-image: url(../Image/movie.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white ;
+   font-family: 'Times New Roman', Times, serif;
+}
+/*(1) div header */
+.header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: fixed;
+    top:10px ;
+ }
+ .logo img{
+   height: 130px;
+   margin: 10px;
+ }
+ .hainut button{
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    margin-top: 10px
+    
+ }
+ .ve{
+    vertical-align: middle;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: orange;
+    border-radius: 5px;
+    margin-left: 200px;
+    border: none;
+ }
+ .ve:hover{
+    background-color: pink;
+    transform: scale(1.2,1.2);
+    cursor: pointer;
+ }
+ .ve img{
+    height: 20px;
+ }
+ .food{
+    vertical-align: middle;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: rgb(248, 42, 42);
+    border-radius: 5px;
+    border: none;
+ }
+ .food:hover{
+    background-color: yellowgreen;
+    transform: scale(1.2,1.2);
+    cursor: pointer;
+ }
+ .find form{
+    margin-top: 15px;
+    margin-left: 50px;
+ }
+ .find input{
+    border: black;
+    border-radius: 5px;
+    height: 30px;
+    width: 300px;
+ }
+ .find i:hover{
+   cursor: pointer;
+   color: yellow;
+ }
+ .others i{
+   color: yellow;
+ }
+ .ngongu{
+    margin-left: 50px;
+ }
+ .ngongu img{
+    /* căn chỉnh chữ và hình bằng nhau */
+    vertical-align: middle;
+    width: 30px;
+    border: none;
+    border-radius: 50px;
+ }
+ .login button{
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 70px;
+    background:none;
+    border: none;
+    color: white;
+    text-decoration: none;
+ }
+ .login button a:hover{
+    color: yellow;
+    cursor: pointer;
+    text-decoration: underline;
+ }
+ .login button a{
+   color: #fff;
+ }
+
+ /* (2)div phim */
+.phim{
+  margin-top: 160px;
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   margin-bottom: 100px;
+}
+.poster img{
+    height: 500px;
+    padding: 20px;
+}
+.info{
+    max-width: 600px;
+    margin-left: 10px;
+}
+.trailer button{
+    background: none;
+    border: none;
+    text-decoration: underline;
+    color:white;
+}
+.trailer button:hover{
+    color: yellow;
+    cursor: pointer;
+}
+
+/* (3) div part */
+/* div recycle */
+.part3{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 100px;
+}
+.logo2 img{
+    height: 130px;
+    margin-left: 20px;
+  }
+  .hainut2 button{
+     width: 130px;
+     height: 40px;
+     text-align: center;
+     margin-top: 10px
+     
+  }
+  .ve2{
+     vertical-align: middle;
+     justify-content: flex-start;
+     align-items: flex-start;
+     background-color: orange;
+     border-radius: 5px;
+     margin-left: 20px;
+     border: none;
+  }
+  .ve2:hover{
+     cursor: pointer;
+     background-color: pink;
+     transform: scale(1.2,1.2);
+  }
+  .ve2 img{
+     height: 20px;
+  }
+  .food2{
+     vertical-align: middle;
+     justify-content: flex-start;
+     align-items: flex-start;
+     background-color: rgb(248, 42, 42);
+     border-radius: 5px;
+     border: none;
+     margin-left: 20px;
+  }
+  .food2:hover{
+     cursor: pointer;
+     background-color: yellowgreen;
+     transform: scale(1.2,1.2);
+  }
+  .find2 form{
+     margin-top: 15px;
+     margin-left: 20px;
+  }
+  .find2 input{
+     border: black;
+     border-radius: 5px;
+     height: 30px;
+     width: 300px;
+  }
+  .ngongu2{
+     margin-left: 20px;
+  }
+  .ngongu2 img{
+     /* căn chỉnh chữ và hình bằng nhau */
+     vertical-align: middle;
+     width: 30px;
+     border: none;
+     border-radius: 50px;
+  }
+  /* chỉnh các cột */
+  .cot1{
+    margin-left: 50px;
+    max-width: 300px;
+  }
+  .xp{
+    margin-top: 40px;
+  }
+  .cot2{
+    margin-left: 80px;
+    max-width: 300px;
+  }
+  .rcp{
+    margin-top: 40px;
+  }
+  .cot3{
+    margin-left: 80px;
+    max-width: 300px;
+  }
+  .cot4{
+    margin-left: 80px;
+    max-width: 300px;
+  }
+  .cot1 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }
+  .cot2 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }
+  .cot3 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }
+  .cot4 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }

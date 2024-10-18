@@ -17,6 +17,7 @@ body {
 
 /* Thiết lập cho thanh đầu trang (header) */
 header {
+
     display: flex; /* Sử dụng Flexbox để bố trí */
     justify-content: space-between; /* Khoảng cách đều giữa các phần tử */
     align-items: center; /* Căn giữa theo chiều dọc */
@@ -40,6 +41,7 @@ header {
 
 /* Thiết lập cho vùng chứa các nút hành động */
 .actions {
+    
     display: flex; /* Sử dụng Flexbox */
     align-items: center; /* Căn giữa theo chiều dọc */
     gap: 20px; /* Khoảng cách giữa các nút */
@@ -172,6 +174,7 @@ nav {
 
 /* Danh sách điều hướng */
 .main-nav {
+    
     list-style: none; /* Không có dấu chấm đầu dòng */
     display: flex; /* Sử dụng Flexbox */
     justify-content: center; /* Căn giữa */
@@ -191,6 +194,7 @@ nav {
 
 /* Hiệu ứng hover cho liên kết trong điều hướng */
 .main-nav li a:hover {
+    color: yellow;
     background-color: rgba(255, 255, 255, 0.2); /* Thay đổi màu nền khi hover */
 }
 .banner {
@@ -219,6 +223,7 @@ nav {
 
 /* Tạo kiểu cho tiêu đề (title) */
 .title {
+    
     font-size: 25px; /* Kích thước chữ của tiêu đề */
     font-weight: bold; /* Đặt độ đậm của chữ thành in đậm */
     margin-right: 20px; /* Khoảng cách bên phải của tiêu đề */
@@ -237,6 +242,7 @@ nav {
     font-size: 16px; /* Kích thước chữ của phần tử chọn */
     color: #4e1b81; /* Màu chữ */
     width: 100%;
+    cursor: pointer;
 }
 
 /* Tạo kiểu cho nút bấm */
@@ -248,6 +254,16 @@ nav {
     border: none; /* Loại bỏ viền của nút */
     border-radius: 5px; /* Bo tròn góc của nút */
     cursor: pointer; /* Thay đổi con trỏ thành hình bàn tay khi di chuột qua nút */
+}
+.button:hover{
+    background-color: orange; /* Đặt màu nền cho nút bấm */
+    color: white; /* Màu chữ của nút bấm */
+    padding: 15px 20px; /* Khoảng cách bên trong của nút (trên, dưới: 15px; trái, phải: 20px) */
+    font-size: 16px; /* Kích thước chữ của nút bấm */
+    border: none; /* Loại bỏ viền của nút */
+    border-radius: 5px; /* Bo tròn góc của nút */
+    cursor: pointer; 
+
 }
 .movie-container {
     display: flex;
@@ -443,3 +459,114 @@ form button:hover {
     box-sizing: border-box; /* Đảm bảo padding và border được tính trong tổng chiều rộng và chiều cao của phần tử */
 }
 
+
+.part3{
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 100px;
+    
+}
+.logo2 img{
+    height: 130px;
+    margin-left: 20px;
+  }
+  .hainut2 button{
+     width: 130px;
+     height: 40px;
+     text-align: center;
+     margin-top: 10px
+     
+  }
+  .ve2{
+     vertical-align: middle;
+     justify-content: flex-start;
+     align-items: flex-start;
+     background-color: orange;
+     border-radius: 5px;
+     margin-left: 20px;
+     border: none;
+  }
+  .ve2:hover{
+     cursor: pointer;
+     background-color: pink;
+     transform: scale(1.2,1.2);
+  }
+  .ve2 img{
+     height: 20px;
+  }
+  .food2{
+     vertical-align: middle;
+     justify-content: flex-start;
+     align-items: flex-start;
+     background-color: rgb(248, 42, 42);
+     border-radius: 5px;
+     border: none;
+     margin-left: 20px;
+  }
+  .food2:hover{
+     cursor: pointer;
+     background-color: yellowgreen;
+     transform: scale(1.2,1.2);
+  }
+  .find2 form{
+     margin-top: 15px;
+     margin-left: 20px;
+  }
+  .find2 input{
+     border: black;
+     border-radius: 5px;
+     height: 30px;
+     width: 300px;
+  }
+  .ngongu2{
+     margin-left: 20px;
+  }
+  .ngongu2 img{
+     /* căn chỉnh chữ và hình bằng nhau */
+     vertical-align: middle;
+     width: 30px;
+     border: none;
+     border-radius: 50px;
+  }
+  /* chỉnh các cột */
+  .cot1{
+    margin-left: 50px;
+    max-width: 300px;
+    /* height: 500px; */
+  }
+  .xp{
+    margin-top: 40px;
+  }
+  .cot2{
+    margin-left: 80px;
+    max-width: 300px;
+  }
+  .rcp{
+    margin-top: 40px;
+  }
+  .cot3{
+    margin-left: 80px;
+    max-width: 300px;
+  }
+  .cot4{
+    margin-left: 80px;
+    max-width: 300px;
+  }
+  .cot1 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }
+  .cot2 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }
+  .cot3 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }
+  .cot4 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }
