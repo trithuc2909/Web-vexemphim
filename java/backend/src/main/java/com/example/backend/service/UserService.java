@@ -19,7 +19,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public User createUser(User user) {
+    public User createUser(User user) {  // tạo ra 1 User và trả về đối tượng user
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
@@ -28,15 +28,15 @@ public class UserService {
         Optional<User> userOptional = userRepository.findByEmail(loginInput);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            if (passwordEncoder.matches(password, user.getPassword())) {
+            if (passwordEncoder.matches(password, user.getPassword())) {    // so sánh password user nhập vs passwordEncoder
                 return Optional.of(user);
             }
             else {
-                throw new Exception("Incorrect login information!");
+                throw new Exception("Thông tin đăng nhập sai!");
             }
         }
         else {
-            throw new Exception("User not found!");
+            throw new Exception("Không tìm thấy người dùng! ");
         }
     }
 
@@ -47,7 +47,7 @@ public class UserService {
     public void validateUser(User user) throws Exception {
         Optional<User> existingUserByEmail = userRepository.findByEmail(user.getEmail());
         if (existingUserByEmail.isPresent()){
-            throw new Exception("Email already exists!");
+            throw new Exception("Email này đã tồn tại! ");
         }
     }
 }

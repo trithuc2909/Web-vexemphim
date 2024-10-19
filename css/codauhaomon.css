@@ -1,5 +1,5 @@
 body{
-    background: url(../Image/movie.jpg);
+    background-color: blueviolet;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,7 +9,7 @@ body{
 /*(1) div header */
 .header{
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start;    
     align-items: flex-start;
     position: fixed;
     top:10px ;
@@ -119,6 +119,7 @@ body{
     margin-left: 10px;
 }
 .trailer button{
+    margin-bottom: -200px;
     background: none;
     border: none;
     text-decoration: underline;
@@ -242,3 +243,7 @@ body{
     color: yellow;
     cursor: pointer;
   }
+.lichchieu{
+    color: yellow;
+    text-align: center;
+}

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/rg/users")
+@RestController // xác định đây là 1 controller để xử lý yêu cầu HTTP
+@RequestMapping("/rg/users") //định dạng đường dẫn API
 public class UserController {
     private final UserService userService;
 
@@ -20,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/register") // định nghĩa 1 API POST taị đường dẫn /register. Để gửi yêu cầu đăng ký
     public ResponseEntity<?>createUser(@RequestBody User user) {
         try {
             userService.validateUser(user);
@@ -32,7 +32,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/login")
+    @PostMapping("/login") // định nghĩa 1 API POST taị đường dẫn /login. Để gửi yêu cầu đăng nhập
     public ResponseEntity<?> loginUser(@RequestBody UserDTO.LoginRequest loginRequest) {
         try {
             Optional<User> user = userService.loginUser(loginRequest.getEmailInput(), loginRequest.getPassword());
@@ -48,7 +48,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") //định nghĩa 1 API GET tại đường dẫn /users/{id}. Để lấy TT user thông qua ID
     public ResponseEntity<?> getUser(@PathVariable long id) {
         Optional<User> user = userService.getUserById(id);
         if (user.isPresent()) {
