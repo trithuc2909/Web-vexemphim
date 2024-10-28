@@ -1,5 +1,5 @@
 body{
-    background: url(../Image/movie.jpg);
+    background-color: blueviolet;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -126,6 +126,11 @@ body{
     color: yellow;
     cursor: pointer;
     text-decoration: underline;
+}
+.lichchieu{
+   text-align: center;   
+   color: yellow;
+   margin-top: 100px;
 }
 
 /* (3) div part */

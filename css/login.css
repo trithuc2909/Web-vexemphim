@@ -2,7 +2,7 @@
 body {
     margin: 0;
     height: 100vh;
-    background-image: url('../Image/movie.jpg'); /* Hình nền */
+    background-image: url('../Image/movie.jpg');
     background-size: cover; /* Chiếm toàn bộ không gian */
     background-position: center; /* Căn giữa hình nền */
     background-repeat: no-repeat; /* Không lặp lại hình nền */
@@ -20,3 +20,4 @@ body {
     position:relative;
     top:5px;
 }
+

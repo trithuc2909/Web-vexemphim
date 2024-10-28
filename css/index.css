@@ -52,34 +52,55 @@ header {
 
 /* Nút màu vàng */
 .btn-yellow {
-    background-color: #ff0; /* Màu nền vàng */
-    color: #000; /* Màu chữ đen */
-    padding: 10px 20px; /* Padding cho nút */
-    border:none ; /* Không viền */
-    cursor: pointer; /* Con trỏ thành hình tay khi hover */
-    border-radius: 100px; 
-    overflow: hidden;
-   
-
-    
+    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;   
 }
 .btn-yellow:hover{
-    background-color: #54a2f0 ; /*Đổi màu khi hover*/
+    color: #fff;
+    background-position: 100%;
+}
+.btn-yellow:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 
 /* Nút màu tím */
 .btn-purple {
-    background-color: #800080; /* Màu nền tím */
-    color: #fff; /* Màu chữ trắng */
-    padding: 10px 20px; /* Padding cho nút */
-    border: none; /* Không viền */
-    cursor: pointer; /* Con trỏ thành hình tay khi hover */
-    border-radius: 100px;
-    overflow: hidden;
+    background: linear-gradient(90deg, rgb(76, 171, 209) 50%, orange 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
 }
 .btn-purple:hover{
-    background-color:rgb(239, 135, 31);
+    color: #fff;
+    background-position: 100%;
+}
+.btn-purple:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Thiết lập cho vùng tìm kiếm */
@@ -215,7 +236,7 @@ nav {
 .container {
     background-color: #f0f0f0; /* Đặt màu nền cho container */
     padding: 15px; /* Khoảng cách bên trong container */
-    border-radius: 10px; /* Bo tròn góc của container */
+     /* Bo tròn góc của container */
     display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử bên trong */
     align-items: center; /* Căn các phần tử theo chiều dọc (giữa container) */
     width: 100%; /* Chiều rộng 100% */
@@ -246,25 +267,33 @@ nav {
     cursor: pointer;
 }
 
-/* Tạo kiểu cho nút bấm */
-.button {
-    background-color: #4e1b81; /* Đặt màu nền cho nút bấm */
-    color: white; /* Màu chữ của nút bấm */
-    padding: 15px 20px; /* Khoảng cách bên trong của nút (trên, dưới: 15px; trái, phải: 20px) */
-    font-size: 16px; /* Kích thước chữ của nút bấm */
-    border: none; /* Loại bỏ viền của nút */
-    border-radius: 5px; /* Bo tròn góc của nút */
-    cursor: pointer; /* Thay đổi con trỏ thành hình bàn tay khi di chuột qua nút */
-}
-.button:hover{
-    background-color: orange; /* Đặt màu nền cho nút bấm */
-    color: white; /* Màu chữ của nút bấm */
-    padding: 15px 20px; /* Khoảng cách bên trong của nút (trên, dưới: 15px; trái, phải: 20px) */
-    font-size: 16px; /* Kích thước chữ của nút bấm */
-    border: none; /* Loại bỏ viền của nút */
-    border-radius: 5px; /* Bo tròn góc của nút */
-    cursor: pointer; 
 
+
+/* button đặt vé */
+.button {
+    background: linear-gradient(90deg, rgb(76, 171, 209) 50%, orange 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+  
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 150px;
+    height: 50px;
+}
+
+.button:hover {
+    color: #fff;
+    background-position: 100%;
+}
+.button:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 .movie-container {
     display: flex;
@@ -283,6 +312,8 @@ nav {
 }
 
 .movie img {
+    transition: transform 0.3s ease-in-out;
+    border: 2px solid #000; 
     width: 100%;
     border-radius: 10px;
 }
@@ -291,29 +322,43 @@ nav {
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
-    color: #4e1b81;
+    color: #fff;
 }
 
 /* Đổi màu chữ khi hover qua ảnh hoặc chữ */
 .movie:hover p {
     color: yellow;
 }
+.movie:hover img{
+    transform: scale(1.05);
+}
 
 
 .book-button {
-    background-color: yellow;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
     margin-top: 10px;
+    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 5px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
 }
 
 /* Khi nút được nhấn, đổi màu thành tím */
 .book-button:hover {
-    background-color: purple;
-    color: white;
+    color: #fff;
+    background-position: 100%;
+}
+.book-button:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 .movie-container1 {
     display: flex;
@@ -325,21 +370,27 @@ nav {
 }
 
 .movie1 {
+
     text-align: center;
     width: 20%;
     cursor: pointer;
 }
 
 .movie1 img {
+    transition: transform 0.3s ease-in-out;
+    border: 2px solid #000; 
     width: 100%;
     border-radius: 10px;
+}
+.movie1:hover img{
+    transform: scale(1.05);
 }
 
 .movie1 p {
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
-    color: #4e1b81;
+    color: #fff;
 }
 
 /* Đổi màu chữ khi hover qua ảnh hoặc chữ */
@@ -349,19 +400,30 @@ nav {
 
 
 .book-button1 {
-    background-color: yellow;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
     margin-top: 10px;
+    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 5px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
 }
 
 /* Khi nút được nhấn, đổi màu thành tím */
 .book-button1:hover {
-    background-color: purple;
-    color: white;
+    color: #fff;
+    background-position: 100%;
+}
+.book-button1:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 .contact-section {
     /* Thiết lập flex để các phần tử trong phần liên hệ xếp theo hàng ngang */
@@ -440,20 +502,28 @@ form input, form textarea {
 }
 
 form button {
-    /* Cài đặt kiểu cho nút submit */
-    padding: 10px; /* Khoảng cách bên trong của nút */
-    border: none; /* Loại bỏ viền của nút */
-    border-radius: 4px; /* Bo góc nút */
-    background-color: yellow; /* Màu nền ban đầu của nút */
-    font-weight: bold; /* In đậm chữ */
-    cursor: pointer; /* Đổi con trỏ khi hover vào nút */
-    transition: background-color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+    background: linear-gradient(90deg, yellow 50%, rgb(230, 111, 204) 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 5px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+
 }
 
 form button:hover {
-    /* Đổi màu nền và chữ khi hover vào nút */
-    background-color: purple;
-    color: white;
+    color: #fff;
+    background-position: 100%;
+}
+form button:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 * {
     margin: 0; /* Xóa bỏ khoảng cách mặc định */
@@ -462,71 +532,110 @@ form button:hover {
 }
 
 
+/* (3) div part */
+/* div recycle */
 .part3{
     color: #fff;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     margin-top: 100px;
-    
 }
+.tk p{
+        margin-bottom: 10px; 
+}
+.cot1 a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.xp p{
+        margin-bottom: 10px; 
+}
+.tsk p{
+        margin-bottom: 10px; 
+}
+.rcp p{
+        margin-bottom: 10px; 
+}
+.cot3 p{
+        margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi thẻ p */
+}
+.cot4 p{
+        margin-bottom: 10px; 
+}
+
 .logo2 img{
     height: 130px;
     margin-left: 20px;
-  }
-  .hainut2 button{
-     width: 130px;
-     height: 40px;
-     text-align: center;
-     margin-top: 10px
-     
-  }
-  .ve2{
-     vertical-align: middle;
-     justify-content: flex-start;
-     align-items: flex-start;
-     background-color: orange;
-     border-radius: 5px;
-     margin-left: 20px;
-     border: none;
+}
+
+.ve2{
+    margin-left: 20px;
+    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
   }
   .ve2:hover{
-     cursor: pointer;
-     background-color: pink;
-     transform: scale(1.2,1.2);
+    color: #fff;
+    background-position: 100%;
   }
-  .ve2 img{
-     height: 20px;
-  }
+  .ve2:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
   .food2{
-     vertical-align: middle;
-     justify-content: flex-start;
-     align-items: flex-start;
-     background-color: rgb(248, 42, 42);
-     border-radius: 5px;
-     border: none;
-     margin-left: 20px;
+    background: linear-gradient(90deg, rgb(82, 145, 246) 50%, orange 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
   }
   .food2:hover{
-     cursor: pointer;
-     background-color: yellowgreen;
-     transform: scale(1.2,1.2);
+    color: #fff;
+    background-position: 100%;
   }
+  .food2:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
   .find2 form{
      margin-top: 15px;
      margin-left: 20px;
   }
   .find2 input{
-     border: black;
-     border-radius: 5px;
+    border: 2px solid #000; 
+     border-radius: 12px;
      height: 30px;
-     width: 300px;
+     width: 365px;
   }
   .ngongu2{
      margin-left: 20px;
   }
   .ngongu2 img{
      /* căn chỉnh chữ và hình bằng nhau */
+     margin-left: 5px;
      vertical-align: middle;
      width: 30px;
      border: none;
