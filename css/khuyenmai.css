@@ -21,7 +21,7 @@ header {
     justify-content: space-between; /* Khoảng cách đều giữa các phần tử */
     align-items: center; /* Căn giữa theo chiều dọc */
     padding: 10px 20px; /* Padding cho header */
-    background-color: blueviolet;/* Nền bán trong suốt */
+        /* Nền bán trong suốt */
     width: 100%; /* Chiều rộng 100% */
     top: 0; /* Đặt ở trên cùng */
     z-index: 1000; /* Đảm bảo ở trên cùng so với các phần tử khác */
@@ -400,7 +400,7 @@ hr {
 
 
 
-/* phần 4 */
+/* part4 */
 .part4{
     margin-top: 100px;
     background-color: blueviolet;
@@ -413,59 +413,83 @@ hr {
     height: 130px;
     margin-left: 20px;
   }
-  .hainut2 button{
-     width: 130px;
-     height: 40px;
-     text-align: center;
-     margin-top: 10px
-     
-  }
+  .hainut2 {
+    display: flex; /* Giúp các button nằm ngang */
+    gap: 10px; /* Tạo khoảng cách giữa các button */
+}
+
+.hainut2 button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   .ve2{
-     vertical-align: middle;
-     justify-content: flex-start;
-     align-items: flex-start;
-     background-color: orange;
-     border-radius: 5px;
-     margin-left: 20px;
-     border: none;
+    margin-left: 20px;
+    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
   }
   .ve2:hover{
-     cursor: pointer;
-     background-color: pink;
-     transform: scale(1.2,1.2);
+    color: #fff;
+    background-position: 100%;
   }
-  .ve2 img{
-     height: 20px;
-  }
+
+.ve2:active {
+  transform: scale(0.98);      
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+} 
+
   .food2{
-     vertical-align: middle;
-     justify-content: flex-start;
-     align-items: flex-start;
-     background-color: rgb(248, 42, 42);
-     border-radius: 5px;
-     border: none;
-     margin-left: 20px;
+    background: linear-gradient(90deg, rgb(82, 145, 246) 50%, orange 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
   }
   .food2:hover{
-     cursor: pointer;
-     background-color: yellowgreen;
-     transform: scale(1.2,1.2);
+    color: #fff;
+    background-position: 100%;
   }
+  .food2:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
   .find2 form{
      margin-top: 15px;
      margin-left: 20px;
   }
   .find2 input{
-     border: black;
+    border: 2px solid #000; 
      border-radius: 5px;
      height: 30px;
-     width: 300px;
+     width: 365px;
   }
   .ngongu2{
      margin-left: 20px;
   }
   .ngongu2 img{
      /* căn chỉnh chữ và hình bằng nhau */
+     margin-left: 5px;
      vertical-align: middle;
      width: 30px;
      border: none;

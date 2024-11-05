@@ -28,39 +28,25 @@
 </head>
 <body>
     <!-- phần 1 -->
-    <div class="header">
-        <a class="logo" href="../pages/index.html" > 
-            <img src="../Image/logoweb.png" alt="">
+    <header>
+        <a class="logo" href="/pages/index.html">
+            <img src="../Image/logo.png" alt="LOGO">
         </a>
-        <div class="hainut">
-            <button class="ve">
-                <h4>
-                    <i class="fa-solid fa-ticket"></i>
-                    ĐẶT VÉ NGAY
-                </h4>
+        <div class="actions">
+            <button class="btn-yellow">ĐẶT VÉ NGAY</button>
+            <button class="btn-purple">ĐẶT BẮP NƯỚC</button>
+            <div class="search-container">
+                <input type="text" placeholder="Tìm phim ,rạp" class="search-bar">
+                <span class="search-icon">🔍</span>
+            </div>
+            <button class="btn-login">
+                <span class="user-icon"></span> <a aria-current="page" href="/pages/login.html"><i class="fa-regular fa-circle-user"></i> Đăng nhập</a>
             </button>
-            <button class="food">
-                <h4>ĐẶT BẮP NƯỚC</h4>
-            </button>
+            <span class="separator">|</span>
+            <button class="btn-register"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
         </div>
-        <div class="find">
-            <form >
-                <label for="email"></label>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Tên phim, rạp" required>
-            </form>
-        </div>
-        <div class="ngongu">
-            <p><img src="../Image/cờVN.jpg" > VIỆT NAM</p>
-        </div>
-        <div class="login">
-            <button>
-                <a aria-current="page" href="./register.html">
-                    Đăng Ký <i class="fa-regular fa-registered"></i>
-                </a>
-            </button>
-        </div>
-    </div>
+    </header>
+    <hr>
     
     <!-- phần 2 -->
     <div class="phim">

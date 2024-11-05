@@ -1,0 +1,177 @@
+/* Đảm bảo thẻ html và body chiếm toàn bộ chiều cao của khung nhìn */
+html, body {
+    height: 100%; /* Chiều cao 100% của khung nhìn */
+    margin: 0; /* Xóa khoảng cách mặc định của trình duyệt */
+    padding: 0; /* Xóa khoảng cách mặc định của trình duyệt */
+    font-family: Arial, sans-serif; /* Đặt phông chữ mặc định */
+}
+
+/* Thiết lập hình nền cho body */
+body {
+    background-color:blueviolet;   
+    background-size: cover; /* Chiếm toàn bộ không gian */
+    background-position: center; /* Căn giữa hình nền */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+    background-attachment: fixed; /* Hình nền cố định khi cuộn */
+}
+
+/* Thiết lập cho thanh đầu trang (header) */
+header {
+    display: flex; /* Sử dụng Flexbox để bố trí */
+    justify-content: space-between; /* Khoảng cách đều giữa các phần tử */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 20px; /* Padding cho header */
+    background-color: rgba(0, 0, 0, 0.7); /* Nền bán trong suốt */
+    width: 100%; /* Chiều rộng 100% */
+    top: 0; /* Đặt ở trên cùng */
+    z-index: 1000; /* Đảm bảo ở trên cùng so với các phần tử khác */
+    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng nếu không đủ không gian */
+}
+
+/* Thiết lập cho logo trong header */
+.logo {
+    flex: 1; /* Chiếm không gian còn lại */
+}
+
+/* Kích thước của hình ảnh logo */
+.logo img {
+    height: 100px; /* Chiều cao logo */
+}
+
+/* Thiết lập cho vùng chứa các nút hành động */
+.actions {
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các nút */
+    flex: 2; /* Chiếm không gian lớn hơn */
+    justify-content: center; /* Căn giữa */
+}
+
+/* Nút màu vàng */
+.btn-yellow {
+    background-color: #ff0; /* Màu nền vàng */
+    color: #000; /* Màu chữ đen */
+    padding: 10px 20px; /* Padding cho nút */
+    border:none ; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    border-radius: 100px; 
+    overflow: hidden;
+   
+
+    
+}
+.btn-yellow:hover{
+    background-color: #54a2f0 ; /*Đổi màu khi hover*/
+}
+
+
+/* Nút màu tím */
+.btn-purple {
+    background-color: #800080; /* Màu nền tím */
+    color: #fff; /* Màu chữ trắng */
+    padding: 10px 20px; /* Padding cho nút */
+    border: none; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    border-radius: 100px;
+    overflow: hidden;
+}
+.btn-purple:hover{
+    background-color:rgb(239, 135, 31);
+}
+
+/* Thiết lập cho vùng tìm kiếm */
+.search-container {
+    position: relative; /* Vị trí tương đối để chứa biểu tượng tìm kiếm */
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Thanh tìm kiếm */
+.search-bar {
+    padding: 8px; /* Padding cho thanh tìm kiếm */
+    border-radius: 5px; /* Bo tròn góc */
+    border: 1px solid #ccc; /* Viền xám nhạt */
+    width: 200px; /* Chiều rộng của thanh tìm kiếm */
+    padding-left: 30px; /* Padding bên trái để tạo khoảng cách cho biểu tượng tìm kiếm */
+}
+
+/* Biểu tượng tìm kiếm */
+.search-icon {
+    position: absolute; /* Vị trí tuyệt đối trong container */
+    left: 10px; /* Khoảng cách từ bên trái */
+    font-size: 16px; /* Kích thước chữ */
+    color: #888; /* Màu xám cho biểu tượng */
+}
+
+/* Nút đăng nhập */
+.btn-login {
+    background: none; /* Không nền */
+    color: white; /* Màu chữ trắng */
+    padding: 10px 20px; /* Padding cho nút */
+    border: none; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    font-size: 16px; /* Kích thước chữ */
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 5px; /* Khoảng cách giữa các phần tử bên trong */
+}
+
+/* Hiệu ứng hover cho nút đăng nhập */
+.btn-login:hover {
+    color: #ff0; /* Thay đổi màu chữ khi hover */
+}
+
+/* Nút đăng ký */
+.btn-register {
+    background: none; /* Không nền */
+    color: white; /* Màu chữ trắng */
+    padding: 10px 20px; /* Padding cho nút */
+    border: none; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    font-size: 16px; /* Kích thước chữ */
+}
+
+/* Hiệu ứng hover cho nút đăng ký */
+.btn-register:hover {
+    color: #ff0; /* Thay đổi màu chữ khi hover */
+}
+
+/* Dấu phân cách giữa các phần tử */
+.separator {
+    color: white; /* Màu chữ trắng */
+    padding: 0 10px; /* Padding bên trái và bên phải */
+    font-size: 16px; /* Kích thước chữ */
+}
+
+/* Thiết lập cho thanh điều hướng */
+nav {
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.9); /* Nền bán trong suốt */
+    padding: 10px 0; /* Padding cho nav */
+    position: relative; /* Vị trí tương đối */
+    z-index: 999; /* Đảm bảo nằm dưới header */
+}
+
+/* Danh sách điều hướng */
+.main-nav {
+    list-style: none; /* Không có dấu chấm đầu dòng */
+    display: flex; /* Sử dụng Flexbox */
+    justify-content: center; /* Căn giữa */
+    gap: 20px; /* Khoảng cách giữa các mục */
+    margin: 0; /* Xóa margin mặc định */
+    padding: 0; /* Xóa padding mặc định */
+}
+
+/* Liên kết trong điều hướng */
+.main-nav li a {
+    color: #fff; /* Màu chữ trắng */
+    text-decoration: none; /* Không gạch chân */
+    padding: 10px; /* Padding cho liên kết */
+    border-radius: 5px; /* Bo tròn góc */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi cho nền */
+}
+
+/* Hiệu ứng hover cho liên kết trong điều hướng */
+.main-nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Thay đổi màu nền khi hover */
+}
