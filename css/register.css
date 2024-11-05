@@ -1,7 +1,7 @@
 body {
     margin: 0;
     height: 100vh;
-    background-image: url('../Image/movie.jpg'); /* Hình nền */
+    background-image: url('https://img.powerpoint.com.vn/uploads/2019/06/09/hinh-nen-cho-powerpoint-bau-troi-va-khinh-khi-cau_092716851.jpg'); /* Hình nền */
     background-size: cover; /* Chiếm toàn bộ không gian */
     background-position: center; /* Căn giữa hình nền */
     background-repeat: no-repeat; /* Không lặp lại hình nền */
