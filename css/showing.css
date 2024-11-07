@@ -8,7 +8,8 @@ html, body {
 
 /* Thiết lập hình nền cho body */
 body {
-    background-color:blueviolet;   
+    /* background-image: url('../Image/movie.jpg'); */
+    background-color: blueviolet;
     background-size: cover; /* Chiếm toàn bộ không gian */
     background-position: center; /* Căn giữa hình nền */
     background-repeat: no-repeat; /* Không lặp lại hình nền */
@@ -40,6 +41,7 @@ header {
 
 /* Thiết lập cho vùng chứa các nút hành động */
 .actions {
+    
     display: flex; /* Sử dụng Flexbox */
     align-items: center; /* Căn giữa theo chiều dọc */
     gap: 20px; /* Khoảng cách giữa các nút */
@@ -63,9 +65,8 @@ header {
     font-size: 16px; 
     width: 180px;
     height: 40px;   
-
 }
-.btn-yellow:hover{
+.btn-yellow:hover{  
     color: #fff;
     background-position: 100%;
 }
@@ -73,6 +74,7 @@ header {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Nút màu tím */
 .btn-purple {
@@ -99,6 +101,7 @@ header {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
 /* Thiết lập cho vùng tìm kiếm */
 .search-container {
     position: relative; /* Vị trí tương đối để chứa biểu tượng tìm kiếm */
@@ -135,6 +138,15 @@ header {
     align-items: center; /* Căn giữa theo chiều dọc */
     gap: 5px; /* Khoảng cách giữa các phần tử bên trong */
 }
+.btn-login a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-login a:hover {
+    color: #ff0;
+}
+
 
 /* Hiệu ứng hover cho nút đăng nhập */
 .btn-login:hover {
@@ -149,6 +161,15 @@ header {
     border: none; /* Không viền */
     cursor: pointer; /* Con trỏ thành hình tay khi hover */
     font-size: 16px; /* Kích thước chữ */
+}
+
+.btn-register a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-register a:hover {
+    color: #ff0;
 }
 
 /* Hiệu ứng hover cho nút đăng ký */
@@ -189,6 +210,9 @@ nav {
     padding: 10px; /* Padding cho liên kết */
     border-radius: 5px; /* Bo tròn góc */
     transition: background-color 0.3s; /* Hiệu ứng chuyển đổi cho nền */
+}
+.main-nav li a:hover {
+    color: yellow;
 }
 
 /* button đặt vé */

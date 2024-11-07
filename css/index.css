@@ -18,7 +18,6 @@ body {
 
 /* Thiết lập cho thanh đầu trang (header) */
 header {
-
     display: flex; /* Sử dụng Flexbox để bố trí */
     justify-content: space-between; /* Khoảng cách đều giữa các phần tử */
     align-items: center; /* Căn giữa theo chiều dọc */
@@ -647,6 +646,9 @@ form button:active {
   }
   .xp{
     margin-top: 40px;
+  }
+  .xp p:hover{
+    color: yellow;
   }
   .cot2{
     margin-left: 80px;
