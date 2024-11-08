@@ -1,0 +1,482 @@
+
+html, body {
+    height: 100%; /* Chiều cao 100% của khung nhìn */
+    margin: 0; /* Xóa khoảng cách mặc định của trình duyệt */
+    padding: 0; /* Xóa khoảng cách mặc định của trình duyệt */
+    font-family: Arial, sans-serif; /* Đặt phông chữ mặc định */
+ }
+ 
+ /* Thiết lập hình nền cho body */
+ body {
+    color: #fff;
+    background-color: blueviolet;
+    background-size: cover; /* Chiếm toàn bộ không gian */
+    background-position: center; /* Căn giữa hình nền */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+    background-attachment: fixed; /* Hình nền cố định khi cuộn */
+ }
+ /* Thiết lập cho thanh đầu trang (header) */
+ header {
+    display: flex; /* Sử dụng Flexbox để bố trí */
+    justify-content: space-between; /* Khoảng cách đều giữa các phần tử */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 20px; /* Padding cho header */
+        /* Nền bán trong suốt */
+    width: 100%; /* Chiều rộng 100% */
+    top: 0; /* Đặt ở trên cùng */
+    z-index: 1000; /* Đảm bảo ở trên cùng so với các phần tử khác */
+    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng nếu không đủ không gian */
+ }
+ 
+ /* Thiết lập cho logo trong header */
+ .logo {
+    flex: 1; 
+    
+ }
+ 
+ /* Kích thước của hình ảnh logo */
+ .logo img {
+    margin-left: 60px;
+    height: 100px; /* Chiều cao logo */
+ }
+ .actions {
+    margin-left: -300px;
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các nút */
+    flex: 2; /* Chiếm không gian lớn hơn */
+    justify-content: center; /* Căn giữa */
+ }
+ 
+ /* Nút màu vàng */
+ .btn-yellow {
+    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
+ }
+ 
+ .btn-yellow:hover {
+    color: #fff;
+    background-position: 100%;
+ }
+ 
+ .btn-yellow:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+ }
+ 
+ 
+ /* Nút màu vàng */
+ .btn-purple {
+    background: linear-gradient(90deg, rgb(76, 171, 209) 50%, orange 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
+ }
+ 
+ .btn-purple:hover {
+    color: #fff;
+    background-position: 100%;
+ }
+ 
+ .btn-purple:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+ }
+ 
+ 
+ /* Thiết lập cho vùng tìm kiếm */
+ .search-container {
+    position: relative; /* Vị trí tương đối để chứa biểu tượng tìm kiếm */
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center;
+ }
+ .search-container input{
+    border-radius: 30px;
+    height: 20px;
+ }
+ 
+ /* Thanh tìm kiếm */
+ .search-bar {
+    padding: 8px; /* Padding cho thanh tìm kiếm */
+    border-radius: 5px; /* Bo tròn góc */
+    border: 1px solid #ccc; /* Viền xám nhạt */
+    width: 200px; /* Chiều rộng của thanh tìm kiếm */
+    padding-left: 30px; /* Padding bên trái để tạo khoảng cách cho biểu tượng tìm kiếm */
+ }
+ 
+ /* Biểu tượng tìm kiếm */
+ .search-icon {
+    position: absolute; 
+    left: 10px; 
+    font-size: 16px; 
+    color: #888; 
+ }
+ 
+ /* Nút đăng nhập */
+ .btn-login {
+    background: none; /* Không nền */
+    color: white; /* Màu chữ trắng */
+    padding: 10px 20px; /* Padding cho nút */
+    border: none; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    font-size: 16px; /* Kích thước chữ */
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 5px; /* Khoảng cách giữa các phần tử bên trong */
+ }
+ .btn-login a {
+    color: #fff;
+    text-decoration: none;
+ }
+ 
+ .btn-login a:hover {
+    color: #ff0;
+ }
+ 
+ 
+ /* Hiệu ứng hover cho nút đăng nhập */
+ .btn-login button:hover {
+    color: #ff0;
+ }
+ 
+ /* Nút đăng ký */
+ .btn-register {
+    background: none; /* Không nền */
+    color: white; /* Màu chữ trắng */
+    padding: 10px 20px; /* Padding cho nút */
+    border: none; /* Không viền */
+    cursor: pointer; /* Con trỏ thành hình tay khi hover */
+    font-size: 16px; /* Kích thước chữ */
+ }
+ 
+ .btn-register a {
+    color: #fff;
+    text-decoration: none;
+ }
+ 
+ .btn-register a:hover {
+    color: #ff0;
+ }
+ 
+ /* Hiệu ứng hover cho nút đăng ký */
+ .btn-register:hover {
+    color: #ff0; /* Thay đổi màu chữ khi hover */
+ }
+ 
+ /* Dấu phân cách giữa các phần tử */
+ .separator {
+    color: white; /* Màu chữ trắng */
+    padding: 0 10px; /* Padding bên trái và bên phải */
+    font-size: 16px; /* Kích thước chữ */
+ }
+  /* (2)div phim */
+ .phim{
+   margin-top: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 100px;
+ }
+ .poster img{
+     height: 500px;
+     padding: 20px;
+ }
+ .info{
+     max-width: 600px;
+     margin-left: 10px;
+ }
+ .trailer button{
+    
+    background: linear-gradient(to bottom right, #f9e135, #f7d90e);
+    border: 2px solid #000;
+    font-size: 18px;
+    color: black;
+    margin-top: 20px;
+    font-weight: bold;
+    background-color: yellow;
+    height: 40px;
+    width: 250px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+ }
+ .trailer button:hover {
+    background: linear-gradient(to bottom right, #f7d90e, #f2c30e); 
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4); 
+    transform: scale(1.05);      
+ }
+ .trailer button:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+ }
+ .trailer button a {
+    text-decoration: none;
+ }
+ .trailer button p {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .BOX{
+    display: flex; /* Để các box xếp hàng ngang */
+    justify-content: center; /* Căn giữa các box theo chiều ngang */  
+ }
+ .box {
+ display: flex;
+ width: 70px;
+ height: 30px;  
+ padding: 20px;               /* Khoảng cách bên trong cho các tag */
+ margin: 10px;                /* Khoảng cách giữa các tag */
+ border: 1px solid #baed67;      /* Đường viền */
+ cursor: pointer;             /* Thay đổi con trỏ khi hover */
+ font-size: 15px;             /* Kích thước chữ */
+ text-align: center;          /* Canh giữa chữ trong tag */
+ transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu mềm mại */
+ }
+ .box:hover {
+ background-color: yellow; /* Màu nền khi di chuột qua */
+ }
+ 
+ .danhsachrap {
+ color: white; /* Đặt màu chữ là trắng */
+ font-family: Arial, sans-serif;
+ margin-left: 300px;
+ margin-top: 25px;
+ }
+ 
+ .diachi {
+ color: white; /* Đặt màu chữ là trắng */
+ font-family: Arial, sans-serif; /* Phông chữ */
+ margin-left: 950px; 
+ margin-top: 80px;
+ color: yellow; /* Màu chữ */
+ }
+ 
+ .cinema-container {
+ padding-top: 250px; 
+ margin-left: 300px;
+ background-color: #7836b5;
+ padding: 30px;
+ border-radius: 20px;
+ width: 770px;
+ color: #ffef48;
+ box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .time-slots {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ }
+ .diachi  select{
+ width: 180px;
+ height: 30px;
+ border-radius: 5px;
+ border-color: black;
+ margin-left: -10px;
+ margin-bottom: 10px;
+ }
+ button {
+ background-color: transparent;
+ border: 5px solid white;
+ color: white;
+ height: 50px;
+ cursor: pointer;
+ }
+ .danhsachrap h1{
+ margin-bottom: -100px;
+ }
+ 
+ 
+ .cinema-container1 {
+ 
+     margin-left: 300px;
+     background-color: #7836b5;
+     padding: 30px;
+     border-radius: 20px;
+     width: 770px;
+     color: #ffef48;
+     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+ }
+ .time-slots1 {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+ }
+ button1 {
+     background-color: transparent;
+     border: 5px solid white;
+     color: white;
+     height: 40px;
+     /* padding: 10px 20px; */
+     /* border-radius: 5px; */
+     cursor: pointer;
+     /* margin-bottom: -100px; */
+ }
+ button1:hover {
+     background-color: #ffef48;
+     color: #2f0060;
+ }
+ /* part4 */
+ .part4{
+    margin-top: 100px;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+ 
+ }
+ .part4 a{
+    color: #fff;
+    text-decoration: none;
+ }
+ .part4 a:hover {
+    text-decoration: none;
+ }
+ .logo2 img{
+    height: 130px;
+    margin-left: 20px;
+  }
+  .hainut2 {
+    display: flex; /* Giúp các button nằm ngang */
+    gap: 10px; /* Tạo khoảng cách giữa các button */
+ }
+ 
+ .hainut2 button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+  .ve2{
+    margin-left: 20px;
+    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
+  }
+  .ve2:hover{
+    color: #fff;
+    background-position: 100%;
+  }
+ 
+ .ve2:active {
+  transform: scale(0.98);      
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+ } 
+ 
+  .food2{
+    background: linear-gradient(90deg, rgb(82, 145, 246) 50%, orange 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
+  }
+  .food2:hover{
+    color: #fff;
+    background-position: 100%;
+  }
+  .food2:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+ }
+  .find2 form{
+     margin-top: 15px;
+     margin-left: 20px;
+  }
+  .find2 input{
+    border: 2px solid #000; 
+     border-radius: 5px;
+     height: 30px;
+     width: 365px;
+  }
+  .ngongu2{
+     margin-left: 20px;
+  }
+  .ngongu2 img{
+     /* căn chỉnh chữ và hình bằng nhau */
+     margin-left: 5px;
+     vertical-align: middle;
+     width: 30px;
+     border: none;
+     border-radius: 50px;
+  }
+  /* chỉnh các cột */
+  .cot1{
+    margin-left: 150px;
+    max-width: 300px;
+  }
+  .xp{
+    margin-top: 40px;
+  }
+  .cot2{
+    margin-left: 80px;
+    max-width: 300px;
+  }
+  .rcp{
+    margin-top: 40px;
+  }
+  .cot3{
+    margin-left: 80px;
+    max-width: 300px;
+  }
+  .cot4{
+    margin-left: 80px;
+    max-width: 300px;
+  }
+  .cot1 p:hover{
+       color: yellow;
+       cursor: pointer;
+  }
+  .cot2 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }
+  .cot3 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }
+  .cot4 p:hover{
+    color: yellow;
+    cursor: pointer;
+  }

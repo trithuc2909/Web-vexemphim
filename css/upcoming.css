@@ -251,7 +251,9 @@ nav {
     font-weight: bold;
     color: #fff;
 }
-
+.movie a {
+    text-decoration: none;
+}
 .movie:hover p {
     color: yellow;
 }
