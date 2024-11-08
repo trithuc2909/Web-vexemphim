@@ -58,7 +58,7 @@ header {
     font-weight: bold;      
     padding: 12px 24px;   
     border: 2px solid #000; 
-    border-radius: 12px;   
+    border-radius: 12px;  
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
     cursor: pointer;        
     transition: background-position 0.4s ease-in-out; 
@@ -523,52 +523,37 @@ form button:active {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
-* {
-    margin: 0; /* Xóa bỏ khoảng cách mặc định */
-    padding: 0; /* Xóa bỏ khoảng đệm mặc định */
-    box-sizing: border-box; /* Đảm bảo padding và border được tính trong tổng chiều rộng và chiều cao của phần tử */
-}
 
-
-/* (3) div part */
-/* div recycle */
-.part3{
+.part4{
     color: #fff;
+    margin-top: 100px;
+    background-color: blueviolet;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-top: 100px;
-}
-.tk p{
-        margin-bottom: 10px; 
-}
-.cot1 a{
+ }
+ .part4 a{
     color: #fff;
     text-decoration: none;
-}
-
-.xp p{
-        margin-bottom: 10px; 
-}
-.tsk p{
-        margin-bottom: 10px; 
-}
-.rcp p{
-        margin-bottom: 10px; 
-}
-.cot3 p{
-        margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi thẻ p */
-}
-.cot4 p{
-        margin-bottom: 10px; 
-}
-
-.logo2 img{
+ }
+ .part4 a:hover {
+    text-decoration: none;
+ }
+ .logo2 img{
     height: 130px;
     margin-left: 20px;
-}
-
-.ve2{
+  }
+  .hainut2 {
+    display: flex; /* Giúp các button nằm ngang */
+    gap: 10px; /* Tạo khoảng cách giữa các button */
+ }
+ 
+ .hainut2 button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+  .ve2{
     margin-left: 20px;
     background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
     background-size: 200%;  
@@ -589,11 +574,12 @@ form button:active {
     color: #fff;
     background-position: 100%;
   }
-  .ve2:active {
-    transform: scale(0.98);      
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
+ 
+ .ve2:active {
+  transform: scale(0.98);      
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+ } 
+ 
   .food2{
     background: linear-gradient(90deg, rgb(82, 145, 246) 50%, orange 50%);
     background-size: 200%;  
@@ -617,16 +603,16 @@ form button:active {
   .food2:active {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
+ }
   .find2 form{
      margin-top: 15px;
      margin-left: 20px;
   }
   .find2 input{
-    border: 2px solid #000; 
-     border-radius: 12px;
-     height: 30px;
-     width: 365px;
+     border: 2px solid #000; 
+     border-radius: 10px;
+     height: 20px;
+     width: 350px;
   }
   .ngongu2{
      margin-left: 20px;
@@ -641,14 +627,11 @@ form button:active {
   }
   /* chỉnh các cột */
   .cot1{
-    margin-left: 50px;
+    margin-left: 150px;
     max-width: 300px;
   }
   .xp{
     margin-top: 40px;
-  }
-  .xp p:hover{
-    color: yellow;
   }
   .cot2{
     margin-left: 80px;
@@ -666,8 +649,8 @@ form button:active {
     max-width: 300px;
   }
   .cot1 p:hover{
-    color: yellow;
-    cursor: pointer;
+       color: yellow;
+       cursor: pointer;
   }
   .cot2 p:hover{
     color: yellow;

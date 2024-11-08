@@ -8,8 +8,7 @@ html, body {
 
 /* Thiết lập hình nền cho body */
 body {
-    /* background-image: url('../Image/movie.jpg'); */
-    background-color: blueviolet;
+    background-color:blueviolet;   
     background-size: cover; /* Chiếm toàn bộ không gian */
     background-position: center; /* Căn giữa hình nền */
     background-repeat: no-repeat; /* Không lặp lại hình nền */
@@ -58,7 +57,7 @@ header {
     font-weight: bold;      
     padding: 12px 24px;   
     border: 2px solid #000; 
-    border-radius: 12px;  
+    border-radius: 12px;   
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
     cursor: pointer;        
     transition: background-position 0.4s ease-in-out; 
@@ -138,6 +137,9 @@ header {
     align-items: center; /* Căn giữa theo chiều dọc */
     gap: 5px; /* Khoảng cách giữa các phần tử bên trong */
 }
+.btn-login:hover {
+    background: none; /* Không nền */
+}
 .btn-login a {
     color: #fff;
     text-decoration: none;
@@ -162,9 +164,12 @@ header {
     cursor: pointer; /* Con trỏ thành hình tay khi hover */
     font-size: 16px; /* Kích thước chữ */
 }
+.btn-register:hover {
+        background: none; /* Không nền */
+}
 
 .btn-register a {
-    color: #fff;
+    color: #fff;    
     text-decoration: none;
 }
 
@@ -211,81 +216,92 @@ nav {
     border-radius: 5px; /* Bo tròn góc */
     transition: background-color 0.3s; /* Hiệu ứng chuyển đổi cho nền */
 }
+
+/* Hiệu ứng hover cho liên kết trong điều hướng */
 .main-nav li a:hover {
     color: yellow;
+    background-color: rgba(255, 255, 255, 0.2); /* Thay đổi màu nền khi hover */
 }
-
-/* button đặt vé */
-.button {
-    background: linear-gradient(90deg, rgb(76, 171, 209) 50%, orange 50%);
-    background-size: 200%;  
-    background-position: 0%; 
-    color: black;        
-    font-weight: bold;      
-    padding: 12px 24px;   
-    border: 2px solid #000; 
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
-    cursor: pointer;        
-    transition: background-position 0.4s ease-in-out; 
-    font-size: 16px; 
-    width: 150px;
-    height: 50px;
-}
-.button:hover {
-    color: #fff;
-    background-position: 100%;
-}
-.button:active {
-    transform: scale(0.98);      
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-.main-nav li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
-}
-.movie-container {
+.banner {
     display: flex;
-    flex-direction: column;
-    padding: 30px;
-    box-sizing: border-box;
+    justify-content: space-between; /* Khoảng cách đều giữa các ảnh */
 }
 
-.movie-row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 20px;
+.banner img {
+    width: 33.3%; /* Chia đều chiều rộng cho mỗi ảnh */
+    height: auto; /* Tự động điều chỉnh chiều cao theo tỉ lệ */
+    object-fit: cover; /* Đảm bảo ảnh che phủ toàn bộ vùng chứa */
+    display: block; /* Loại bỏ khoảng trống dưới ảnh */
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.movie {
-    text-align: center;
-    width: 20%;
+.dropbtn {
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
     cursor: pointer;
 }
 
-.movie img {
-    transition: transform 0.3s ease-in-out;
-    border: 2px solid #000; 
-    width: 100%;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff; 
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: black; /* Đổi màu chữ khi hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #ff0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-listing {
+  
+    padding: 20px;
     border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.movie:hover img{
-    transform: scale(1.05);
-}
-
-.movie p {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    font-weight: bold;
+.job-listing h2 {
+    color: white; 
 }
 
-.movie:hover p {
-    color: yellow;
+.job-listing p {
+    color: white; 
 }
 
-.book-button {
-    margin-top: 10px;
+.job-listing .status {
+    color: yellow; 
+}
+
+
+button {
     background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
     background-size: 200%;  
     background-position: 0%; 
@@ -293,19 +309,21 @@ nav {
     font-weight: bold;      
     padding: 12px 24px;   
     border: 2px solid #000; 
-    border-radius: 5px;   
+    border-radius: 12px;  
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
     cursor: pointer;        
     transition: background-position 0.4s ease-in-out; 
     font-size: 16px; 
     width: 180px;
+    height: 40px;   
 }
 
-.book-button:hover {
+button:hover {
     color: #fff;
     background-position: 100%;
 }
-.book-button:active {
+
+.button:active {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -317,29 +335,29 @@ nav {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-
-}
-.part4 a{
+ 
+ }
+ .part4 a{
     color: #fff;
     text-decoration: none;
  }
  .part4 a:hover {
     text-decoration: none;
  }
-.logo2 img{
+ .logo2 img{
     height: 130px;
     margin-left: 20px;
   }
   .hainut2 {
     display: flex; /* Giúp các button nằm ngang */
     gap: 10px; /* Tạo khoảng cách giữa các button */
-}
-
-.hainut2 button {
+ }
+ 
+ .hainut2 button {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+ }
   .ve2{
     margin-left: 20px;
     background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
@@ -361,12 +379,12 @@ nav {
     color: #fff;
     background-position: 100%;
   }
-
-.ve2:active {
+ 
+ .ve2:active {
   transform: scale(0.98);      
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-} 
-
+ } 
+ 
   .food2{
     background: linear-gradient(90deg, rgb(82, 145, 246) 50%, orange 50%);
     background-size: 200%;  
@@ -390,7 +408,7 @@ nav {
   .food2:active {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
+ }
   .find2 form{
      margin-top: 15px;
      margin-left: 20px;
@@ -436,8 +454,8 @@ nav {
     max-width: 300px;
   }
   .cot1 p:hover{
-    color: yellow;
-    cursor: pointer;
+       color: yellow;
+       cursor: pointer;
   }
   .cot2 p:hover{
     color: yellow;
@@ -451,3 +469,13 @@ nav {
     color: yellow;
     cursor: pointer;
   }
+
+
+
+
+
+
+
+
+
+

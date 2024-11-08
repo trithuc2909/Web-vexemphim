@@ -8,8 +8,7 @@ html, body {
 
 /* Thiết lập hình nền cho body */
 body {
-    /* background-image: url('../Image/movie.jpg'); */
-    background-color: blueviolet;
+    background-color:blueviolet;   
     background-size: cover; /* Chiếm toàn bộ không gian */
     background-position: center; /* Căn giữa hình nền */
     background-repeat: no-repeat; /* Không lặp lại hình nền */
@@ -192,7 +191,6 @@ nav {
     position: relative; /* Vị trí tương đối */
     z-index: 999; /* Đảm bảo nằm dưới header */
 }
-
 /* Danh sách điều hướng */
 .main-nav {
     list-style: none; /* Không có dấu chấm đầu dòng */
@@ -211,36 +209,11 @@ nav {
     border-radius: 5px; /* Bo tròn góc */
     transition: background-color 0.3s; /* Hiệu ứng chuyển đổi cho nền */
 }
+
+
 .main-nav li a:hover {
     color: yellow;
-}
-
-/* button đặt vé */
-.button {
-    background: linear-gradient(90deg, rgb(76, 171, 209) 50%, orange 50%);
-    background-size: 200%;  
-    background-position: 0%; 
-    color: black;        
-    font-weight: bold;      
-    padding: 12px 24px;   
-    border: 2px solid #000; 
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
-    cursor: pointer;        
-    transition: background-position 0.4s ease-in-out; 
-    font-size: 16px; 
-    width: 150px;
-    height: 50px;
-}
-.button:hover {
-    color: #fff;
-    background-position: 100%;
-}
-.button:active {
-    transform: scale(0.98);      
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-.main-nav li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
+    background-color: rgba(255, 255, 255, 0.2); /* Thay đổi màu nền khi hover */
 }
 .movie-container {
     display: flex;
@@ -277,7 +250,6 @@ nav {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    font-weight: bold;
 }
 
 .movie:hover p {
@@ -317,29 +289,29 @@ nav {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-
-}
-.part4 a{
+ 
+ }
+ .part4 a{
     color: #fff;
     text-decoration: none;
  }
  .part4 a:hover {
     text-decoration: none;
  }
-.logo2 img{
+ .logo2 img{
     height: 130px;
     margin-left: 20px;
   }
   .hainut2 {
     display: flex; /* Giúp các button nằm ngang */
     gap: 10px; /* Tạo khoảng cách giữa các button */
-}
-
-.hainut2 button {
+ }
+ 
+ .hainut2 button {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+ }
   .ve2{
     margin-left: 20px;
     background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
@@ -361,12 +333,12 @@ nav {
     color: #fff;
     background-position: 100%;
   }
-
-.ve2:active {
+ 
+ .ve2:active {
   transform: scale(0.98);      
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-} 
-
+ } 
+ 
   .food2{
     background: linear-gradient(90deg, rgb(82, 145, 246) 50%, orange 50%);
     background-size: 200%;  
@@ -390,7 +362,7 @@ nav {
   .food2:active {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
+ }
   .find2 form{
      margin-top: 15px;
      margin-left: 20px;
@@ -436,8 +408,8 @@ nav {
     max-width: 300px;
   }
   .cot1 p:hover{
-    color: yellow;
-    cursor: pointer;
+       color: yellow;
+       cursor: pointer;
   }
   .cot2 p:hover{
     color: yellow;

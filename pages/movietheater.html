@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
-    <link rel="stylesheet" href="../Image/">
-    <link rel="stylesheet" href="../css/mamado.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Theater</title>
+    <link rel="stylesheet" href="../Font Awesome/">
     <link rel="stylesheet" href="../Font Awesome/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="/css/movietheater.css">
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
@@ -14,7 +17,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -22,12 +25,9 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MẬT MÃ ĐỎ</title>
 </head>
+
 <body>
-    <!-- phần 1 -->
     <header>
         <a class="logo" href="/pages/index.html">
             <img src="../Image/logo.png" alt="LOGO">
@@ -46,53 +46,100 @@
             <button class="btn-register"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
         </div>
     </header>
-    <hr>
-    <!-- phần 2 -->
-    <div class="phim">
-        <div class="poster">
-            <img src="../Image/mat-ma-do.jpg" alt="poster" title="Mật Mã Đỏ">
+
+    <nav>
+        <ul class="main-nav">
+            <li><a href="/pages/index.html">Trang Chủ</a></li>
+            <li><a href="#!">Chọn Rạp</a></li>
+            <li><a href="#!">Lịch Chiếu</a></li>
+            <li><a href="../pages/khuyenmai.html">Khuyến Mãi</a></li>
+            <li><a href="../pages/thuesukien.html">Thuê Sự Kiện</a></li>
+            <li><a href="/pages/tatcagiaitri.html">Tất Cả Các Giải Trí</a></li>
+            <li><a href="/pages/gioithieu.html">Giới Thiệu</a></li>
+        </ul>
+    </nav>
+
+    <div class="advertisements">
+        <div class="advertisement">
+            <img src="/Image/Hue.jpg" alt="Huế">
+            <div class="content">
+                <h1>CINEMA HUẾ</h1>
+                <p>8 phòng chiếu với 1200 ghế</p>
+                <p>25 Hai Bà Trưng,Vĩnh Ninh,Thành phố Huế,Thừa Thiên Huế</p>
+                <button class="btn-book">ĐẶT VÉ</button>
+            </div>
         </div>
-        <div class="info">
-            <h1>MẬT MÃ ĐỎ</h1>
-            <div class="others">
-                <p ><i class="fa-solid fa-forward"></i> Thể loại: <scan >Hài, phiêu lưu,hành động</scan></p>
-                <p ><i class="fa-regular fa-clock"></i> Thời lượng: <scan >99 phút</scan></p>
-                <p ><i class="fa-solid fa-earth-asia"></i> Ngôn Ngữ: <scan >Phụ đề</scan></p>
-                <p ><i class="fa-solid fa-user-check"></i> Phân loại: <scan style="background-color: yellow; color: black;" >Phim phổ biến đến người xem từ 13 tuổi trở lên. </scan></p>
+        <div class="advertisement">
+            <img src="/Image/dalat.jpg" alt="Đà Lạt">
+            <div class="content">
+                <h1>CINEMA ĐÀ LẠT</h1>
+                <p>6 phòng chiếu với 1592 ghế</p>
+                <p>Quảng trường Lâm Viên,P10,TP.Đà Lạt,Lâm Đồng</p>
+                <button class="btn-book">ĐẶT VÉ</button>
             </div>
-            <div class="mota">
-                <h2>MÔ TẢ</h2>
-                <p >Đạo Diễn: <scan >Jake Kasdan</scan></p>
-                <p >Diễn Viên: <scan >Dwayne Johnson, Chris Evans, Lucy Liu,Simmons</scan></p>
-                <p >Khởi chiếu: <scan >15/11/2024</scan></p>
-                <p >Định Dạng: <scan style="background-color: green; color: white;">2D</scan></p>
-            </div>
-            <div>
-                <h2>NỘI DUNG PHIM</h2>
-                <p>Red One / Mật Mã Đỏ kể về Callum Drift, người đứng đầu lực lượng an ninh Bắc Cực , phải hợp tác với Jack O'Malley, một thợ săn tiền thưởng , để tìm và giải cứu Ông già Noel sau khi ông bị bắt cóc.</p>
-            </div>
-            <div class="trailer">
-                <button>
-                    <a href="https://www.youtube.com/watch?v=2T_mKyH17mY" target="_blank">
-                    <span><i class="fa-solid fa-circle-play"></i> Xem Trailer</a></span>
-                </button>
         </div>
+        <div class="advertisement">
+            <img src="/Image/Lam_Dong-Photoroom.png" alt="Đức Trọng">
+            <div class="content">
+                <h1>CINEMA ĐỨC TRỌNG</h1>
+                <p>4 phòng chiếu với 853 ghế</p>
+                <p>QL20,Liên Nghĩa,Đức Trọng,Lâm Đồng</p>
+                <button class="btn-book">ĐẶT VÉ</button>
+            </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
+    <div class="advertisements">
+        <div class="advertisement">
+            <img src="/Image/07_Kien_Giang_masthead.jpg" alt="Kiên Giang">
+            <div class="content">
+                <h1>CINEMA KIÊN GIANG </h1>
+                <p>4 phòng chiếu với 750 ghế</p>
+                <p>Nguyễn Chí Thanh,Phường Rạch Sỏi,Thành phố Rạch Giá,Tỉnh Kiên Giang</p>
+                <button class="btn-book">ĐẶT VÉ</button>
+            </div>
+        </div>
+        <div class="advertisement">
+            <img src="/Image/06_My_Tho_masthead-Photoroom.png" alt="Mỹ Tho">
+            <div class="content">
+                <h1>CINEMA MỸ THO</h1>
+                <p>5 phòng chiếu với 912 ghế</p>
+                <p>52 Đinh Bộ Lĩnh,Phường3,Thành phố Mỹ Tho,Tiền Giang</p>
+                <button class="btn-book">ĐẶT VÉ</button>
+            </div>
+        </div>
+        <div class="advertisement">
+            <img src="/Image/05_sinh_vien_masthead.jpg" alt="Bình Dương">
+            <div class="content">
+                <h1>CINEMA SINH VIÊN</h1>
+                <p>4 phòng chiếu với 881 ghế</p>
+                <p>Nhà văn hóa sinh viên,ĐHQG HCM,Phường Đông Hòa,Dĩ An,Bình Dương</p>
+                <button class="btn-book">ĐẶT VÉ</button>
+            </div>
+        </div>
+    </div>
+    <div class="advertisements">
+        <div class="advertisement">
+            <img src="/Image/03-Hai_Ba_Trung_masthead-Photoroom.png" alt="Hai Bà Trưng">
+            <div class="content">
+                <h1>CINEMA HAI BÀ TRƯNG</h1>
+                <p>5 phòng chiếu với 725 ghế</p>
+                <p>215 Hai Bà Trưng,Phường Bến Nghé,Quân 1,TP HCM</p>
+                <button class="btn-book">ĐẶT VÉ</button>
+            </div>
+        </div>
+        <div class="advertisement">
+            <img src="/Image/01-Quoc-Thanh-masthead-Photoroom.png" alt="Quốc Thanh">
+            <div class="content">
+                <h1>CINEMA QUỐC THANH</h1>
+                <p>6 phòng chiếu với 900 ghế</p>
+                <p>251 Nguyễn Trãi,Nguyễn Cư Trinh,Quận 1,TP HCM</p>
+                <button class="btn-book">ĐẶT VÉ</button>
+            </div>
+        </div>
+    </div>
+    <!-- phần 4 -->
     <hr>
-    <div class="lichchieu">
-        <h1><i class="fa-solid fa-film"></i> HIỆN CHƯA CÓ LỊCH CHIẾU</h1>
-    </div>    
-
-    <br>
-    <br>
-    <br>
-    <!-- phần 3 -->
-    <hr>
-    <div class="part3">
+    <div class="part4">
        <div class="recycle">
            <div class="logo2">
                <img src="../Image/logoweb.png" alt="">
@@ -167,6 +214,7 @@
                <p>VHU Gò Vấp</p>
            </div>
        </div>
-   </div>  
+   </div>    
 </body>
+
 </html>

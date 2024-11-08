@@ -183,7 +183,7 @@ header {
 
  /* (2)div phim */
 .phim{
-   margin-top: 100px;
+   margin-top: 50px;
    display: flex;
    justify-content: flex-start;
    align-items: flex-start;
@@ -198,14 +198,36 @@ header {
     margin-left: 10px;
 }
 .trailer button{
-    background: none;
-    border: none;
-    text-decoration: underline;
-    color:white;
+   
+   background: linear-gradient(to bottom right, #f9e135, #f7d90e);
+   border: 2px solid #000;
+   font-size: 18px;
+   color: black;
+   margin-top: 20px;
+   font-weight: bold;
+   background-color: yellow;
+   height: 40px;
+   width: 250px;
+   border-radius: 12px;
+   cursor: pointer;
+   transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
 }
-.trailer button:hover{
-    color: orange;
-    cursor: pointer;
+.trailer button:hover {
+   background: linear-gradient(to bottom right, #f7d90e, #f2c30e); 
+   box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4); 
+   transform: scale(1.05);      
+}
+.trailer button:active {
+   transform: scale(0.98);      
+   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+}
+.trailer button a {
+   text-decoration: none;
+}
+.trailer button p {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .lichchieu{

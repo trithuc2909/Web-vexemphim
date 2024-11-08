@@ -8,8 +8,7 @@ html, body {
 
 /* Thiết lập hình nền cho body */
 body {
-    /* background-image: url('../Image/movie.jpg'); */
-    background-color: blueviolet;
+    background-color:blueviolet;   
     background-size: cover; /* Chiếm toàn bộ không gian */
     background-position: center; /* Căn giữa hình nền */
     background-repeat: no-repeat; /* Không lặp lại hình nền */
@@ -58,7 +57,7 @@ header {
     font-weight: bold;      
     padding: 12px 24px;   
     border: 2px solid #000; 
-    border-radius: 12px;  
+    border-radius: 12px;   
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
     cursor: pointer;        
     transition: background-position 0.4s ease-in-out; 
@@ -211,103 +210,11 @@ nav {
     border-radius: 5px; /* Bo tròn góc */
     transition: background-color 0.3s; /* Hiệu ứng chuyển đổi cho nền */
 }
+
+/* Hiệu ứng hover cho liên kết trong điều hướng */
 .main-nav li a:hover {
     color: yellow;
-}
-
-/* button đặt vé */
-.button {
-    background: linear-gradient(90deg, rgb(76, 171, 209) 50%, orange 50%);
-    background-size: 200%;  
-    background-position: 0%; 
-    color: black;        
-    font-weight: bold;      
-    padding: 12px 24px;   
-    border: 2px solid #000; 
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
-    cursor: pointer;        
-    transition: background-position 0.4s ease-in-out; 
-    font-size: 16px; 
-    width: 150px;
-    height: 50px;
-}
-.button:hover {
-    color: #fff;
-    background-position: 100%;
-}
-.button:active {
-    transform: scale(0.98);      
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-.main-nav li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
-}
-.movie-container {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    box-sizing: border-box;
-}
-
-.movie-row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.movie {
-    text-align: center;
-    width: 20%;
-    cursor: pointer;
-}
-
-.movie img {
-    transition: transform 0.3s ease-in-out;
-    border: 2px solid #000; 
-    width: 100%;
-    border-radius: 10px;
-}
-.movie:hover img{
-    transform: scale(1.05);
-}
-
-.movie p {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    font-weight: bold;
-}
-
-.movie:hover p {
-    color: yellow;
-}
-
-.book-button {
-    margin-top: 10px;
-    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
-    background-size: 200%;  
-    background-position: 0%; 
-    color: black;        
-    font-weight: bold;      
-    padding: 12px 24px;   
-    border: 2px solid #000; 
-    border-radius: 5px;   
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
-    cursor: pointer;        
-    transition: background-position 0.4s ease-in-out; 
-    font-size: 16px; 
-    width: 180px;
-}
-
-.book-button:hover {
-    color: #fff;
-    background-position: 100%;
-}
-.book-button:active {
-    transform: scale(0.98);      
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.2); /* Thay đổi màu nền khi hover */
 }
 /* part4 */
 .part4{
@@ -317,29 +224,29 @@ nav {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-
+ 
+ }
+ .part4 a{
+  color: #fff;
+  text-decoration: none;
 }
-.part4 a{
-    color: #fff;
-    text-decoration: none;
- }
- .part4 a:hover {
-    text-decoration: none;
- }
-.logo2 img{
+.part4 a:hover {
+  text-decoration: none;
+}
+ .logo2 img{
     height: 130px;
     margin-left: 20px;
   }
   .hainut2 {
     display: flex; /* Giúp các button nằm ngang */
     gap: 10px; /* Tạo khoảng cách giữa các button */
-}
-
-.hainut2 button {
+ }
+ 
+ .hainut2 button {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+ }
   .ve2{
     margin-left: 20px;
     background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
@@ -361,12 +268,12 @@ nav {
     color: #fff;
     background-position: 100%;
   }
-
-.ve2:active {
+ 
+ .ve2:active {
   transform: scale(0.98);      
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-} 
-
+ } 
+ 
   .food2{
     background: linear-gradient(90deg, rgb(82, 145, 246) 50%, orange 50%);
     background-size: 200%;  
@@ -390,7 +297,7 @@ nav {
   .food2:active {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
+ }
   .find2 form{
      margin-top: 15px;
      margin-left: 20px;
@@ -436,8 +343,8 @@ nav {
     max-width: 300px;
   }
   .cot1 p:hover{
-    color: yellow;
-    cursor: pointer;
+       color: yellow;
+       cursor: pointer;
   }
   .cot2 p:hover{
     color: yellow;

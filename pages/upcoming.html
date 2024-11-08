@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BILLIARD</title>
+    <title>PHIM ĐANG CHIẾU</title>
     <link rel="stylesheet" href="../Font Awesome/">
     <link rel="stylesheet" href="../Font Awesome/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="../css/billiard.css">
+    <link rel="stylesheet" href="../css/upcoming.css">
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
@@ -25,11 +26,12 @@
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
     <header>
-        <div class="logo">
+        <a class="logo" href="/pages/index.html">
             <img src="../Image/logo.png" alt="LOGO">
-        </div>
+        </a>
         <div class="actions">
             <button class="btn-yellow">ĐẶT VÉ NGAY</button>
             <button class="btn-purple">ĐẶT BẮP NƯỚC</button>
@@ -38,63 +40,117 @@
                 <span class="search-icon">🔍</span>
             </div>
             <button class="btn-login">
-                <span class="user-icon"></span> Đăng Nhập
+                <span class="user-icon"></span> <a aria-current="page" href="/pages/login.html"><i class="fa-regular fa-circle-user"></i> Đăng nhập</a>
             </button>
             <span class="separator">|</span>
-            <button class="btn-register">Đăng Ký</button>
+            <button class="btn-register"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
         </div>
     </header>
+
     <nav>
         <ul class="main-nav">
-            <li><a href="#">Trang Chủ</a></li>
+            <li><a href="/pages/index.html">Trang Chủ</a></li>
             <li><a href="#!">Chọn Rạp</a></li>
             <li><a href="#!">Lịch Chiếu</a></li>
-            <li><a href="#!">Khuyến Mãi</a></li>
-            <li><a href="#!">Thuê Sự Kiện</a></li>
-            <li><a href="#!">Tất Cả Các Giải Trí</a></li>
-            <li><a href="#!">Giới Thiệu</a></li>
+            <li><a href="../pages/khuyenmai.html">Khuyến Mãi</a></li>
+            <li><a href="../pages/thuesukien.html">Thuê Sự Kiện</a></li>
+            <li><a href="/pages/tatcagiaitri.html">Tất Cả Các Giải Trí</a></li>
+            <li><a href="/pages/gioithieu.html">Giới Thiệu</a></li>
         </ul>
     </nav>
-    <div style="text-align: center;">
-        <img src="../Image/billiard.png" alt="BILLIARD" width="850px">
-    </div>
-    <h1 align="center" style="color: #fff;"><br><br>BILLIARD<br><br></h1>
-    <p align="center" style="color:#fff"> 
-        Tận hưởng niềm vui ở thành phố Đà Lạt, Huế và Mỹ Tho.<br><br>
-        Thử thách bản thân và những người bạn tại C'Billiards, Trung tâm tọa lạc tại vị trí thuận tiện trong<br>
-        khu phức hợp rạp chiếu phim Cinema.<br><br>
-        Làm chủ trò chơi: Rèn luyện kỹ năng của bạn với các khu vực chơi rộng rãi và các bàn chơi được bảo <br>trì tốt định kỳ.<br><br>
-        Nâng tầm trò chơi của bạn: Tham gia các giải đấu giao hữu được tổ chức thường xuyên để kiểm tra<br> khí phách của bạn và kết nối với cộng đồng bida tại địa phương.<br><br>
-        Thư giãn và vui chơi: Tận hưởng bầu không khí thoải mái và thân thiện, hoàn hảo cho người chơi ở <br>mọi cấp độ.<br><br>
-        C'Billiards - Nơi mỗi cú đánh là cơ hội để kết nối và vui chơi!
-    </p>
+    <h1 align="center" style="color: white;"><br>PHIM SẮP CHIẾU</h1>
 
-    <div class="locations" style="display: flex; justify-content: center; color: white; gap: 20px; margin-top: 30px;">
-        <div class="location" style="text-align: left; margin-right: 270px;">
-            <h2>HUẾ</h2>
-            <p><br> 25 Hai Bà Trưng, Phường Vĩnh Ninh, TP.Huế</p>
-            <p> <a href="https://www.facebook.com/monngonhue.cinestar" target="_blank" style="color: white; text-decoration: none;" onmouseover="this.style.color='yellow'" onmouseout="this.style.color='white'"><u>https://www.Facebook.com/CinemaHue</u></a></p>
+    <div class="movie-container">
+        <div class="movie-row">
+            <div class="movie">
+                <img src="/Image/ngay-xua-co-1-chuyen-tinh-official.jpg" alt="NGÀY XƯA CÓ MỘT CHUYỆN TÌNH">
+                <p>NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/smile-2.jpg" alt="CƯỜI 2">
+                <p>CƯỜI 2</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/mat-ma-do.jpg" alt="MẬT MÃ ĐỎ">
+                <p>MẬT MÃ ĐỎ</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/vo-si-giac-dau-II_1.jpg" alt="VÕ SĨ GIÁC ĐẤU II">
+                <p>VÕ SĨ GIÁC ĐẤU II</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
         </div>
-        <div class="location" style="text-align: center;">
-            <h2>ĐÀ LẠT</h2>
-            <p><br> Quảng trường Lâm Viên, Thành phố Đà Lạt</p>
-            <p> <a href="https://www.facebook.com/CinestarDaLat" target="_blank" style="color: white; text-decoration: none;" onmouseover="this.style.color='yellow'" onmouseout="this.style.color='white'"><u>https://www.Facebook.com/CinemaDaLat</u></a></p>
+        <div class="movie-row">
+            <div class="movie">
+                <img src="/Image/tien-tri-tu-than.JPG" alt="TIÊN TRI TỬ THẦN">
+                <p>TIÊN TRI TỬ THẦN</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/thien-duong-qua-bao.JPG" alt="THIÊN ĐƯỜNG QUẢ BÁO">
+                <p>THIÊN ĐƯỜNG QUẢ BÁO</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/doi-ban-hoc-yeu.JPG" alt="ĐÔI BẠN HỌC YÊU">
+                <p>ĐÔI BẠN HỌC YÊU</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/cu-li.JPG" alt="CU LI KHÔNG BAO GIỜ KHÓC">
+                <p>CU LI KHÔNG BAO GIỜ KHÓC</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+        </div>
+        <div class="movie-row">
+            <div class="movie">
+                <img src="/Image/linh-mieu-official-poster.JPG" alt="LINH MIÊU:QUỶ NHẬP TRÀNG">
+                <p>LINH MIÊU:QUỶ NHẬP TRÀNG</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/wicked-official-poster.JPG" alt="WICKED">
+                <p>WICKED</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/moana-2-poster.JPG" alt="HÀNH TRÌNH CỦA MOANA 2">
+                <p>HÀNH TRÌNH CỦA MOANA 2</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/mufasa-vua-su-tu.JPG" alt="MUFASA: VUA SƯ TỬ">
+                <p>MUFASA: VUA SƯ TỬ</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+        </div>
+        <div class="movie-row">
+            <div class="movie">
+                <img src="/Image/chua-te-cua-nhung-chiec-nhan.JPG" alt="CHÚA TỂ CỦA NHỮNG CHIẾC NHẪN: CUỘC CHIẾN CỦA ROHIRRIM">
+                <p>CHÚA TỂ CỦA NHỮNG CHIẾC NHẪN</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/kraven.JPG" alt="KRAVEN - THỢ SĂN THỦ LĨNH">
+                <p>KRAVEN - THỢ SĂN THỦ LĨNH</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/cong-tu-bac-lieu_2_.JPG" alt="CÔNG TỬ BẠC LIÊU">
+                <p>CÔNG TỬ BẠC LIÊU</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
+            <div class="movie">
+                <img src="/Image/sonic-3.JPG" alt="NHÍM SONIC 3">
+                <p>NHÍM SONIC 3</p>
+                <button class="book-button">TÌM HIỂU THÊM</button>
+            </div>
         </div>
     </div>
-
-    <div class="locations" style="display: flex; justify-content: center; color: white; gap: 20px; margin-top: 30px;">
-        <div class="location" style="text-align: left; margin-right: 250px;">
-            <h2>MỸ THO</h2>
-            <p><br> 52 Đinh Bộ Lĩnh,Phường 3,Thành phố Mỹ Tho</p>
-            <p> <a href="https://www.facebook.com/cinestarmytho" target="_blank" style="color: white; text-decoration: none;" onmouseover="this.style.color='yellow'" onmouseout="this.style.color='white'"><u>https://www.Facebook.com/CinemaMyTho</u></a></p>
-        </div>
-        <div class="location" style="text-align: center;">
-            <h2>TÂY NINH</h2>
-            <p><br>  Plaza Tây Ninh,đường 30/4,phường 2,Tây Ninh</p>
-            <p> <a href="https://www.facebook.com/CinestarTayNinh" target="_blank" style="color: white; text-decoration: none;" onmouseover="this.style.color='yellow'" onmouseout="this.style.color='white'"><u>https://www.Facebook.com/CinemaTayNinh</u></a></p>
-        </div>
-    </div>
-<!-- part4 -->
+    <!-- phần 4 -->
     <hr>
     <div class="part4">
        <div class="recycle">
@@ -171,6 +227,7 @@
                <p>VHU Gò Vấp</p>
            </div>
        </div>
-   </div>      
+   </div>     
 </body>
+
 </html>

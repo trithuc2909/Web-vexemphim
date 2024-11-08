@@ -8,8 +8,7 @@ html, body {
 
 /* Thiết lập hình nền cho body */
 body {
-    /* background-image: url('../Image/movie.jpg'); */
-    background-color: blueviolet;
+    background-color:blueviolet;   
     background-size: cover; /* Chiếm toàn bộ không gian */
     background-position: center; /* Căn giữa hình nền */
     background-repeat: no-repeat; /* Không lặp lại hình nền */
@@ -58,7 +57,7 @@ header {
     font-weight: bold;      
     padding: 12px 24px;   
     border: 2px solid #000; 
-    border-radius: 12px;  
+    border-radius: 12px;   
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
     cursor: pointer;        
     transition: background-position 0.4s ease-in-out; 
@@ -211,104 +210,106 @@ nav {
     border-radius: 5px; /* Bo tròn góc */
     transition: background-color 0.3s; /* Hiệu ứng chuyển đổi cho nền */
 }
+
+/* Hiệu ứng hover cho liên kết trong điều hướng */
 .main-nav li a:hover {
     color: yellow;
+    background-color: rgba(255, 255, 255, 0.2); /* Thay đổi màu nền khi hover */
+}
+.contact-section {
+    /* Thiết lập flex để các phần tử trong phần liên hệ xếp theo hàng ngang */
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+    color: white; /* Màu chữ là màu trắng */
+    padding: 20px; /* Khoảng cách bên trong của toàn bộ phần liên hệ */
+    justify-content: center;
 }
 
-/* button đặt vé */
-.button {
-    background: linear-gradient(90deg, rgb(76, 171, 209) 50%, orange 50%);
-    background-size: 200%;  
-    background-position: 0%; 
-    color: black;        
-    font-weight: bold;      
-    padding: 12px 24px;   
-    border: 2px solid #000; 
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
-    cursor: pointer;        
-    transition: background-position 0.4s ease-in-out; 
-    font-size: 16px; 
-    width: 150px;
-    height: 50px;
+ .contact-info {
+    /* Màu nền xanh đậm cho các khối liên hệ và thông tin */
+    background-color: #1e3a8a;
+    padding: 20px; /* Khoảng cách bên trong của từng khối */
+    border-radius: 8px; /* Bo góc cho các khối */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tạo hiệu ứng bóng cho các khối */
 }
-.button:hover {
-    color: #fff;
-    background-position: 100%;
+
+.social-links h2, .contact-info h3 {
+    /* Thiết lập khoảng cách và căn giữa tiêu đề của các khối */
+    margin: 60px ; /* Cách tiêu đề ra khỏi phần trên và dưới */
+    text-align: center; /* Căn giữa tiêu đề */
+
 }
-.button:active {
-    transform: scale(0.98);      
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+.social-links a {
+    /* Thiết lập kiểu hiển thị cho các liên kết */
+    display: block; /* Hiển thị theo khối */
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    margin: 10px 0; /* Khoảng cách giữa các liên kết */
 }
-.main-nav li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
+
+.facebook-button, .zalo-button {
+    /* Cài đặt kiểu dáng chung cho các nút Facebook và Zalo */
+    display: flex; /* Thiết lập flex để căn giữa các phần tử bên trong */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+    background-color: #004dff; /* Màu nền của nút */
+    padding: 10px; /* Khoảng cách bên trong của nút */
+    border-radius: 8px; /* Bo góc nút */
+    color: white; /* Màu chữ trắng */
+    font-weight: bold; /* In đậm chữ */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi khi hover */
 }
-.movie-container {
+
+
+.facebook-button:hover, .zalo-button:hover {
+    /* Giảm độ mờ khi hover vào nút để tạo hiệu ứng */
+    opacity: 0.8;
+}
+
+.button-content img {
+    /* Kích thước và khoảng cách cho các icon bên trong nút */
+    width: 80px; /* Chiều rộng của icon */
+    height: 80px; /* Chiều cao của icon */
+    margin-right: 8px; /* Khoảng cách giữa icon và text */
+}
+
+.contact-info p {
+    /* Thiết lập khoảng cách cho các đoạn văn trong phần thông tin liên hệ */
+    margin: 20px ;
+}
+
+form {
+    /* Thiết lập flex cho form để các phần tử xếp theo cột */
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    box-sizing: border-box;
 }
 
-.movie-row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 20px;
+form input, form textarea {
+    /* Cài đặt kiểu cho các ô input và textarea */
+    margin-bottom: 10px; /* Khoảng cách giữa các ô */
+    padding: 10px; /* Khoảng cách bên trong của ô */
+    border: none; /* Loại bỏ viền mặc định */
+    border-radius: 4px; /* Bo góc cho ô */
 }
 
-.movie {
-    text-align: center;
-    width: 20%;
-    cursor: pointer;
+form button {
+    /* Cài đặt kiểu cho nút submit */
+    padding: 10px; /* Khoảng cách bên trong của nút */
+    border: none; /* Loại bỏ viền của nút */
+    border-radius: 4px; /* Bo góc nút */
+    background-color: yellow; /* Màu nền ban đầu của nút */
+    font-weight: bold; /* In đậm chữ */
+    cursor: pointer; /* Đổi con trỏ khi hover vào nút */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu khi hover */
 }
 
-.movie img {
-    transition: transform 0.3s ease-in-out;
-    border: 2px solid #000; 
-    width: 100%;
-    border-radius: 10px;
-}
-.movie:hover img{
-    transform: scale(1.05);
+form button:hover {
+    /* Đổi màu nền và chữ khi hover vào nút */
+    background-color: purple;
+    color: white;
 }
 
-.movie p {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    font-weight: bold;
-}
 
-.movie:hover p {
-    color: yellow;
-}
-
-.book-button {
-    margin-top: 10px;
-    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
-    background-size: 200%;  
-    background-position: 0%; 
-    color: black;        
-    font-weight: bold;      
-    padding: 12px 24px;   
-    border: 2px solid #000; 
-    border-radius: 5px;   
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
-    cursor: pointer;        
-    transition: background-position 0.4s ease-in-out; 
-    font-size: 16px; 
-    width: 180px;
-}
-
-.book-button:hover {
-    color: #fff;
-    background-position: 100%;
-}
-.book-button:active {
-    transform: scale(0.98);      
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
 /* part4 */
 .part4{
     color: #fff;
@@ -317,29 +318,28 @@ nav {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-
-}
-.part4 a{
+ }
+ .part4 a{
     color: #fff;
     text-decoration: none;
  }
  .part4 a:hover {
     text-decoration: none;
  }
-.logo2 img{
+ .logo2 img{
     height: 130px;
     margin-left: 20px;
   }
   .hainut2 {
     display: flex; /* Giúp các button nằm ngang */
     gap: 10px; /* Tạo khoảng cách giữa các button */
-}
-
-.hainut2 button {
+ }
+ 
+ .hainut2 button {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+ }
   .ve2{
     margin-left: 20px;
     background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
@@ -361,12 +361,12 @@ nav {
     color: #fff;
     background-position: 100%;
   }
-
-.ve2:active {
+ 
+ .ve2:active {
   transform: scale(0.98);      
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-} 
-
+ } 
+ 
   .food2{
     background: linear-gradient(90deg, rgb(82, 145, 246) 50%, orange 50%);
     background-size: 200%;  
@@ -390,16 +390,16 @@ nav {
   .food2:active {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
+ }
   .find2 form{
      margin-top: 15px;
      margin-left: 20px;
   }
   .find2 input{
-    border: 2px solid #000; 
+     border: 2px solid #000; 
      border-radius: 5px;
-     height: 30px;
-     width: 365px;
+     height: 20px;
+     width: 350px;
   }
   .ngongu2{
      margin-left: 20px;
@@ -436,8 +436,8 @@ nav {
     max-width: 300px;
   }
   .cot1 p:hover{
-    color: yellow;
-    cursor: pointer;
+       color: yellow;
+       cursor: pointer;
   }
   .cot2 p:hover{
     color: yellow;
