@@ -50,5 +50,15 @@ public class UserService {
             throw new Exception("Email này đã tồn tại! ");
         }
     }
+
+
+    // Phương thức xóa người dùng theo ID
+    public void deleteUser(Long id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Không tìm thấy người dùng với ID này " + id);
+        }
+    }
 }
 

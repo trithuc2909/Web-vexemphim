@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController // xác định đây là 1 controller để xử lý yêu cầu HTTP
@@ -25,7 +26,7 @@ public class UserController {
         try {
             userService.validateUser(user);
             User createdUser = userService.createUser(user);
-            return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+            return ResponseEntity.ok("Đăng ký tài khoản thành công");
         }
         catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -56,6 +57,18 @@ public class UserController {
         }
         else {
             return new ResponseEntity<>("Không tìm thấy người dùng", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    // Phương thức delete xóa người dùng theo ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+        try {
+            // Gọi service để xóa người dùng
+            userService.deleteUser(id);
+            return ResponseEntity.ok("Xóa người dùng thành công");
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("Lỗi khi xóa người dùng: " + e.getMessage());
         }
     }
 }
