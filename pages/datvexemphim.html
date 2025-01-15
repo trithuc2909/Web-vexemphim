@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Font Awesome/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../css/upcoming.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>Đặt vé</title>
+    <link rel="stylesheet" href="/css/datvexemphim.css">
+</head>
+<body>
+    <header>
+        <a class="logo" href="/pages/index.html">
+            <img src="../Image/logo.png" alt="LOGO">
+        </a>
+        <div class="actions">
+            <button class="btn-yellow">ĐẶT VÉ NGAY</button>
+            <button class="btn-purple">ĐẶT BẮP NƯỚC</button>
+            <div class="search-container">
+                <input type="text" placeholder="Tìm phim ,rạp" class="search-bar">
+                <span class="search-icon">🔍</span>
+            </div>
+            <button class="btn-login">
+                <span class="user-icon"></span> <a aria-current="page" href="/pages/login.html"><i class="fa-regular fa-circle-user"></i> Đăng nhập</a>
+            </button>
+            <span class="separator">|</span>
+            <button class="btn-register"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
+        </div>
+    </header>
+    <nav>
+        <ul class="main-nav">
+            <li><a href="/pages/index.html">Trang Chủ</a></li>
+            <li><a href="#!">Chọn Rạp</a></li>
+            <li><a href="#!">Lịch Chiếu</a></li>
+            <li><a href="../pages/khuyenmai.html">Khuyến Mãi</a></li>
+            <li><a href="../pages/thuesukien.html">Thuê Sự Kiện</a></li>
+            <li><a href="/pages/tatcagiaitri.html">Tất Cả Các Giải Trí</a></li>
+            <li><a href="/pages/gioithieu.html">Giới Thiệu</a></li>
+        </ul>
+    </nav>
+    <div class="head">
+        <h1>ĐẶT VÉ XEM PHIM</h1>
+    </div>
+    <div class="container"> 
+        <form id="ticket-form">
+            <label for="movie">Chọn Phim:</label>
+            <div class="custom-select">
+                <select id="movie" required>
+                <option value="">---Chọn Phim---</option>
+                <option value="1">MỘ ĐOM ĐÓM</option>
+                <option value="2">ROBOT HOANG DÃ</option>
+                <option value="3">TRÒ CHƠI NHÂN TÍNH</option>
+                <option value="4">ELLI VÀ BÍ ẨN CHIẾC TÀU MA</option>
+                <option value="5">VENOM :KÈO CUỐI</option>
+                <option value="6">QUỶ ĂN TẠNG 2</option>
+                <option value="7">FUBAO:BẢO BỐI CỦA ÔNG</option>
+                <option value="8">AN LẠC</option>
+                <option value="9">TÍN HIỆU CẦU CỨU</option>
+                <option value="10">BOCCHI THE ROCK! Recap Part 2</option>
+                <option value="11">NHẤT QUỶ NHÌ MA, THỨ BA TAKAGI</option>
+                <option value="12">VÂY HÃM TẠI ĐÀI BẮC</option>
+                <option value="13">VÙNG ĐẤT BỊ NGUYỀN RỦA</option>
+                <option value="14">TIẾNG GỌI CỦA OÁN HỒN</option>
+                <option value="15">THẦN DƯỢC</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="time">Chọn Giờ Chiếu:</label>
+                <select id="time" required>
+                    <option value="">---Chọn Giờ---</option>
+                    <option value="1">9:15 AM</option>
+                    <option value="2">10:15 AM</option>
+                    <option value="3">8:15 PM</option>
+                    <option value="4">10:15 PM</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Số lượng vé:</label>
+                <input type="number" id="quantity" min="1" max="10" placeholder="Nhập số lượng vé" required>
+            </div>
+            <div class="btn-datvengay">
+                <button type="submit">Đặt vé ngay</button>
+            </div>
+            
+        
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt Vé Xem Phim</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2c2c54;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .form-container {
+      background-color: #40407a;
+      padding: 20px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+    .form-container select,
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    .form-container button {
+      background-color: #fbc531;
+      color: #2c2c54;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Đặt Vé Xem Phim</h1>
+  <div class="form-container">
+    <form id="ticket-form">
+      <label for="movie">Chọn Phim:</label>
+      <select id="movie" required>
+        <option value="">--Chọn Phim--</option>
+        <option value="1">Phim A</option>
+        <option value="2">Phim B</option>
+      </select>
+      
+      <label for="time">Chọn Giờ Chiếu:</label>
+      <select id="time" required>
+        <option value="">--Chọn Giờ--</option>
+        <option value="10:00">10:00 AM</option>
+        <option value="13:00">1:00 PM</option>
+      </select>
+      
+      <label for="quantity">Số Lượng Vé:</label>
+      <input type="number" id="quantity" min="1" max="10" required>
+      
+      <button type="submit">Đặt Vé Ngay</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('ticket-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const movie = document.getElementById('movie').value;
+      const time = document.getElementById('time').value;
+      const quantity = document.getElementById('quantity').value;
+
+      if (movie && time && quantity) {
+        alert('Đặt vé thành công!');
+        // Gửi dữ liệu lên backend
+        fetch('/api/book-ticket', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ movie, time, quantity })
+        }).then(response => response.json())
+          .then(data => console.log(data))
+          .catch(err => console.error(err));
+      }
+    });
+  </script>
+</body>
+</html>

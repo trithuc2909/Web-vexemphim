@@ -1,0 +1,114 @@
+/* Đảm bảo thẻ html và body chiếm toàn bộ chiều cao của khung nhìn */
+html, body {
+    height: 100%; /* Chiều cao 100% của khung nhìn */
+    margin: 0; /* Xóa khoảng cách mặc định của trình duyệt */
+    padding: 0; /* Xóa khoảng cách mặc định của trình duyệt */
+    font-family: Arial, sans-serif; /* Đặt phông chữ mặc định */
+}
+
+/* Thiết lập hình nền cho body */
+body {
+    background-color:blueviolet;   
+    background-size: cover; /* Chiếm toàn bộ không gian */
+    background-position: center; /* Căn giữa hình nền */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+    background-attachment: fixed; /* Hình nền cố định khi cuộn */
+}
+
+/* Thiết lập cho thanh đầu trang (header) */
+header {
+    display: flex; /* Sử dụng Flexbox để bố trí */
+    justify-content: space-between; /* Khoảng cách đều giữa các phần tử */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 20px; /* Padding cho header */
+    background-color: rgba(0, 0, 0, 0.7); /* Nền bán trong suốt */
+    width: 100%; /* Chiều rộng 100% */
+    top: 0; /* Đặt ở trên cùng */
+    z-index: 1000; /* Đảm bảo ở trên cùng so với các phần tử khác */
+    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng nếu không đủ không gian */
+}
+
+/* Thiết lập cho logo trong header */
+.logo {
+    flex: 1; /* Chiếm không gian còn lại */
+}
+
+/* Kích thước của hình ảnh logo */
+.logo img {
+    height: 100px; /* Chiều cao logo */
+}
+.container {
+    margin-left: 280px;
+    background-color: rgb(77, 206, 183);
+    height: 300px;
+    width: 1000px;
+    border-radius: 10px;
+}
+.head h1{
+    text-align: center;
+    color: #fff;
+}
+#ticket-form label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+.container select{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    display: inline-block;
+    max-height: 100px; /* Chiều cao tối đa */
+    overflow-y: auto;  /* Hiển thị thanh cuộn dọc */
+}
+.select {
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-group label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+  }
+.form-group input{
+    width: 98%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+.btn-datvengay {
+    margin-top: 10px;
+    text-align: center;
+}
+.btn-datvengay button{
+    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
+    background-size: 200%;  
+    background-position: 0%; 
+    color: black;        
+    font-weight: bold;      
+    padding: 12px 24px;   
+    border: 2px solid #000; 
+    border-radius: 12px;   
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;        
+    transition: background-position 0.4s ease-in-out; 
+    font-size: 16px; 
+    width: 180px;
+    height: 40px;
+}
+.btn-datvengay button:active {
+    transform: scale(0.98);      
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+ }
