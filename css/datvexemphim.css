@@ -66,8 +66,9 @@ header {
     overflow-y: auto;  /* Hiển thị thanh cuộn dọc */
 }
 .select {
-    width: 100%;
-    box-sizing: border-box;
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
 }
 .form-group label {
     display: block;

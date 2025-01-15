@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/tickets") //luôn luôn gọi tới endpoint là tickets
-@CrossOrigin(origins = "http://127.0.0.1:5500/pages/datvexemphim.html?") // Thay bằng URL của frontend
 public class TicketController {
     @Autowired
     private TicketService ticketService;
