@@ -5,13 +5,28 @@ import com.example.backend.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TicketService {
     @Autowired
-    private TicketRepository ticketRepository;
+    private final TicketRepository ticketRepository;
 
-    public Ticket bookTicket(String movie, String time, int quantity) {
-        Ticket ticket = new Ticket(movie, time, quantity);
-        return ticketRepository.save(ticket); // Lưu vé vào database
+    public TicketService(TicketRepository ticketRepository) {
+        this.ticketRepository = ticketRepository;
+    }
+
+    // Tạo vé và lưu vào Database
+    public Ticket createTicket (Ticket ticket){
+        return ticketRepository.save(ticket);
+    }
+    // Lấy danh sách tất cả các vé
+    public List<Ticket> getAllTickets(){
+        return ticketRepository.findAll();
+    }
+
+    // Tìm vé theo ID
+    public Ticket getTicketById(Long id){
+        return ticketRepository.findById(id).orElseThrow(() -> new RuntimeException("Ticket not found"));
     }
 }

@@ -1,58 +1,30 @@
 package com.example.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@NoArgsConstructor
 @Entity
+@Table(name = "Tickets")
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // sẽ tự động tạo ra ID và không bao giờ bị trùng
     private Long id;
-    private String movie;
+
+    @Column(nullable = false)
     private String time;
+
+    @Column(nullable = false)
     private int quantity;
 
-    public Ticket(){} // Khoi tao constructor rong~
+    @ManyToOne(fetch = FetchType.LAZY) // Quan hệ nhiều vé thuộc một bộ phim
+    @JoinColumn(name = "movie_id", nullable = false) //tạo cột movie_id trong bảng tickets để lưu khoá ngoại.
+    private Movie movie;
 
-    public Ticket(String movie, String time, int quantity){
+    public Ticket( String time, int quantity, Movie movie) {
         this.movie = movie;
         this.time = time;
-        this.quantity = quantity;
-    }
-    //tao getter va setter
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getMovie() {
-        return movie;
-    }
-
-    public void setMovie(String movie) {
-        this.movie = movie;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 }

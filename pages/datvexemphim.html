@@ -24,6 +24,7 @@
     <meta name="theme-color" content="#ffffff">
     <title>Đặt vé</title>
     <link rel="stylesheet" href="/css/datvexemphim.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
@@ -37,11 +38,7 @@
                 <input type="text" placeholder="Tìm phim ,rạp" class="search-bar">
                 <span class="search-icon">🔍</span>
             </div>
-            <button class="btn-login">
-                <span class="user-icon"></span> <a aria-current="page" href="/pages/login.html"><i class="fa-regular fa-circle-user"></i> Đăng nhập</a>
-            </button>
-            <span class="separator">|</span>
-            <button class="btn-register"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
+
         </div>
     </header>
     <nav>
@@ -63,32 +60,32 @@
             <label for="movie">Chọn Phim:</label>
             <div class="custom-select">
                 <select id="movie" required>
-                <option value="">---Chọn Phim---</option>
-                <option value="1">MỘ ĐOM ĐÓM</option>
-                <option value="2">ROBOT HOANG DÃ</option>
-                <option value="3">TRÒ CHƠI NHÂN TÍNH</option>
-                <option value="4">ELLI VÀ BÍ ẨN CHIẾC TÀU MA</option>
-                <option value="5">VENOM :KÈO CUỐI</option>
-                <option value="6">QUỶ ĂN TẠNG 2</option>
-                <option value="7">FUBAO:BẢO BỐI CỦA ÔNG</option>
-                <option value="8">AN LẠC</option>
-                <option value="9">TÍN HIỆU CẦU CỨU</option>
-                <option value="10">BOCCHI THE ROCK! Recap Part 2</option>
-                <option value="11">NHẤT QUỶ NHÌ MA, THỨ BA TAKAGI</option>
-                <option value="12">VÂY HÃM TẠI ĐÀI BẮC</option>
-                <option value="13">VÙNG ĐẤT BỊ NGUYỀN RỦA</option>
-                <option value="14">TIẾNG GỌI CỦA OÁN HỒN</option>
-                <option value="15">THẦN DƯỢC</option>
+                    <option value="">---Chọn Phim---</option>
+                    <option value="MỘ ĐOM ĐÓM">MỘ ĐOM ĐÓM</option>
+                    <option value="ROBOT HOANG DÃ">ROBOT HOANG DÃ</option>
+                    <option value="TRÒ CHƠI NHÂN TÍNH">TRÒ CHƠI NHÂN TÍNH</option>
+                    <option value="ELLI VÀ BÍ ẨN CHIẾC TÀU MA">ELLI VÀ BÍ ẨN CHIẾC TÀU MA</option>
+                    <option value="VENOM :KÈO CUỐI">VENOM :KÈO CUỐI</option>
+                    <option value="QUỶ ĂN TẠNG 2">QUỶ ĂN TẠNG 2</option>
+                    <option value="FUBAO:BẢO BỐI CỦA ÔNG">FUBAO:BẢO BỐI CỦA ÔNG</option>
+                    <option value="AN LẠC">AN LẠC</option>
+                    <option value="TÍN HIỆU CẦU CỨU">TÍN HIỆU CẦU CỨU</option>
+                    <option value="BOCCHI THE ROCK! Recap Part 2">BOCCHI THE ROCK! Recap Part 2</option>
+                    <option value="NHẤT QUỶ NHÌ MA, THỨ BA TAKAGI">NHẤT QUỶ NHÌ MA, THỨ BA TAKAGI</option>
+                    <option value="VÂY HÃM TẠI ĐÀI BẮC">VÂY HÃM TẠI ĐÀI BẮC</option>
+                    <option value="VÙNG ĐẤT BỊ NGUYỀN RỦA">VÙNG ĐẤT BỊ NGUYỀN RỦA</option>
+                    <option value="TIẾNG GỌI CỦA OÁN HỒN">TIẾNG GỌI CỦA OÁN HỒN</option>
+                    <option value="THẦN DƯỢC">THẦN DƯỢC</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="time">Chọn Giờ Chiếu:</label>
                 <select id="time" required>
                     <option value="">---Chọn Giờ---</option>
-                    <option value="1">9:15 AM</option>
-                    <option value="2">10:15 AM</option>
-                    <option value="3">8:15 PM</option>
-                    <option value="4">10:15 PM</option>
+                    <option value="9:15 AM">9:15 AM</option>
+                    <option value="10:15 AM">10:15 AM</option>
+                    <option value="8:15 PM">8:15 PM</option>
+                    <option value="10:15 PM">10:15 PM</option>
                 </select>
             </div>
             <div class="form-group">
@@ -98,9 +95,9 @@
             <div class="btn-datvengay">
                 <button type="submit">Đặt vé ngay</button>
             </div>
-            
-        
         </form>
     </div>
+    <!-- <button id="notify-btn">Đặt vé thành công!</button> //Tạo button thông báo  -->
+    <script src="/js/booking.js"></script>
 </body>
 </html>
