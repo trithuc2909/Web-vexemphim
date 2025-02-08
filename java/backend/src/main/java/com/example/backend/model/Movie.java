@@ -19,16 +19,17 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 255) // Không cho phép null và giới hạn độ dài
+    @Column(name = "name",nullable = false, length = 255) // Không cho phép null và giới hạn độ dài
     private String name;
-    
-    @Column(length = 500) //ảnh có thể null
+
+
+    @Column( name = "imageUrl",length = 500) //ảnh có thể null
     private String imageUrl;
 
-    @Column(length = 1000)
+    @Column( name = "description",length = 1000)
     private String description;
 
-    @Column(nullable = false)
+    @Column( name = "duration",nullable = false)
     private String duration;
 
     @Column(name = "created_at", updatable = false) // Ngày tạo và không được cập nhật

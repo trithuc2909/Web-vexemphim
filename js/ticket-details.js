@@ -1,10 +1,14 @@
 const ticketDetails = document.getElementById('ticket-details');
-// Lấy ticketId từ Url
+
+// Lấy ticketId từ phần path của url
 const params = new URLSearchParams(window.location.search);
 const ticketId = params.get('ticketId');
+console.log("ticket Id: " , ticketId
+);
+
 
 if (ticketId) {
-    fetch(`http://localhost:8080/tickets/api/booking/${ticketId}`)
+    fetch(`http://localhost:8080/api/tickets/booking/${ticketId}`)
     .then(response => {
         if(!response.ok){
             throw new Error('Không tìm thấy thông tin vé!');
@@ -17,8 +21,9 @@ if (ticketId) {
             <p>Phim: ${data.movieName}</p>
             <p>Giờ chiếu: ${data.time}</p>
             <p>Số lượng vé: ${data.quantity}</p>
-            <img src="${data.movieImage}" alt="Poster Phim ${data.movieName}">
+            <img src="${data.imageUrl}" alt="Poster Phim ${data.movieName}">
         `;
+        console.log( data );
     })
     .catch(err => {
         console.error(err);
