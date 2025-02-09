@@ -10,16 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(`http://localhost:8080/api/tickets/booking/${ticketId}`)
         .then(response => response.json())
         .then(ticket => {
+            if(ticket){
             document.getElementById('ticketId').textContent = ticket.ticketId;
-            document.getElementById('name').textContent = ticket.name;
+            document.getElementById('name').textContent = ticket.movieName;
             document.getElementById('time').textContent = ticket.time;
             document.getElementById('quantity').textContent = ticket.quantity;
-
-            if (ticket.movie) {
-                document.getElementById('name').textContent = ticket.movie.name;
-                document.getElementById('imageUrl').src = ticket.movie.imageUrl;
-                document.getElementById('description').textContent = ticket.movie.description;
-                document.getElementById('duration').textContent = ticket.movie.duration;
+            document.getElementById('imageUrl').src = ticket.imageUrl;
+            document.getElementById('description').textContent = ticket.description;
+            document.getElementById('duration').textContent = ticket.duration;    
             } else {
                 console.error("Không tìm thấy thông tin phim.");
             }

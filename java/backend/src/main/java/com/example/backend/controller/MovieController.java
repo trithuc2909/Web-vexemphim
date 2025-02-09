@@ -29,11 +29,7 @@ public class MovieController {
     public ResponseEntity<?> getMovies() {
         try {
             List<Movie> movies = movieService.getAllMovies();
-
-
             logger.info("Movies List: {}", movies);
-
-
             return ResponseEntity.ok(movies);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error" + e.getMessage());

@@ -168,10 +168,7 @@ nav {
     background-color: rgba(255, 255, 255, 0.2); /* Thay đổi màu nền khi hover */
 }
 
-.ticket-details p {
-    margin: 10px 0;
-    font-size: 16px;
-}
+
 .container button{
     padding: 10px 20px;
     font-size: 16px;
@@ -185,8 +182,22 @@ nav {
     background-color: #2874b3;
 }
 .container h1{
-    margin-top: 20px;
+    margin-top: 22px;
     margin-bottom: 20px;
     color: #fff;
     text-align: center;
 }
+#imageUrl {
+    margin-right: 1300px;
+    width: 300px; 
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0; /* Ngăn hình ảnh co lại */
+}
+.ticket-info {
+    margin-right: 400px;
+    margin-top: -400px;
+    font-size: 16px;
+    gap: 10px 0px;
+}
+

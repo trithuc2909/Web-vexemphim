@@ -17,7 +17,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     Optional<Ticket> findByTicketId(Long ticketId);
     List<Ticket> findByMovie(Movie movie); // Lấy tất cả vé theo bộ phim
 
-    @Query("SELECT new com.example.backend.dto.TicketDetailsDTO(t.ticketId, m.name, t.time, t.quantity, m.imageUrl)" +
-            "From Ticket t JOIN t.movie m Where t.ticketId = :ticketId")
+    @Query("SELECT new com.example.backend.dto.TicketDetailsDTO(t.ticketId, m.name, t.time, t.quantity, m.imageUrl, m.description, m.duration) " +
+            "from Ticket t JOIN t.movie m Where t.ticketId = :ticketId")
     Optional<TicketDetailsDTO> findTicketDetails(@Param("ticketId") Long ticketId);
 }
