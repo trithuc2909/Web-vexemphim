@@ -5,26 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Font Awesome/fontawesome-free-6.6.0-web/css/all.min.css">
     <link rel="stylesheet" href="../css/upcoming.css">
-    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <title>Đặt vé</title>
-    <link rel="stylesheet" href="/css/datvexemphim.css">
+    <link rel="stylesheet" href="../css/datvexemphim.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Đặt vé</title>
 </head>
 <body>
     <header>
@@ -38,7 +21,6 @@
                 <input type="text" placeholder="Tìm phim ,rạp" class="search-bar">
                 <span class="search-icon">🔍</span>
             </div>
-
         </div>
     </header>
     <nav>
@@ -52,51 +34,38 @@
             <li><a href="/pages/gioithieu.html">Giới Thiệu</a></li>
         </ul>
     </nav>
-    <div class="head">
-        <h1>ĐẶT VÉ XEM PHIM</h1>
-    </div>
-    <div class="container"> 
-        <form id="ticket-form">
-            <label for="movie">Chọn Phim:</label>
-            <div class="custom-select">
-                <select id="movie" required>
-                     <option value="">---Chọn Phim---</option>
-                   <!-- <option value="MỘ ĐOM ĐÓM">MỘ ĐOM ĐÓM</option>
-                    <option value="ROBOT HOANG DÃ">ROBOT HOANG DÃ</option>
-                    <option value="TRÒ CHƠI NHÂN TÍNH">TRÒ CHƠI NHÂN TÍNH</option>
-                    <option value="ELLI VÀ BÍ ẨN CHIẾC TÀU MA">ELLI VÀ BÍ ẨN CHIẾC TÀU MA</option>
-                    <option value="VENOM :KÈO CUỐI">VENOM :KÈO CUỐI</option>
-                    <option value="QUỶ ĂN TẠNG 2">QUỶ ĂN TẠNG 2</option>
-                    <option value="FUBAO:BẢO BỐI CỦA ÔNG">FUBAO:BẢO BỐI CỦA ÔNG</option>
-                    <option value="AN LẠC">AN LẠC</option>
-                    <option value="TÍN HIỆU CẦU CỨU">TÍN HIỆU CẦU CỨU</option>
-                    <option value="BOCCHI THE ROCK! Recap Part 2">BOCCHI THE ROCK! Recap Part 2</option>
-                    <option value="NHẤT QUỶ NHÌ MA, THỨ BA TAKAGI">NHẤT QUỶ NHÌ MA, THỨ BA TAKAGI</option>
-                    <option value="VÂY HÃM TẠI ĐÀI BẮC">VÂY HÃM TẠI ĐÀI BẮC</option>
-                    <option value="VÙNG ĐẤT BỊ NGUYỀN RỦA">VÙNG ĐẤT BỊ NGUYỀN RỦA</option>
-                    <option value="TIẾNG GỌI CỦA OÁN HỒN">TIẾNG GỌI CỦA OÁN HỒN</option>
-                    <option value="THẦN DƯỢC">THẦN DƯỢC</option> -->
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="time">Chọn Giờ Chiếu:</label>
-                <select id="time" required>
-                    <option value="">---Chọn Giờ---</option>
-                    <option value="9:15 AM">9:15 A.M</option>
-                    <option value="10:15 AM">10:15 A.M</option>
-                    <option value="8:15 PM">8:15 P.M</option>
-                    <option value="10:15 PM">10:15 P.M</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="quantity">Số lượng vé:</label>
-                <input type="number" id="quantity" min="1" max="10" placeholder="Nhập số lượng vé" required>
-            </div>
-            <div class="btn-datvengay">
-                <button type="submit">Đặt vé ngay</button>
-            </div>
-        </form>
-    </div>
+    <main>
+        <div class="head">
+            <h1>ĐẶT VÉ XEM PHIM</h1>
+        </div>
+        <div class="container"> 
+            <form id="ticket-form">
+                <label for="movie">Chọn Phim:</label>
+                <div class="custom-select">
+                    <select id="movie">
+                        <option value="0">---Chọn Phim---</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="time">Chọn Giờ Chiếu:</label>
+                    <select id="time">
+                        <option value="">---Chọn Giờ---</option>
+                        <option value="9:15 AM">9:15 A.M</option>
+                        <option value="10:15 AM">10:15 A.M</option>
+                        <option value="8:15 PM">8:15 P.M</option>
+                        <option value="10:15 PM">10:15 P.M</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Số lượng vé:</label>
+                    <input type="number" id="quantity" min="1" max="10" placeholder="Nhập số lượng vé" required>
+                </div>
+                <div class="btn-datvengay">
+                    <button type="submit">Đặt vé ngay</button>
+                </div>
+            </form>
+        </div>
+    </main>
     <script src="/js/booking.js"></script>
 </body>
 </html>

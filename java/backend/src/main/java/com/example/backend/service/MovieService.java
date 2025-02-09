@@ -5,6 +5,7 @@ import com.example.backend.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -28,9 +29,13 @@ public class MovieService {
     }
 
     //Tìm phim theo ID
-    @DeleteMapping("/delete")
-    public Movie getMovieById(Long id){
-        return movieRepository.findById(id).orElseThrow(() -> new RuntimeException("Movie not found"));
+    public Movie getMovieById(Long movieId){
+        return movieRepository.findById(movieId).orElseThrow(() -> new RuntimeException("Movie not found"));
+    }
+
+    //Xóa phim theo ID
+    public void deleteMovieById(Long movieId){
+        movieRepository.deleteById(movieId);
     }
 
 }

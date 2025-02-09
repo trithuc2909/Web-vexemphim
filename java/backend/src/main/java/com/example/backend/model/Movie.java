@@ -17,11 +17,10 @@ import lombok.NoArgsConstructor;
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long movieId;
 
     @Column(name = "name",nullable = false, length = 255) // Không cho phép null và giới hạn độ dài
     private String name;
-
 
     @Column( name = "imageUrl",length = 500) //ảnh có thể null
     private String imageUrl;
@@ -31,18 +30,6 @@ public class Movie {
 
     @Column( name = "duration",nullable = false)
     private String duration;
-
-    @Column(name = "created_at", updatable = false) // Ngày tạo và không được cập nhật
-    private java.time.LocalDateTime createdAt = java.time.LocalDateTime.now();
-
-    @Column(name = "updated_at")
-    private java.time.LocalDateTime updatedAt = java.time.LocalDateTime.now();
-
-
-     @PreUpdate
-    protected void onUpdate() {
-        updatedAt = java.time.LocalDateTime.now(); // Tự động cập nhật khi có thay đổi
-    }
 
     public Movie (String name, String imageUrl, String description, String duration ){
         this.name = name;
