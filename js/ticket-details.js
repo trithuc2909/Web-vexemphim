@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('time').textContent = ticket.time;
             document.getElementById('quantity').textContent = ticket.quantity;
             document.getElementById('imageUrl').src = ticket.imageUrl;
-            document.getElementById('description').textContent = ticket.description;
             document.getElementById('duration').textContent = ticket.duration;    
+            document.getElementById('description').textContent = ticket.description;
             } else {
                 console.error("Không tìm thấy thông tin phim.");
             }

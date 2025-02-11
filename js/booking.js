@@ -75,6 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (res.isConfirmed) {
                     window.location.href = `/pages/ticket-details.html?ticketId=${result.ticketId}`;
                     console.log("id ticket la: ", result.ticketId)
+                } else if (res.dismiss === Swal.DismissReason.cancel) {
+                    // Chuyển hướng về trang index
+                    window.location.href = '/pages/index.html';
                 }
             });
         } catch (err) {

@@ -74,7 +74,10 @@ header {
     transform: scale(0.98);      
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
-
+.btn-yellow a{
+    text-decoration: none;
+    color: black;
+}
 
 /* Nút màu tím */
 .btn-purple {
@@ -195,7 +198,6 @@ nav {
 
 /* Danh sách điều hướng */
 .main-nav {
-    
     list-style: none; /* Không có dấu chấm đầu dòng */
     display: flex; /* Sử dụng Flexbox */
     justify-content: center; /* Căn giữa */
