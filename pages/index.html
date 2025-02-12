@@ -34,8 +34,9 @@
             <button class="btn-yellow"><a aria-current="page" href="/pages/datvexemphim.html">ĐẶT VÉ NGAY</button></a> 
             <button class="btn-purple">ĐẶT BẮP NƯỚC</button>
             <div class="search-container">
-                <input type="text" placeholder="Tìm phim ,rạp" class="search-bar">
+                <input type="text" id="search-bar" placeholder="Tìm phim,..." class="search-bar" autocomplete="off">
                 <span class="search-icon">🔍</span>
+                <div class="search-results" id="search-results"></div>
             </div>
             <button class="btn-login">
                 <span class="user-icon"></span> <a aria-current="page" href="/pages/login.html"><i class="fa-regular fa-circle-user"></i> Đăng nhập</a>
@@ -292,5 +293,6 @@
        </div>
    </div>       
 
+   <script src="/js/search-movies.js"></script>
 </body>
 </html>

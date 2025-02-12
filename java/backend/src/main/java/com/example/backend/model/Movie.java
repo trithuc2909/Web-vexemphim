@@ -31,10 +31,14 @@ public class Movie {
     @Column( name = "duration",nullable = false)
     private String duration;
 
-    public Movie (String name, String imageUrl, String description, String duration ){
+    @Column(name = "page_url", nullable = false)
+    private String pageUrl;
+
+    public Movie (String name, String imageUrl, String description, String duration, String pageUrl ){
         this.name = name;
         this.imageUrl = imageUrl;
         this.description = description;
         this.duration = duration;
+        this.pageUrl = pageUrl;
     }
 }

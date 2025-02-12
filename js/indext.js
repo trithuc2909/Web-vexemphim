@@ -11,5 +11,4 @@ if (userLogin){
 }
 else {
     userLoginElement.innerHTML =  "";
-    
 }

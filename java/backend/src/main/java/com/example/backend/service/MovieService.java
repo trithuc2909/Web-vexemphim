@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class MovieService {
-    @Autowired
     private final MovieRepository movieRepository;
 
+    @Autowired
     public MovieService(MovieRepository movieRepository){
         this.movieRepository = movieRepository;
     }
@@ -36,6 +37,11 @@ public class MovieService {
     //Xóa phim theo ID
     public void deleteMovieById(Long movieId){
         movieRepository.deleteById(movieId);
+    }
+
+    public List<Movie> searchMovies (String name) {
+        List<Movie> movies = movieRepository.findByNameContainingIgnoreCase(name);
+        return movies.isEmpty() ? new ArrayList<>() : movies;
     }
 
 }

@@ -7,13 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("/api")
 @RestController
 public class MovieController {
 
@@ -25,7 +23,7 @@ public class MovieController {
     @Autowired
     private MovieRepository movieRepository;
     //API lấy danh sách phim
-    @GetMapping("/api/movies")
+    @GetMapping("/movies")
     public ResponseEntity<?> getMovies() {
         try {
             List<Movie> movies = movieService.getAllMovies();
@@ -36,8 +34,17 @@ public class MovieController {
         }
     }
 
+    //Tạo API tìm phim
+    @GetMapping("/search")
+    public ResponseEntity<?> searchMovie(@RequestParam String name){
+        List<Movie> movies = movieService.searchMovies(name);
+        if (movies.isEmpty()){
+            return ResponseEntity.notFound().build(); // Trả về 404 nếu không tìm thấy phim
+        }
+        return ResponseEntity.ok(movies); // Trả về danh sách phim
+    }
     // API xóa tất cả phim
-    @DeleteMapping("/api/movies")
+    @DeleteMapping("/movies")
     public String deleteAllMovies(String confirm) {
         // tạo confirm xác nhận xóa
         if(!"CONFIRM".equals(confirm)){
@@ -48,7 +55,7 @@ public class MovieController {
     }
 
     //API xóa movie theo id
-    @DeleteMapping("api/movies/{movieId}")
+    @DeleteMapping("/movies/{movieId}")
     public String deleteMovieById(@PathVariable long movieId){
         movieRepository.deleteById(movieId);
         return "Phim đã xóa !";
