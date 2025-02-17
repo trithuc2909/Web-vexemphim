@@ -1,198 +1,145 @@
-html, body {
-    height: 100%; /* Chiều cao 100% của khung nhìn */
-    margin: 0; /* Xóa khoảng cách mặc định của trình duyệt */
-    padding: 0; /* Xóa khoảng cách mặc định của trình duyệt */
-    font-family: Arial, sans-serif; /* Đặt phông chữ mặc định */
+*{
+    box-sizing: border-box;  /* Không cho thuộc tính này phát sinh thêm không gian  */
+  }
+  .body {
+      font-style: normal;
+      font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      line-height: 1.42857143;
+  }
+  .boxcenter {
+      width: 70%;
+      margin: 0 auto;
+  }
+  .row {
+      float: left;
+      width: 100%;
+  }
+  .mb {
+      margin-bottom: 20px;
+  }
+  .mb10 {
+      margin-bottom: 10px;
+  }
+  .mr {
+      margin-right: 2%;
+  }
+  .demo {
+      background-color: #e31837;
+      min-height: 100px;
+  }
+  .menu {
+      background-color: #484848;
+      color: #fff;
+      border-radius: 5px;
+  } 
+
+  .menu ul{
+      padding: 0px 15px;
+  }
+  .menu ul li{
+      cursor: pointer;
+      list-style-type: none;
+      display: inline;
+      padding: 0px 15px;
+  }
+  .menu ul li a{
+      color: white;
+      font-size: 1vw;
+      text-decoration: none;
+      transition: 0.5s;
+  }
+  .menu ul li a:hover{
+      color: #e31837;
+      font-size: 1.2vw;
+  }
+
+
+  /* === ADMIN === */
+  .header_admin {
+    background-color: #e31837;
+    color: #FFFFFF;
+    border: 1px #252836 solid;
+    border-radius: 5px;
+    padding: 0px 20px;
+} 
+
+.header_admin h1{
+    font-size: 2vw;
 }
 
-/* Thiết lập hình nền cho body */
-body {
+.form_tieude {
+    background-color: #e31837;
+    color: #FFFFFF;
+    border: 1px #252836 solid;
+    border-radius: 5px;
+    padding: 0px 20px;
+}
+
+.form_noidung {
+    padding: 20px 0px;
+}
+
+.form_noidung input[type="text"]{
+    width: 100%;
+    border: 1px #252836 solid;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.form_noidung input[type="submit"],
+.form_noidung input[type="reset"],
+.form_noidung input[type="button"]{
+    background-color: #444444;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px #252836 solid;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.form_noidung input[type="submit"]:hover, 
+.form_noidung input[type="reset"]:hover,
+.form_noidung input[type="button"]:hover,
+.form_dsloai input[type="checkbox"]:hover {
+    background-color: #666666;
+    cursor: pointer;
+}
+
+
+/* === form danh sách loại === */
+
+.form_dsloai table{
+    width: 100%;
+    border-collapse: collapse; /* Để bỏ các khoản cách giữa các cột */
+    border: 1px #1E1E2E solid;
+}
+
+.form_dsloai table th:nth-child(1) {
+    width: 10%;
+    padding: 20px;
+    background-color: #484848;
     color: #fff;
-    /* background-image: url('../Image/movie.jpg'); */
-    background-color: blueviolet;
-    background-size: cover; /* Chiếm toàn bộ không gian */
-    background-position: center; /* Căn giữa hình nền */
-    background-repeat: no-repeat; /* Không lặp lại hình nền */
-    background-attachment: fixed; /* Hình nền cố định khi cuộn */
 }
 
-/* Thiết lập cho thanh đầu trang (header) */
-header {
-    display: flex; /* Sử dụng Flexbox để bố trí */
-    justify-content: space-between; /* Khoảng cách đều giữa các phần tử */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    padding: 10px 20px; /* Padding cho header */
-        /* Nền bán trong suốt */
-    width: 100%; /* Chiều rộng 100% */
-    top: 0; /* Đặt ở trên cùng */
-    z-index: 1000; /* Đảm bảo ở trên cùng so với các phần tử khác */
-    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng nếu không đủ không gian */
-}
-
-/* Thiết lập cho logo trong header */
-.logo {
-    flex: 1; 
-    
-}
-
-/* Kích thước của hình ảnh logo */
-.logo img {
-    margin-left: 60px;
-    height: 100px; /* Chiều cao logo */
-}
-.actions {
-    margin-left: -300px;
-    display: flex; /* Sử dụng Flexbox */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    gap: 20px; /* Khoảng cách giữa các nút */
-    flex: 2; /* Chiếm không gian lớn hơn */
-    justify-content: center; /* Căn giữa */
-}
-
-/* Nút màu vàng */
-.btn-yellow {
-    background: linear-gradient(90deg, yellow 50%, rgb(117, 230, 247) 50%);
-    background-size: 200%;  
-    background-position: 0%; 
-    color: black;        
-    font-weight: bold;      
-    padding: 12px 24px;   
-    border: 2px solid #000; 
-    border-radius: 12px;   
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
-    cursor: pointer;        
-    transition: background-position 0.4s ease-in-out; 
-    font-size: 16px; 
-    width: 180px;
-    height: 40px;
-}
-
-.btn-yellow:hover {
+.form_dsloai table th:nth-child(2) {  /*Tổng 4 child là 100% */
+    width: 30%;
+    background-color: #484848;
     color: #fff;
-    background-position: 100%;
 }
-
-.btn-yellow:active {
-    transform: scale(0.98);      
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Nút màu vàng */
-.btn-purple {
-    background: linear-gradient(90deg, rgb(76, 171, 209) 50%, orange 50%);
-    background-size: 200%;  
-    background-position: 0%; 
-    color: black;        
-    font-weight: bold;      
-    padding: 12px 24px;   
-    border: 2px solid #000; 
-    border-radius: 12px;   
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
-    cursor: pointer;        
-    transition: background-position 0.4s ease-in-out; 
-    font-size: 16px; 
-    width: 180px;
-    height: 40px;
-}
-
-.btn-purple:hover {
+.form_dsloai table th:nth-child(3) {
+    width: 35%;
+    background-color: #484848;
     color: #fff;
-    background-position: 100%;
 }
-
-.btn-purple:active {
-    transform: scale(0.98);      
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Thiết lập cho vùng tìm kiếm */
-.search-container {
-    position: relative; /* Vị trí tương đối để chứa biểu tượng tìm kiếm */
-    display: flex; /* Sử dụng Flexbox */
-    align-items: center;
-}
-.search-container input{
-    border-radius: 30px;
-    height: 20px;
-}
-
-/* Thanh tìm kiếm */
-.search-bar {
-    padding: 8px; /* Padding cho thanh tìm kiếm */
-    border-radius: 5px; /* Bo tròn góc */
-    border: 1px solid #ccc; /* Viền xám nhạt */
-    width: 200px; /* Chiều rộng của thanh tìm kiếm */
-    padding-left: 30px; /* Padding bên trái để tạo khoảng cách cho biểu tượng tìm kiếm */
-}
-
-/* Biểu tượng tìm kiếm */
-.search-icon {
-    position: absolute; 
-    left: 10px; 
-    font-size: 16px; 
-    color: #888; 
-}
-
-/* Nút đăng nhập */
-.btn-login {
-    background: none; /* Không nền */
-    color: white; /* Màu chữ trắng */
-    padding: 10px 20px; /* Padding cho nút */
-    border: none; /* Không viền */
-    cursor: pointer; /* Con trỏ thành hình tay khi hover */
-    font-size: 16px; /* Kích thước chữ */
-    display: flex; /* Sử dụng Flexbox */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    gap: 5px; /* Khoảng cách giữa các phần tử bên trong */
-}
-.btn-login a {
+.form_dsloai table th:nth-child(4) {
+    width: 25%;
+    background-color: #484848;
     color: #fff;
-    text-decoration: none;
 }
 
-.btn-login a:hover {
-    color: #ff0;
-}
+/* === .form_dsloai td === */
 
-
-/* Hiệu ứng hover cho nút đăng nhập */
-.btn-login:hover {
-    color: #ff0; /* Thay đổi màu chữ khi hover */
-}
-
-/* Nút đăng ký */
-.btn-register {
-    background: none; /* Không nền */
-    color: white; /* Màu chữ trắng */
-    padding: 10px 20px; /* Padding cho nút */
-    border: none; /* Không viền */
-    cursor: pointer; /* Con trỏ thành hình tay khi hover */
-    font-size: 16px; /* Kích thước chữ */
-}
-
-.btn-register a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.btn-register a:hover {
-    color: #ff0;
-}
-
-/* Hiệu ứng hover cho nút đăng ký */
-.btn-register:hover {
-    color: #ff0; /* Thay đổi màu chữ khi hover */
-}
-
-/* Dấu phân cách giữa các phần tử */
-.separator {
-    color: white; /* Màu chữ trắng */
-    padding: 0 10px; /* Padding bên trái và bên phải */
-    font-size: 16px; /* Kích thước chữ */
-}
-hr {
-    width: 90%; 
-    margin: auto; 
+.form_dsloai table td{
+    padding: 10px 20px;
+    border: 1px #CCC solid;
 }

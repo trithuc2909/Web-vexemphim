@@ -2,29 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/admin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QUẢN LÝ TÀI KHOẢN</title>
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
-    <header>
-        <a class="logo" href="/pages/index.html">
-            <img src="../Image/logo.png" alt="LOGO">
-        </a>
-        <div class="actions">
-            <button class="btn-yellow">ĐẶT VÉ NGAY</button>
-            <button class="btn-purple">ĐẶT BẮP NƯỚC</button>
-            <div class="search-container">
-                <input type="text" placeholder="Tìm phim ,rạp" class="search-bar">
-                <span class="search-icon">🔍</span>
-            </div>
-            <button class="btn-login">
-                <span class="user-icon"></span> <a aria-current="page" href="/pages/login.html"><i class="fa-regular fa-circle-user"></i> Đăng nhập</a>
-            </button>
-            <span class="separator">|</span>
-            <button class="btn-register"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
+    <div class="boxcenter">
+        <div class="row mb header_admin">
+            <h1>QUẢN LÝ TÀI KHOẢN</h1> 
         </div>
-    </header>
-    <hr>
+        <div class="row">
+            <div class="row form_tieude">
+                <h1>DANH SÁCH TÀI KHOẢN</h1>
+            </div>    
+            <div class="row form_noidung">
+                <div class="row mb10 form_dsloai">
+                    <table id="userTable">
+                        <thead>
+                            <tr>
+                                <th>MÃ TÀI KHOẢN</th>
+                                <th>EMAIL</th>
+                                <th>MẬT KHẨU</th>
+                                <th>CẬP NHẬT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Nội dung sẽ được thêm bằng JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row mb10">
+                    <button onclick="showAddUserForm()">Nhập thêm</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Form thêm/sửa tài khoản -->
+    <div id="userForm" style="display: none;">
+        <h2 id="formTitle">Thêm Tài Khoản</h2>
+        <form id="formUser">
+            <input type="hidden" id="userId">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Lưu</button>
+            <button type="button" onclick="hideUserForm()">Hủy</button>
+        </form>
+    </div>
+
+    <script src="/js/admin.js"></script>
 </body>
 </html>

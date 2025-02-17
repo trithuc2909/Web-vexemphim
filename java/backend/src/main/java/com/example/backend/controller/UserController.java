@@ -29,7 +29,7 @@ public class UserController {
             return ResponseEntity.ok("Đăng ký tài khoản thành công");
         }
         catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 

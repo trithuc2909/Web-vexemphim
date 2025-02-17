@@ -14,7 +14,7 @@ const alertError = document.getElementById("alertError");
  * Validate địa chỉ email
  * @param {*} email: chuỗi email mà user nhập vào 
  * @returns: Dữ liệu nếu email đúng định dạng, Undefined nếu email không đúng định dạng 
- * Author: Trí Thức (10/5/2024)
+ * Author: Trí Thức (10/5/2025)
  */
 //Function ràng buộc viết email
 function validateEmail (email) {
@@ -37,8 +37,6 @@ formLogin.addEventListener("submit", async function(e) {
     //Validate dữ liệu đầu vào
     //email
     if (!emailElement.value){
-        //    alert("Tên không được để trống");
-            // Hiển thị lỗi
             emailError.style.display = "block";
         } else{
             // Ẩn lỗi
@@ -70,21 +68,17 @@ formLogin.addEventListener("submit", async function(e) {
         });
 
         const result = await response.json()
-        console.log("Người dùng đã đăng nhap:", result);
+        console.log("Người dùng đã đăng nhập:", result);
         
         if (response.ok) {
-            window.location.href = "index.html";  // Đăng nhập thành công
+        // Lưu thông tin người dùng vào localStorage
+        localStorage.setItem("userLogin", JSON.stringify(result));   
+
+        window.location.href = "index.html";  // Đăng nhập thành công
         } else {
             alertError.style.display = "block";
-            // alertError.innerHTML = "Email hoặc mật khẩu không đúng.";
+            alertError.innerHTML = "Email hoặc mật khẩu không chính xác.";
         }
-        // if (!findUser){
-        //     // nếu không thì thông báo cho người dùng nhập lại dữ liệu
-        //     alertError.style.display ="block";
-        // } else {
-        //     //nếu có thì đăng nhập thành công và chuyển hướng về trang chủ
-        //     window.location.href = "indext.html";
-        // }
     } catch (error) {
         console.error("Lỗi kết nối:", error);
         alertError.style.display = "block";

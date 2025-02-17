@@ -710,14 +710,13 @@ form button:active {
     display: none;
     max-height: 300px; /* Giới hạn chiều cao */
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 2000;
 }
 
 /* Mỗi mục phim */
 .search-item {
     padding: 10px;
     cursor: pointer;
-    transition: background 0.2s ease-in-out;
 }
 
 .search-item:hover {
@@ -725,12 +724,6 @@ form button:active {
 }
 
 /* Hiển thị khi có kết quả */
-.search-results.show {
-    display: block;
-}
-.search-results {
-    display: none;
-}
 .search-results.show {
     display: block;
 }
