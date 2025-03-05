@@ -122,6 +122,9 @@ formRegister.addEventListener("submit", async function(e){
         email: emailElement.value,
         password: passwordElement.value,
     };
+
+    console.log("Dữ liệu gửi lên:", JSON.stringify(user, null, 2));
+
 // Gửi yêu cầu POST tới API đăng ký
     try {
         const response = await fetch("http://localhost:8080/rg/users/register", {
@@ -135,6 +138,8 @@ formRegister.addEventListener("submit", async function(e){
         if (!response.ok) {
             throw new Error("Đăng ký không thành công");
         }
+        console.log("Dữ liệu user gửi lên:", user);
+
 
         const result = await response.json();
         console.log("Người dùng đã đăng ký:", result);

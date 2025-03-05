@@ -57,31 +57,34 @@ formLogin.addEventListener("submit", async function(e) {
             passwordError.style.display = "none";
     }    
 
-     // Gửi yêu cầu đăng nhập tới API
-     try {
+    try {
         const response = await fetch("http://localhost:8080/rg/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ emailInput, password }),
+            body: JSON.stringify({ emailInput: emailInput, password: password }),
         });
-
-        const result = await response.json()
-        console.log("Người dùng đã đăng nhập:", result);
-        
+    
+        const result = await response.json();
+        console.log("Login response:", result);
+    
         if (response.ok) {
-        // Lưu thông tin người dùng vào localStorage
-        localStorage.setItem("userLogin", JSON.stringify(result));   
-
-        window.location.href = "index.html";  // Đăng nhập thành công
+            localStorage.setItem("userLogin", JSON.stringify(result)); // Lưu thông tin người dùng
+            
+            // Đánh dấu trạng thái đăng nhập thành công
+            localStorage.setItem("loginSuccess", "true");
+    
+            // Chuyển hướng về trang chủ
+            window.location.href = "index.html";
         } else {
             alertError.style.display = "block";
+            
             alertError.innerHTML = "Email hoặc mật khẩu không chính xác.";
         }
     } catch (error) {
         console.error("Lỗi kết nối:", error);
         alertError.style.display = "block";
-        alertError.innerHTML = "Có lỗi xảy ra khi đăng nhập.";
-    }
+        alertError.innerHTML = "Có lỗi xảy ra khi đăng nhập: " + error.message;
+    }    
 });

@@ -50,4 +50,6 @@ public class User {
         this.password = password;
     }
 
+    public User() {} // Constructor mặc định cần có
+
 }

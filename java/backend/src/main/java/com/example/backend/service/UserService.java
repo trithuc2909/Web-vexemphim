@@ -24,20 +24,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public Optional<User> loginUser(String loginInput, String password) throws Exception {
-        Optional<User> userOptional = userRepository.findByEmail(loginInput);
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
-            if (passwordEncoder.matches(password, user.getPassword())) {    // so sánh password user nhập vs passwordEncoder
-                return Optional.of(user);
-            }
-            else {
-                throw new Exception("Thông tin đăng nhập sai!");
-            }
+    public Optional<User> loginUser(String email, String password) {
+        Optional<User> user = userRepository.findByEmail(email); // Tìm user bằng email
+        if (user.isPresent() && passwordEncoder.matches(password, user.get().getPassword())) { // So sánh mật khẩu
+            return user;
         }
-        else {
-            throw new Exception("Không tìm thấy người dùng! ");
-        }
+        return Optional.empty();
     }
 
     public Optional<User> getUserById(Long id) {

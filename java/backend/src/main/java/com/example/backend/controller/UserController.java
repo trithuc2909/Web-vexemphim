@@ -21,30 +21,34 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/register") // định nghĩa 1 API POST taị đường dẫn /register. Để gửi yêu cầu đăng ký
-    public ResponseEntity<?>createUser(@RequestBody User user) {
+    @PostMapping("/register")
+    public ResponseEntity<?> createUser(@RequestBody User user) {
         try {
             userService.validateUser(user);
             User createdUser = userService.createUser(user);
-            return ResponseEntity.ok("Đăng ký tài khoản thành công");
-        }
-        catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+
+            // Trả về JSON thay vì chuỗi thuần
+            return ResponseEntity.ok("{\"message\": \"Đăng ký tài khoản thành công\"}");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
-    @PostMapping("/login") // định nghĩa 1 API POST taị đường dẫn /login. Để gửi yêu cầu đăng nhập
+
+
+
+
+
+    @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody UserDTO.LoginRequest loginRequest) {
         try {
             Optional<User> user = userService.loginUser(loginRequest.getEmailInput(), loginRequest.getPassword());
             if (user.isPresent()) {
-                return new ResponseEntity<>(user.get(), HttpStatus.OK);
-            }
-            else {
+                return new ResponseEntity<>(user.get(), HttpStatus.OK); // Trả về thông tin người dùng
+            } else {
                 return new ResponseEntity<>("Không tìm thấy người dùng!", HttpStatus.UNAUTHORIZED);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
         }
     }

@@ -1,17 +1,4 @@
 // === form Đăng nhập ===
-document.addEventListener("DOMContentLoaded", function(){
-// Lấy dữ liệu trên Local về
-const userLogin = JSON.parse(localStorage.getItem("userLogin"));
-const actionsDiv = docyment.querySelector(".actions");
-
-if (userLogin){
-    //Xóa nút đăng nhập vào đăng ký
-    document.querySelector(".btn-login").remove();
-    document.querySelector(".btn-register").remove();
-    document.querySelector(".separator").remove();
-
-    //Thêm avatar
-}
 
 
 
@@ -52,7 +39,5 @@ document.getElementById("contact-form").addEventListener("submit", async functio
         console.error("Lỗi trong quá trình gửi thông tin liên hệ:", error);
         alert("Lỗi trong quá trình gửi thông tin liên hệ!");
     }
-
-})
 
 });

@@ -24,11 +24,12 @@
                 <span class="search-icon">🔍</span>
                 <div class="search-results" id="search-results"></div>
             </div>
-            <button class="btn-login">
+            <div id="userLogin"></div>
+            <button class="btn-login" id="loginButton">
                 <span class="user-icon"></span> <a aria-current="page" href="/pages/login.html"><i class="fa-regular fa-circle-user"></i> Đăng nhập</a>
             </button>
             <span class="separator">|</span>
-            <button class="btn-register"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
+            <button class="btn-register" id="registerButton"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
         </div>
     </header>
 
@@ -89,7 +90,6 @@
         <button class="button">ĐẶT NGAY</button>
     </div>
     <h1 align="center" style="color: white;"><br>PHIM ĐANG CHIẾU</h1>
-
     <div class="movie-container">
         <div class="movie">
         <a href="../pages/joker.html">
@@ -279,6 +279,8 @@
        </div>
    </div>       
 
-   <script src="/js/search-movies.js"></script>
+<!-- === script ===  -->
+        <script src="/js/search-movies.js"></script>
+        <script src="/js/login.js"> </script>
 </body>
 </html>
