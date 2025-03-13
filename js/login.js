@@ -77,6 +77,8 @@ formLogin.addEventListener("submit", async function(e) {
     
             // Chuyển hướng về trang chủ
             window.location.href = "index.html";
+
+            
         } else {
             alertError.style.display = "block";
             
@@ -85,6 +87,6 @@ formLogin.addEventListener("submit", async function(e) {
     } catch (error) {
         console.error("Lỗi kết nối:", error);
         alertError.style.display = "block";
-        alertError.innerHTML = "Có lỗi xảy ra khi đăng nhập: " + error.message;
+        alertError.innerHTML = "Có lỗi xảy ra khi đăng nhập: ";
     }    
 });

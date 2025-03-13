@@ -41,7 +41,7 @@ header {
 
 /* Thiết lập cho vùng chứa các nút hành động */
 .actions {
-    
+    padding-left: 10px;
     display: flex; /* Sử dụng Flexbox */
     align-items: center; /* Căn giữa theo chiều dọc */
     gap: 20px; /* Khoảng cách giữa các nút */
@@ -726,4 +726,25 @@ form button:active {
 /* Hiển thị khi có kết quả */
 .search-results.show {
     display: block;
+}
+
+/* FORM LOGIN  */
+#userLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-info {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.btn-logout {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
 }

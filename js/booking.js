@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById('ticket-form');
     const movieDropdown = document.getElementById('movie');
+    const quantityInput = document.getElementById('quantity');
+    const totalPriceSpan = document.getElementById('total-price');
+    
+    const ticketPrice = 100000; // Giá vé cố định 100,000 VND
+
+    // Cập nhật tổng tiền khi thay đổi số lượng vé
+    quantityInput.addEventListener('input', function () {
+        const quantity = parseInt(quantityInput.value) || 0;
+        const total = quantity * ticketPrice;
+        totalPriceSpan.textContent = `${total.toLocaleString()} VND`;
+    });
 
     // Fetch danh sách phim
     fetch('http://localhost:8080/api/movies')
@@ -11,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 option.value = movie.movieId;
                 option.textContent = movie.name;
                 movieDropdown.appendChild(option);
-                
             });
         })
         .catch(err => {
@@ -74,9 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }).then((res) => {
                 if (res.isConfirmed) {
                     window.location.href = `/pages/ticket-details.html?ticketId=${result.ticketId}`;
-                    console.log("id ticket la: ", result.ticketId)
-                } else if (res.dismiss === Swal.DismissReason.cancel) {
-                    // Chuyển hướng về trang index
+                } else {
                     window.location.href = '/pages/index.html';
                 }
             });

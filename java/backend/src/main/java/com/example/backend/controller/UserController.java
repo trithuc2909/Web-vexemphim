@@ -34,11 +34,6 @@ public class UserController {
         }
     }
 
-
-
-
-
-
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody UserDTO.LoginRequest loginRequest) {
         try {

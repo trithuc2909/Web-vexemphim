@@ -24,13 +24,16 @@
                 <span class="search-icon">🔍</span>
                 <div class="search-results" id="search-results"></div>
             </div>
-            <div id="userLogin"></div>
-            <button class="btn-login" id="loginButton">
-                <span class="user-icon"></span> <a aria-current="page" href="/pages/login.html"><i class="fa-regular fa-circle-user"></i> Đăng nhập</a>
-            </button>
-            <span class="separator">|</span>
-            <button class="btn-register" id="registerButton"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
+            <div id="userLogin">
+                <button class="btn-login" id="loginButton">
+                    <span class="user-icon"></span> <a aria-current="page" href="/pages/login.html"><i class="fa-regular fa-circle-user"></i> Đăng nhập</a>
+                </button>
+                <span class="separator">|</span>
+                <button class="btn-register" id="registerButton"><a aria-current="page" href="/pages/register.html">Đăng ký</a></button>
+            </div>
+            
         </div>
+
     </header>
 
     <nav>
@@ -87,7 +90,7 @@
                 <option>22h</option>
             </select>
         </div>
-        <button class="button">ĐẶT NGAY</button>
+        <a href="/pages/datvexemphim.html"> <button class="button">ĐẶT NGAY</button></a>
     </div>
     <h1 align="center" style="color: white;"><br>PHIM ĐANG CHIẾU</h1>
     <div class="movie-container">
@@ -186,9 +189,9 @@
         </div>
         <div class="contact-info">
             <h3>THÔNG TIN LIÊN HỆ</h3>
-            <p><i class="email">✉ marketing.vhucinemas@gmail.com</i></p>
-            <p><i class="phone">📞 028 8888 6666</i></p>
-            <p><i class="address">📍 613 Âu Cơ, phường 10, Quận Tân Bình, TP.HCM</i></p>
+            <p><i class="email">✉ danghuutrithuc@gmail.com</i></p>
+            <p><i class="phone">📞 0886192294 </i></p>
+            <p><i class="address">📍 74 Lũy Bán Bích, Tân Thới Hòa, Tân Phú</i></p>
             <form id="contact-form">
                 <input type="text" id="contact-name" placeholder="Họ và tên" required>
                 <input type="email" id="contact-email" placeholder="Điền email" required>
@@ -196,6 +199,7 @@
                 <button type="submit">GỬI NGAY</button>
             </form>
         </div>
+        
     </div>
     <br>
     <br>
@@ -282,5 +286,6 @@
 <!-- === script ===  -->
         <script src="/js/search-movies.js"></script>
         <script src="/js/login.js"> </script>
+        <script src="/js/indext.js"></script>
 </body>
 </html>

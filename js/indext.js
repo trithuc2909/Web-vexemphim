@@ -1,4 +1,27 @@
 // === form Đăng nhập ===
+document.addEventListener("DOMContentLoaded", function () {
+    const userLoginContainer = document.getElementById("userLogin");
+    const loginButton = document.getElementById("loginButton");
+    const registerButton = document.getElementById("registerButton");
+
+    const user = JSON.parse(localStorage.getItem("userLogin"));
+
+    if (user) {
+        userLoginContainer.innerHTML = `
+            <div class="user-info">
+                <span>👤 ${user.username}</span>
+                <button class="btn-logout" id="logoutButton">Đăng xuất</button>
+            </div>
+        `;
+        loginButton.style.display = "none";
+        registerButton.style.display = "none";
+
+        document.getElementById("logoutButton").addEventListener("click", function () {
+            localStorage.removeItem("userLogin");
+            location.reload(); 
+        });
+    }
+});
 
 
 
