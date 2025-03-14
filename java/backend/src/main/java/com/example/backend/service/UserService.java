@@ -52,5 +52,31 @@ public class UserService {
             throw new RuntimeException("Không tìm thấy người dùng với ID này " + id);
         }
     }
+
+    // Phương thức update người dùng theo ID
+    public User updateUser(Long id, User updateUser) {
+        Optional<User> existingUser = userRepository.findById(id);
+        if (existingUser.isPresent()) {
+            User user = existingUser.get();
+
+            // Kiểm tra xem email có bị trùng hay không
+            Optional<User> userWithEmail = userRepository.findByEmail(updateUser.getEmail());
+            if (userWithEmail.isPresent()) {
+                throw new RuntimeException("Email đã tồn tại rồi");
+            }
+
+            user.setUsername(updateUser.getUsername());
+            user.setEmail(updateUser.getEmail());
+
+            //Chỉ mã hóa lại mật khẩu nếu có thay đổi
+            if (updateUser.getPassword() != null && !updateUser.getPassword().isEmpty()){
+                user.setPassword(passwordEncoder.encode(updateUser.getPassword()));
+            }
+
+            return userRepository.save(user);
+        } else {
+            throw new RuntimeException("Người dùng không tồn tại");
+        }
+    }
 }
 

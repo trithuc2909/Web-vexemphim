@@ -12,12 +12,9 @@ public class TicketDetailsDTO {
     private String description;
     private String duration;
 
-
-
     public TicketDetailsDTO(){
 
     }
-
     public TicketDetailsDTO(Long ticketId, String movieName, String time, int quantity, String imageUrl, String description, String duration) {
         this.ticketId = ticketId;
         this.movieName = movieName;

@@ -70,4 +70,14 @@ public class UserController {
             return ResponseEntity.status(400).body("Lỗi khi xóa người dùng: " + e.getMessage());
         }
     }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody User updateUser){
+        try {
+            User user = userService.updateUser(id, updateUser);
+            return ResponseEntity.ok(user);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
 }

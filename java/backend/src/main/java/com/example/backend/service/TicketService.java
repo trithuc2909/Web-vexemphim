@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TicketService {
@@ -47,5 +48,29 @@ public class TicketService {
     }
     public Ticket save(Ticket ticket) {
         return ticketRepository.save(ticket);
+    }
+
+    //Update ticket by id
+    public Ticket updateTicket(Long ticketId, Ticket updateTicket ){
+        Optional<Ticket> existingTicket = ticketRepository.findById(ticketId);
+        if (existingTicket.isPresent()){
+            Ticket ticket = existingTicket.get();
+
+            ticket.setTime(updateTicket.getTime());
+            ticket.setQuantity(updateTicket.getQuantity());
+
+            Movie movie = movieRepository.findById(updateTicket.getMovie().getMovieId())
+                    .orElseThrow(() -> new RuntimeException("Phim không tồn tại"));
+
+            ticket.setMovie(movie);
+            return ticketRepository.save(ticket);
+
+        } else {
+            throw new RuntimeException("Vé này không tồn tại");
+        }
+    }
+
+    List<Ticket> getAllTicket(){
+        return ticketRepository.findAll();
     }
 }
