@@ -60,7 +60,7 @@ public class UserController {
     }
 
     // Phương thức delete xóa người dùng theo ID
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         try {
             // Gọi service để xóa người dùng

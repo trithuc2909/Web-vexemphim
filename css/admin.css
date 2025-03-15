@@ -56,7 +56,7 @@
 
   /* === ADMIN === */
   .header_admin {
-    background-color: #e31837;
+    background-color: blueviolet;
     color: #FFFFFF;
     border: 1px #252836 solid;
     border-radius: 5px;
@@ -68,7 +68,7 @@
 }
 
 .form_tieude {
-    background-color: #e31837;
+    background-color: blueviolet;
     color: #FFFFFF;
     border: 1px #252836 solid;
     border-radius: 5px;
@@ -131,14 +131,22 @@
     color: #fff;
 }
 .form_dsloai table th:nth-child(4) {
-
     background-color: #484848;
     color: #fff;
 }
-
+.form_dsloai table th:nth-child(5) {
+    background-color: #484848;
+    color: #fff;
+}
 /* === .form_dsloai td === */
 
 .form_dsloai table td{
     padding: 10px 20px;
     border: 1px #CCC solid;
+}
+
+ /*==== form user ==== */
+#userForm {
+    width: 100%;
+    gap: 10px;
 }

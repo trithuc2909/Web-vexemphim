@@ -47,30 +47,35 @@ public class UserService {
 
     // Phương thức xóa người dùng theo ID
     public void deleteUser(Long id) {
-        if (userRepository.existsById(id)) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()){
             userRepository.deleteById(id);
         } else {
-            throw new RuntimeException("Không tìm thấy người dùng với ID này " + id);
+            throw new RuntimeException("Người dùng không tồn tại");
         }
     }
 
-    // Phương thức update người dùng theo ID
+    // Phương thức updateUser by id
     public User updateUser(Long id, User updateUser) {
         Optional<User> existingUser = userRepository.findById(id);
         if (existingUser.isPresent()) {
             User user = existingUser.get();
 
-            // Kiểm tra xem email có bị trùng hay không
-            Optional<User> userWithEmail = userRepository.findByEmail(updateUser.getEmail());
-            if (userWithEmail.isPresent()) {
-                throw new RuntimeException("Email đã tồn tại rồi");
+            // Chỉ kiểm tra email nếu email mới khác email cũ
+            if (updateUser.getEmail() != null && !updateUser.getEmail().equals(user.getEmail())) {
+                Optional<User> userWithEmail = userRepository.findByEmail(updateUser.getEmail());
+                if (userWithEmail.isPresent()) {
+                    throw new RuntimeException("Email đã tồn tại rồi");
+                }
+                user.setEmail(updateUser.getEmail()); // Chỉ cập nhật nếu có thay đổi
             }
 
-            user.setUsername(updateUser.getUsername());
-            user.setEmail(updateUser.getEmail());
+            if (updateUser.getUsername() != null && !updateUser.getUsername().isEmpty()) {
+                user.setUsername(updateUser.getUsername());
+            }
 
-            //Chỉ mã hóa lại mật khẩu nếu có thay đổi
-            if (updateUser.getPassword() != null && !updateUser.getPassword().isEmpty()){
+            // Chỉ mã hóa lại mật khẩu nếu có thay đổi
+            if (updateUser.getPassword() != null && !updateUser.getPassword().isEmpty()) {
                 user.setPassword(passwordEncoder.encode(updateUser.getPassword()));
             }
 
@@ -79,6 +84,7 @@ public class UserService {
             throw new RuntimeException("Người dùng không tồn tại");
         }
     }
+
 
     //Get all Users
     public List<User> getAllUsers(){
