@@ -80,4 +80,9 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    @GetMapping("/get")
+    public List<User> getAllUsers(){
+        return userService.getAllUsers();
+    }
 }

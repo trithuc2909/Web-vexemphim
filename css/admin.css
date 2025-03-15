@@ -106,7 +106,7 @@
 }
 
 
-/* === form danh sách loại === */
+/* === form danh sách tài khoản === */
 
 .form_dsloai table{
     width: 100%;
@@ -115,24 +115,23 @@
 }
 
 .form_dsloai table th:nth-child(1) {
-    width: 10%;
     padding: 20px;
     background-color: #484848;
     color: #fff;
 }
 
 .form_dsloai table th:nth-child(2) {  /*Tổng 4 child là 100% */
-    width: 30%;
+
     background-color: #484848;
     color: #fff;
 }
 .form_dsloai table th:nth-child(3) {
-    width: 35%;
+  
     background-color: #484848;
     color: #fff;
 }
 .form_dsloai table th:nth-child(4) {
-    width: 25%;
+
     background-color: #484848;
     color: #fff;
 }

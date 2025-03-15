@@ -20,10 +20,11 @@
                     <table id="userTable">
                         <thead>
                             <tr>
-                                <th>MÃ TÀI KHOẢN</th>
+                                <th>ID</th>
+                                <th>USER NAME</th>
                                 <th>EMAIL</th>
-                                <th>MẬT KHẨU</th>
-                                <th>CẬP NHẬT</th>
+                                <th>PASSWORD</th>
+                                <th>UPDATE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,18 +32,15 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="row mb10">
-                    <button onclick="showAddUserForm()">Nhập thêm</button>
-                </div>
-            </div>
+            </div>    
         </div>
-    </div>    
-
-    <!-- Form thêm/sửa tài khoản -->
+            <!-- form chỉnh sửa  -->
     <div id="userForm" style="display: none;">
-        <h2 id="formTitle">Thêm Tài Khoản</h2>
+        <h2 id="form_tieude">Chỉnh sửa tài khoản</h2>
         <form id="formUser">
             <input type="hidden" id="userId">
+            <label for="username">Tên tài khoản:</label>
+            <input type="text" id="username" required>
             <label for="email">Email:</label>
             <input type="email" id="email" required>
             <label for="password">Mật khẩu:</label>
@@ -50,7 +48,11 @@
             <button type="submit">Lưu</button>
             <button type="button" onclick="hideUserForm()">Hủy</button>
         </form>
+    </div>    
     </div>
+
+
+
 
     <script src="/js/admin.js"></script>
 </body>
