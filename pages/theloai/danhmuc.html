@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../../css/admin.css">
 </head>
 <body>
     <div class="boxcenter">
@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="row form_tieude">
-                <h1>THÊM MỚI PHIM </h1>
+                <h1>THÊM MỚI THỂ LOẠI PHIM </h1>
             </div>    
             <div class="row form_noidung">
                 <form id="categoryForm">
@@ -36,9 +36,9 @@
                         <input type="text" id="name" name="name" autocomplete="off">
                     </div>
                     <div class="row mb10">
-                        <button type="button" onclick="addCategory()">Thêm mới</button>
+                        <input type="button" onclick="addCategory()" value="Thêm mới"></input>
                         <input type="reset" value="Nhập lại">
-                        <button type="button" onclick="window.location.href='/pages/danhsachdm.html'">Danh sách</button>
+                        <input type="button" onclick="window.location.href='danhsachdm.html'" value="Danh sách">
                     </div>
                 </form>
                 <p id="message"></p>                

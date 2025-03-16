@@ -1,41 +1,43 @@
 // === admin user === 
 
 // Tải danh sách user
-function fetchUsers() {
-    fetch("http://localhost:8080/rg/users/get")
-        .then(response => response.json())
-        .then(users => {
-            const tableBody = document.querySelector("#userTable tbody");
-            tableBody.innerHTML = ""; // Xóa nội dung cũ
+async function fetchUsers(){
+    try {
+        const response = await fetch("http://localhost:8080/rg/users/get");
+        const user =  await response.json();
 
-            users.forEach(user => {
-                const row = document.createElement("tr");
+        const tableBody = document.querySelector("#userTable tbody");
+        tableBody.innerHTML = ""; //Xóa nội dung cũ đi
+        user.forEach( user =>  {
+            const row = document.createElement("tr");
 
-                row.innerHTML = `
-                    <td>${user.id}</td>
-                    <td>${user.username}</td>
-                    <td>${user.email}</td>
-                    <td>
-                        <span id="password-${user.id}" data-visible="false">••••••</span>
-                        <button onclick="togglePassword(${user.id}, '${user.password}')">👁</button>
-                    </td>
-                    <td>
-                        <button onclick="editUser(${user.id}, '${user.username}', '${user.email}', '******')">Sửa</button>
-                        <button onclick="deleteUser(${user.id})">Xóa</button>
-                    </td>
-                `;
-                tableBody.appendChild(row);
-            });
-        })
-        .catch(error => console.error("Lỗi khi tải dữ liệu: ", error));
+            row.innerHTML = `<td>${user.id}</td>
+                             <td>${user.username}</td>
+                             <td>${user.email}</td>
+                             <td>
+                                  <span id="password-${user.id}" data-visible="false">••••••</span>
+                                  <button onclick="togglePassword(${user.id}, '${user.password}')">👁</button>
+                            </td>
+                            <td>
+                                  <button onclick="editUser(${user.id}, '${user.username}', '${user.email}', '******')">Sửa</button>
+                                  <button onclick="deleteUser(${user.id})">Xóa</button>
+                            </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    } catch (error) {
+        console.error("Lỗi khi tải dữ liệu: ", error);
+    }
 }
 
 // === update user === 
 
 document.addEventListener("DOMContentLoaded", function () {
-    fetchUsers();
+    (async function(){
+        await fetchUsers();
+    })();
     // Gửi API cập nhật khi nhấn "Lưu"
-    document.getElementById("formUser").addEventListener("submit", function (event) {
+    document.getElementById("formUser").addEventListener("submit", async function (event) {
         event.preventDefault(); // Chặn reload trang
         
         const id = document.getElementById("userId").value.trim();
@@ -66,24 +68,28 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Bạn chưa thay đổi gì!");
             return;
         }
-        
-        fetch(`http://localhost:8080/rg/users/update/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(userData)
-        })
-        .then(response => {
+
+        try {
+            const response = await fetch(`http://localhost:8080/rg/users/update/${id}`, {
+                method: "PUT",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(userData)
+            });
+
+            const result = await response.json(); // Lấy dữ liệu phản hồi từ API
             if (response.ok) {
                 alert("Cập nhật thành công!");
                 hideUserForm();
-                fetchUsers(); // Load lại danh sách
+                await fetchUsers(); // Load lại danh sách
             } else {
-                throw new Error("Có lỗi xảy ra khi cập nhật");
+                throw new Error(result.message || "Có lỗi khi cập nhật");
             }
-        })
-        .catch(error => console.error("Lỗi cập nhật", error));
+        } catch (error) {
+            console.error("Lỗi khi cập nhật:", error);
+        }
     });
 });
+
 // Hiển thị form sửa
 function editUser(id, username, email, password) {
     console.log("Edit user:", id, username, email, password); // Debug để kiểm tra giá trị
@@ -153,10 +159,7 @@ function deleteUser(id) {
 
 // === Admin Categories ===
 // Chờ trang tải xong mới thực hiện
-// Chờ trang tải xong mới thực hiện
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Admin.js đã load!");
-    
     const message = document.getElementById("message");
     if (!message) {
         console.error("Không tìm thấy phần tử #message trong DOM!");
@@ -164,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Hàm thêm danh mục
-    function addCategory() {
+    async function addCategory() {
         const code = document.getElementById("code")?.value.trim();
         const name = document.getElementById("name")?.value.trim();
 
@@ -176,33 +179,139 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const categoryData = { code, name };
         console.log("Dữ liệu gửi đi:", categoryData);
-
-        fetch("http://localhost:8080/api/categories/add", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(categoryData),
-        })
-        .then(response => {
-            if (!response.ok) {
-                return response.text().then(text => { throw new Error(text); });
+        try {
+            const response = await fetch("http://localhost:8080/api/categories/add", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(categoryData)
+            })
+            if (!response.ok){
+                const erorText = await response.text();
+                throw new Error(erorText);
             }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Phản hồi từ API:", data);
+
+            const data = await response.json();
+            console.log("Phản hồi từ phía API:", data);
+
             message.innerHTML = "Thêm danh mục thành công!";
             message.style.color = "green";
             document.getElementById("categoryForm").reset(); // Reset form sau khi thêm thành công
-        })
-        .catch(error => {
-            console.error("Lỗi:", error);
+        } catch (error) {
+            console.error("Lỗi: ", error);
             message.innerHTML = "Lỗi khi thêm danh mục: " + error.message;
             message.style.color = "red";
-        });
+        }   
     }
-
     window.addCategory = addCategory; // Đăng ký hàm addCategory vào global scope
 });
+
+
+// === LIST Danh mục phim ===
+document.addEventListener("DOMContentLoaded", async function (){
+    await fetchCategories();
+});
+
+//Hàm gọi API GET ALL Categories
+async function fetchCategories(){
+    try {
+        const response = await  fetch("http://localhost:8080/api/categories/get");
+        if(!response.ok) {
+            throw new Error("Lỗi khi tải danh mục!");
+        }
+        const data = await response.json();
+        let tableBody = document.getElementById("categoryList");
+        tableBody.innerHTML = ""; //Xóa đi dữ liệu cũ
+
+        data.forEach(category => {
+            let row = `
+                <tr>
+                    <td><input type="checkbox" class="categoryCheckbox"></td>
+                    <td>${category.id}</td>
+                    <td>${category.code}</td>                   
+                    <td>${category.name}</td>                   
+                    <td>
+                        <button onclick="editCategory(${category.id})">Sửa</button>
+                        <button onclick="deleteCategory(${category.id})">Xóa</button>
+                    </td>
+                </tr>
+            `;
+            tableBody.innerHTML += row
+        });
+    } catch (error) {
+        console.error("Lỗi khi tải danh mục thể loại phim: ", error);
+        alert("Không thể tải danh mục! Hãy kiểm tra Server.");
+    }
+
+    // Chọn tất cả
+    function selectAll(){
+        document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = true);
+    }
+
+    // Bỏ chọn tất cả
+    function deselectAll(){
+        document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = false);
+    }
+
+    // Xóa các mục đã chọn
+    async function deleteSelected(){
+        const  cac_muc_da_chon = document.querySelectorAll(".categoryCheckbox:checked");
+        
+        if(cac_muc_da_chon.length === 0) {
+            alert("Bạn chưa chọn mục nào để xóa!")
+            return;
+        }
+        if(!confirm("Bạn có chắc muốn xóa các mục đã chọn không ?"))
+            return;
+        for (let checkbox of cac_muc_da_chon) {
+            const row = checkbox.closest("tr");
+            const id = row.children[1].textContent.trim(); // Lấy ID từ cột thứ hai của bảng  
+
+            try {
+                const response = await fetch(`http://localhost:8080/api/categories/delete/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+                
+                if (!response.ok){
+                    throw new Error(`Xóa không thành công với ID ${id}`);
+                }
+            } catch (error) {
+                console.error("Lỗi khi xóa danh mục: ", error);
+                alert("Không thể xóa danh mục!");
+            }
+        }
+        alert("Xóa danh mục thành công!");
+        fetchCategories(); //Tải lại danh sách danh mục sau khi xóa
+    }
+
+    // Xóa danh mục thể loại phim
+    async function deleteCategory(id){
+        if (confirm("Bạn có chắc muốn xóa danh mục này không ?")){
+            try {
+                const response = await fetch(`http://localhost:8080/api/categories/delete/${id}`,{
+                    method: "DELETE"
+                });
+                if (!response.ok){
+                    throw new Error("Xóa không thành công!");
+                } else {
+                    alert("Xóa danh mục thành công!");
+                }
+                await fetchCategories(); //Tải lại danh mục thể loại
+            } catch (error) {
+                console.error("Lỗi khi xóa danh mục: ", error);
+                alert("Không thể xóa danh mục!");
+            }
+        }
+    }
+    // Đăng ký các hàm vào phạm vi toàn cục
+    window.selectAll = selectAll;
+    window.deselectAll = deselectAll;
+    window.deleteSelected = deleteSelected;
+}
+
+
 
 
 

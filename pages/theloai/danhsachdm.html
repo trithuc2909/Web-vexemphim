@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <title>Danh sách thể loại</title>
+</head>
+<body>
+    <div class="row">
+        <div class="row form_tieude">
+            <h1>DANH SÁCH THỂ LOẠI PHIM</h1>
+        </div>    
+        <div class="row form_noidung">
+            <div class="row mb10 form_dsloai">
+                <table id="categoryTable">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="selectAll"></th> <!-- Checkbox chọn tất cả -->
+                            <th>ID</th>
+                            <th>MÃ THỂ LOẠI</th>
+                            <th>TÊN THỂ LOẠI</th>
+                            <th>CẬP NHẬT</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categoryList">
+                        <!-- Dữ liệu sẽ được thêm bằng JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="row mb10">
+                <input type="button" onclick="selectAll()" value="Chọn tất cả"></input>
+                <input type="button" onclick="deselectAll()" value="Bỏ chọn tất cả"></input>
+                <input type="button" onclick="deleteSelected()" value="Xóa các mục đã chọn"></input>
+                <a href="danhmuc.html"><input type="button" value="Nhập thêm"></input></a>
+            </div>
+        </div>
+    </div>
+    <script src="/js/admin.js"></script>
+</body>
+</html>

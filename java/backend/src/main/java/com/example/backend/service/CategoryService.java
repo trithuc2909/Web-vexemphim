@@ -5,6 +5,9 @@ import com.example.backend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CategoryService {
 
@@ -25,4 +28,18 @@ public class CategoryService {
     return categoryRepository.save(category);
     }
 
+    // Lấy toàn bộ danh sách thể loại phim
+    public List<Category> getAllCategories(){
+        return categoryRepository.findAll();
+    }
+
+    // Delete Category theo id
+    public void deleteCategory(Long id){
+        Optional<Category> category = categoryRepository.findById(id);
+        if (category.isPresent()){
+            categoryRepository.deleteById(id);
+        } else {
+            throw  new RuntimeException("Danh mục này không tồn tại!");
+        }
+    }
 }
