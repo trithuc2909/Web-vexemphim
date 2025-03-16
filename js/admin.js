@@ -149,3 +149,61 @@ function deleteUser(id) {
     })
     .catch(error => alert("Lỗi khi xóa: " + error.message));
 }
+
+
+// === Admin Categories ===
+// Chờ trang tải xong mới thực hiện
+// Chờ trang tải xong mới thực hiện
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Admin.js đã load!");
+    
+    const message = document.getElementById("message");
+    if (!message) {
+        console.error("Không tìm thấy phần tử #message trong DOM!");
+        return; // Thoát nếu không tìm thấy phần tử
+    }
+
+    // Hàm thêm danh mục
+    function addCategory() {
+        const code = document.getElementById("code")?.value.trim();
+        const name = document.getElementById("name")?.value.trim();
+
+        if (!code || code.length < 3 || !name || name.length < 3) {
+            message.innerHTML = "Mã và tên danh mục phải có ít nhất 3 ký tự!";
+            message.style.color = "red";
+            return;
+        }
+
+        const categoryData = { code, name };
+        console.log("Dữ liệu gửi đi:", categoryData);
+
+        fetch("http://localhost:8080/api/categories/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(categoryData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text); });
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Phản hồi từ API:", data);
+            message.innerHTML = "Thêm danh mục thành công!";
+            message.style.color = "green";
+            document.getElementById("categoryForm").reset(); // Reset form sau khi thêm thành công
+        })
+        .catch(error => {
+            console.error("Lỗi:", error);
+            message.innerHTML = "Lỗi khi thêm danh mục: " + error.message;
+            message.style.color = "red";
+        });
+    }
+
+    window.addCategory = addCategory; // Đăng ký hàm addCategory vào global scope
+});
+
+
+
+
