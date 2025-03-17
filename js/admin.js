@@ -212,10 +212,11 @@ document.addEventListener("DOMContentLoaded", async function (){
 });
 
 //Hàm gọi API GET ALL Categories
-async function fetchCategories(){
+// 🟢 Hàm gọi API GET ALL Categories
+async function fetchCategories() {
     try {
-        const response = await  fetch("http://localhost:8080/api/categories/get");
-        if(!response.ok) {
+        const response = await fetch("http://localhost:8080/api/categories/get");
+        if (!response.ok) {
             throw new Error("Lỗi khi tải danh mục!");
         }
         const data = await response.json();
@@ -235,81 +236,158 @@ async function fetchCategories(){
                     </td>
                 </tr>
             `;
-            tableBody.innerHTML += row
+            tableBody.innerHTML += row;
         });
     } catch (error) {
         console.error("Lỗi khi tải danh mục thể loại phim: ", error);
-        alert("Không thể tải danh mục! Hãy kiểm tra Server.");
     }
-
-    // Chọn tất cả
-    function selectAll(){
-        document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = true);
-    }
-
-    // Bỏ chọn tất cả
-    function deselectAll(){
-        document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = false);
-    }
-
-    // Xóa các mục đã chọn
-    async function deleteSelected(){
-        const  cac_muc_da_chon = document.querySelectorAll(".categoryCheckbox:checked");
-        
-        if(cac_muc_da_chon.length === 0) {
-            alert("Bạn chưa chọn mục nào để xóa!")
-            return;
-        }
-        if(!confirm("Bạn có chắc muốn xóa các mục đã chọn không ?"))
-            return;
-        for (let checkbox of cac_muc_da_chon) {
-            const row = checkbox.closest("tr");
-            const id = row.children[1].textContent.trim(); // Lấy ID từ cột thứ hai của bảng  
-
-            try {
-                const response = await fetch(`http://localhost:8080/api/categories/delete/${id}`, {
-                    method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                });
-                
-                if (!response.ok){
-                    throw new Error(`Xóa không thành công với ID ${id}`);
-                }
-            } catch (error) {
-                console.error("Lỗi khi xóa danh mục: ", error);
-                alert("Không thể xóa danh mục!");
-            }
-        }
-        alert("Xóa danh mục thành công!");
-        fetchCategories(); //Tải lại danh sách danh mục sau khi xóa
-    }
-
-    // Xóa danh mục thể loại phim
-    async function deleteCategory(id){
-        if (confirm("Bạn có chắc muốn xóa danh mục này không ?")){
-            try {
-                const response = await fetch(`http://localhost:8080/api/categories/delete/${id}`,{
-                    method: "DELETE"
-                });
-                if (!response.ok){
-                    throw new Error("Xóa không thành công!");
-                } else {
-                    alert("Xóa danh mục thành công!");
-                }
-                await fetchCategories(); //Tải lại danh mục thể loại
-            } catch (error) {
-                console.error("Lỗi khi xóa danh mục: ", error);
-                alert("Không thể xóa danh mục!");
-            }
-        }
-    }
-    // Đăng ký các hàm vào phạm vi toàn cục
-    window.selectAll = selectAll;
-    window.deselectAll = deselectAll;
-    window.deleteSelected = deleteSelected;
 }
+
+// 🟢 Chuyển sang trang `update.html?id=ID`
+function editCategory(id) {
+    window.location.href = `update.html?id=${id}`;
+}
+
+// 🟢 Lấy ID từ URL
+function getCategoryIdFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id");
+}
+
+// 🟢 Hiển thị dữ liệu khi vào trang cập nhật
+async function loadCategoryData() {
+    const id = getCategoryIdFromURL();
+    if (!id) {
+        alert("Không tìm thấy danh mục!");
+        return;
+    }
+    try {
+        const response = await fetch(`http://localhost:8080/api/categories/get/${id}`);
+        if (!response.ok) {
+            throw new Error("Không thể lấy dữ liệu danh mục!");
+        }
+
+        const category = await response.json();
+        document.getElementById("code").value = category.code;
+        document.getElementById("name").value = category.name;
+    } catch (error) {
+        console.error("Lỗi khi tải danh mục: ", error);
+        alert("Không thể hiển thị danh mục!");
+    }
+}
+
+// 🟢 Cập nhật danh mục
+async function updateCategory() {
+    const id = getCategoryIdFromURL();
+    if (!id) {
+        alert("Không tìm thấy danh mục!");
+        return;
+    }
+    
+    const updatedCategory = {
+        code: document.getElementById("code").value,
+        name: document.getElementById("name").value
+    };
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/categories/update/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedCategory)
+        });
+
+        if (!response.ok) {
+            throw new Error("Cập nhật thất bại!");
+        }
+        alert("Cập nhật danh mục thành công!");
+        window.location.href = "danhsachdm.html"; // Quay về danh sách
+    } catch (error) {
+        console.error("Lỗi khi cập nhật danh mục: ", error);
+        alert("Không thể cập nhật danh mục!");
+    }
+}
+
+// 🟢 Xóa danh mục thể loại phim
+async function deleteCategory(id) {
+    if (confirm("Bạn có chắc muốn xóa danh mục này không?")) {
+        try {
+            const response = await fetch(`http://localhost:8080/api/categories/delete/${id}`, {
+                method: "DELETE"
+            });
+
+            if (!response.ok) {
+                throw new Error("Xóa không thành công!");
+            }
+            alert("Xóa danh mục thành công!");
+            fetchCategories();
+        } catch (error) {
+            console.error("Lỗi khi xóa danh mục: ", error);
+            alert("Không thể xóa danh mục!");
+        }
+    }
+}
+
+// 🟢 Chọn tất cả
+function selectAll() {
+    document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = true);
+}
+
+// 🟢 Bỏ chọn tất cả
+function deselectAll() {
+    document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = false);
+}
+
+// 🟢 Xóa các mục đã chọn
+async function deleteSelected() {
+    const selectedItems = document.querySelectorAll(".categoryCheckbox:checked");
+
+    if (selectedItems.length === 0) {
+        alert("Bạn chưa chọn mục nào để xóa!");
+        return;
+    }
+    if (!confirm("Bạn có chắc muốn xóa các mục đã chọn không?")) return;
+
+    for (let checkbox of selectedItems) {
+        const row = checkbox.closest("tr");
+        const id = row.children[1].textContent.trim(); // Lấy ID từ cột thứ hai
+
+        try {
+            const response = await fetch(`http://localhost:8080/api/categories/delete/${id}`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Xóa không thành công với ID ${id}`);
+            }
+        } catch (error) {
+            console.error("Lỗi khi xóa danh mục: ", error);
+            alert("Không thể xóa danh mục!");
+        }
+    }
+    alert("Xóa danh mục thành công!");
+    fetchCategories();
+}
+
+// 🟢 Load dữ liệu khi vào `update.html` hoặc `danhsachdm.html`
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname.includes("update.html")) {
+        loadCategoryData();
+    } else if (window.location.pathname.includes("danhsachdm.html")) {
+        fetchCategories();
+    }
+});
+
+// 🟢 Đăng ký các hàm vào phạm vi toàn cục
+window.selectAll = selectAll;
+window.deselectAll = deselectAll;
+window.deleteSelected = deleteSelected;
+window.updateCategory = updateCategory;
+window.editCategory = editCategory;
+
+
+
+
 
 
 

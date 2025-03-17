@@ -3,6 +3,8 @@ package com.example.backend.service;
 import com.example.backend.model.Category;
 import com.example.backend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,5 +43,24 @@ public class CategoryService {
         } else {
             throw  new RuntimeException("Danh mục này không tồn tại!");
         }
+    }
+
+    // Update Category theo id
+    public ResponseEntity<?> updateCategory(Long id, Category updateCategory){
+        Optional<Category> existingCategory = categoryRepository.findById(id);
+        if (existingCategory.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Danh mục không tồn tại!");
+        }
+        Category category = existingCategory.get();
+
+        //Kiểm tra mã code có tồn tại không ?
+        if (updateCategory.getCode() != null && !updateCategory.getCode().isEmpty()) {
+            category.setCode(updateCategory.getCode());
+        }
+        if (updateCategory.getName() != null && !updateCategory.getName().isEmpty()){
+            category.setName(updateCategory.getName());
+        }
+        categoryRepository.save(category);
+        return ResponseEntity.ok("Cập nhật thành công!");
     }
 }

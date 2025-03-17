@@ -3,6 +3,7 @@ package com.example.backend.controller;
 import com.example.backend.model.Category;
 import com.example.backend.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,5 +48,10 @@ public class CategoryController {
             return ResponseEntity.status(400).body("Lỗi khi xóa danh mục: " + e.getMessage());
         }
     }
-
+    
+    // Update category api
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateCategory(@PathVariable Long id, @RequestBody Category updateCategory){
+        return categoryService.updateCategory(id, updateCategory);
+    }
 }
