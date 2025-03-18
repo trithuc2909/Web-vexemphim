@@ -89,8 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-// Hiển thị form sửa
+ 
+// Hiển thị form sửa user
 function editUser(id, username, email, password) {
     console.log("Edit user:", id, username, email, password); // Debug để kiểm tra giá trị
 
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", async function (){
 });
 
 //Hàm gọi API GET ALL Categories
-// 🟢 Hàm gọi API GET ALL Categories
+//  Hàm gọi API GET ALL Categories
 async function fetchCategories() {
     try {
         const response = await fetch("http://localhost:8080/api/categories/get");
@@ -243,18 +243,18 @@ async function fetchCategories() {
     }
 }
 
-// 🟢 Chuyển sang trang `update.html?id=ID`
+//  Chuyển sang trang `update.html?id=ID`
 function editCategory(id) {
     window.location.href = `update.html?id=${id}`;
 }
 
-// 🟢 Lấy ID từ URL
+// Lấy ID từ URL
 function getCategoryIdFromURL() {
     const params = new URLSearchParams(window.location.search);
-    return params.get("id");
+    return params.get("id"); //Lấy tham số id từ url
 }
 
-// 🟢 Hiển thị dữ liệu khi vào trang cập nhật
+//  Hiển thị dữ liệu khi vào trang cập nhật
 async function loadCategoryData() {
     const id = getCategoryIdFromURL();
     if (!id) {
@@ -327,17 +327,17 @@ async function deleteCategory(id) {
     }
 }
 
-// 🟢 Chọn tất cả
+// Chọn tất cả
 function selectAll() {
     document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = true);
 }
 
-// 🟢 Bỏ chọn tất cả
+// Bỏ chọn tất cả
 function deselectAll() {
     document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = false);
 }
 
-// 🟢 Xóa các mục đã chọn
+// Xóa các mục đã chọn
 async function deleteSelected() {
     const selectedItems = document.querySelectorAll(".categoryCheckbox:checked");
 
@@ -369,7 +369,7 @@ async function deleteSelected() {
     fetchCategories();
 }
 
-// 🟢 Load dữ liệu khi vào `update.html` hoặc `danhsachdm.html`
+// Load dữ liệu khi vào `update.html` hoặc `danhsachdm.html`
 document.addEventListener("DOMContentLoaded", () => {
     if (window.location.pathname.includes("update.html")) {
         loadCategoryData();

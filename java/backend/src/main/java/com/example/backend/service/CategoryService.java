@@ -35,6 +35,11 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
+    // Lấy dự liệu theo id
+    public Optional<Category> getCategoryById(Long id){
+        return categoryRepository.findById(id);
+    }
+
     // Delete Category theo id
     public void deleteCategory(Long id){
         Optional<Category> category = categoryRepository.findById(id);

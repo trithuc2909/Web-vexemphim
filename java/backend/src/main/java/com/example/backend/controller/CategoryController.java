@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -35,6 +36,17 @@ public class CategoryController {
     @GetMapping("/get")
     public List<Category> getAllCatogories(){
         return categoryService.getAllCategories();
+    }
+
+    // api Get Category by id
+    @GetMapping("/get/{id}")
+    public ResponseEntity<?> getCategory(@PathVariable Long id) {
+        Optional<Category> category = categoryService.getCategoryById(id);
+        if (category.isPresent()) {
+            return new ResponseEntity<>(category.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Không tìm thấy danh mục!", HttpStatus.NOT_FOUND);
+        }
     }
 
     // api Delete Category by id
