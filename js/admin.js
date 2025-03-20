@@ -276,7 +276,7 @@ async function loadCategoryData() {
     }
 }
 
-// 🟢 Cập nhật danh mục
+// Cập nhật danh mục
 async function updateCategory() {
     const id = getCategoryIdFromURL();
     if (!id) {
@@ -307,7 +307,7 @@ async function updateCategory() {
     }
 }
 
-// 🟢 Xóa danh mục thể loại phim
+// Xóa danh mục thể loại phim
 async function deleteCategory(id) {
     if (confirm("Bạn có chắc muốn xóa danh mục này không?")) {
         try {
@@ -378,12 +378,71 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// 🟢 Đăng ký các hàm vào phạm vi toàn cục
+// Đăng ký các hàm vào phạm vi toàn cục
 window.selectAll = selectAll;
 window.deselectAll = deselectAll;
 window.deleteSelected = deleteSelected;
 window.updateCategory = updateCategory;
 window.editCategory = editCategory;
+
+
+// === KHU VỰC PHIM === 
+
+// Lấy danh sách danh mục từ API 
+document.addEventListener("DOMContentLoaded", async function() {
+    try {
+        let response = await fetch("http://localhost:8080/api/categories/get");
+        let data = await response.json();
+
+        let categoriesDropdown = document.getElementById("category");
+        data.forEach(category => {
+            let option = document.createElement("option");
+            option.value = category.id;
+            option.textContent = category.name;
+            categoriesDropdown.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Lỗi khi lấy danh mục: ", error);
+    }
+});
+
+async function addMovie() {
+    let formData = new FormData(document.getElementById("movieForm"));
+
+    // Kiểm tra file có được chọn không
+    let imageFile = formData.get("image");
+    if (!imageFile || imageFile.size === 0) {
+        console.error("Lỗi: Chưa chọn ảnh!");
+        alert("Vui lòng chọn ảnh!");
+        return;
+    }
+
+    console.log("Dữ liệu gửi đi:", [...formData.entries()]); // Log dữ liệu gửi lên server
+
+    try {
+        let response = await fetch("http://localhost:8080/api/movies/add", {
+            method: "POST",
+            body: formData
+        });
+
+        let data = await response.text();
+        console.log("Response:", data);
+
+        if (response.ok) {
+            document.getElementById("message").innerText = "Thêm phim thành công!";
+        } else {
+            document.getElementById("message").innerText = "Lỗi: " + data;
+        }
+    } catch (error) {
+        console.error("Lỗi khi thêm phim: ", error);
+    }
+}
+
+
+
+
+
+
 
 
 

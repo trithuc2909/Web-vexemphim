@@ -1,12 +1,6 @@
 package com.example.backend.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,10 +22,10 @@ public class Movie {
     @Column( name = "description",length = 1000)
     private String description;
 
-    @Column( name = "duration",nullable = false)
+    @Column( name = "duration",columnDefinition = "TEXT")
     private String duration;
 
-    @Column(name = "page_url", nullable = false)
+    @Column(name = "page_url", nullable = true)
     private String pageUrl;
 
     public Movie (String name, String imageUrl, String description, String duration, String pageUrl ){
@@ -41,4 +35,8 @@ public class Movie {
         this.duration = duration;
         this.pageUrl = pageUrl;
     }
+
+    @ManyToOne
+    @JoinColumn(name = "category_id") // Khóa ngoại trỏ đến bảng categories
+    private Category category;
 }

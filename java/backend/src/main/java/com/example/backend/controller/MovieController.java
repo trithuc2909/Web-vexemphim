@@ -6,12 +6,15 @@ import com.example.backend.service.MovieService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
 
-@RequestMapping("/api")
+@RequestMapping("/api/movies")
 @RestController
 public class MovieController {
 
@@ -22,8 +25,43 @@ public class MovieController {
 
     @Autowired
     private MovieRepository movieRepository;
+
+    @PostMapping(value = "/add", consumes = "multipart/form-data")
+    public ResponseEntity<?> addMovie(
+            @RequestParam("name") String name,
+            @RequestParam("duration") String duration,
+            @RequestParam("image") MultipartFile file,
+            @RequestParam("description") String description) {
+
+        System.out.println("Nhận file: " + file.getOriginalFilename());
+        System.out.println("Kích thước file: " + file.getSize());
+
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body("File ảnh rỗng!");
+        }
+
+        try {
+            String image1 = movieService.saveImage(file);
+            if (image1 == null) {
+                return ResponseEntity.badRequest().body("Không thể lưu ảnh!");
+            }
+
+            Movie movie = new Movie();
+            movie.setName(name);
+            movie.setDuration(duration);
+            movie.setDescription(description);
+            movie.setImageUrl(image1);
+
+            Movie newMovie = movieService.addMovie(movie);
+            return ResponseEntity.ok(newMovie);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().body("Lỗi hệ thống: " + e.getMessage());
+        }
+    }
+
     //API lấy danh sách phim
-    @GetMapping("/movies")
+    @GetMapping("/get")
     public ResponseEntity<?> getMovies() {
         try {
             List<Movie> movies = movieService.getAllMovies();
@@ -43,8 +81,20 @@ public class MovieController {
         }
         return ResponseEntity.ok(movies); // Trả về danh sách phim
     }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<?> getMovie(@PathVariable Long id){
+        Optional<Movie> movie = movieService.getMovie(id);
+        if (movie.isPresent()){
+            return new ResponseEntity<>(movie.get(),HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Không tìm thấy phim!",HttpStatus.NOT_FOUND );
+        }
+    }
+
+
     // API xóa tất cả phim
-    @DeleteMapping("/movies")
+    @DeleteMapping("/delete")
     public String deleteAllMovies(String confirm) {
         // tạo confirm xác nhận xóa
         if(!"CONFIRM".equals(confirm)){
@@ -55,7 +105,7 @@ public class MovieController {
     }
 
     //API xóa movie theo id
-    @DeleteMapping("/movies/{movieId}")
+    @DeleteMapping("/delete/{movieId}")
     public String deleteMovieById(@PathVariable long movieId){
         movieRepository.deleteById(movieId);
         return "Phim đã xóa !";
