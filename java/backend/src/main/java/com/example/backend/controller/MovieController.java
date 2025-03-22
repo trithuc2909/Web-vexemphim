@@ -1,6 +1,8 @@
 package com.example.backend.controller;
 
+import com.example.backend.model.Category;
 import com.example.backend.model.Movie;
+import com.example.backend.repository.CategoryRepository;
 import com.example.backend.repository.MovieRepository;
 import com.example.backend.service.MovieService;
 import org.slf4j.Logger;
@@ -26,20 +28,31 @@ public class MovieController {
     @Autowired
     private MovieRepository movieRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @PostMapping(value = "/add", consumes = "multipart/form-data")
     public ResponseEntity<?> addMovie(
             @RequestParam("name") String name,
             @RequestParam("duration") String duration,
             @RequestParam("image") MultipartFile file,
-            @RequestParam("description") String description) {
+            @RequestParam("description") String description,
+            @RequestParam("category") Long categoryId) {
 
+        System.out.print("Category ID" + categoryId);
         System.out.println("Nhận file: " + file.getOriginalFilename());
         System.out.println("Kích thước file: " + file.getSize());
 
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body("File ảnh rỗng!");
         }
+        // Kiểm tra categoryId có null không
+        if (categoryId == null) {
+            return ResponseEntity.badRequest().body("Category ID is missing");
+        }
 
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy category với ID: " + categoryId));
         try {
             String image1 = movieService.saveImage(file);
             if (image1 == null) {
@@ -51,6 +64,7 @@ public class MovieController {
             movie.setDuration(duration);
             movie.setDescription(description);
             movie.setImageUrl(image1);
+            movie.setCategory(category);
 
             Movie newMovie = movieService.addMovie(movie);
             return ResponseEntity.ok(newMovie);

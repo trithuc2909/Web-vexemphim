@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,6 +38,13 @@ public class Movie {
     }
 
     @ManyToOne
-    @JoinColumn(name = "category_id") // Khóa ngoại trỏ đến bảng categories
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @JsonProperty("categoryId") // Trả về categoryId thay vì object
     private Category category;
+
+    @JsonProperty("categoryName") // Trả về tên danh mục
+    public String getCategoryName() {
+        return category != null ? category.getName() : "Không có danh mục";
+    }
+
 }

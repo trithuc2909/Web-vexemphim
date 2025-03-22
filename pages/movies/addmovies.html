@@ -30,7 +30,7 @@
                 <form id="movieForm" enctype="multipart/form-data">
                     <div class="row mb10">
                         <label for="category">Thể loại phim</label><br>
-                        <select id="category" name="category">
+                        <select id="category" name="category" value="categoryId">
                             <!-- Danh mục sẽ được tải từ JavaScript -->
                         </select>
                     </div>
@@ -51,7 +51,7 @@
                         <textarea id="description" name="description"></textarea>
                     </div>
                     <div class="row mb10">
-                        <input type="button" onclick="addMovie()" value="Thêm mới">
+                        <input type="button" value="Thêm mới" onclick="handleSubmit()">
                         <input type="reset" value="Nhập lại">
                         <input type="button" onclick="window.location.href='../movies/listmovies.html'" value="Danh sách">
                     </div>
@@ -60,6 +60,6 @@
             </div>
         </div>
     </div>    
-    <script src="/js/admin.js"></script>
+    <script src="/pages/movies/movies.js"></script>
 </body>
 </html>

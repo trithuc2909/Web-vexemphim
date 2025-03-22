@@ -24,7 +24,7 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    private static final String UPLOAD_DIR = "D:/CODE_WEB/CODE_WEB/Web_xem_phim/Image";
+    private static final String UPLOAD_DIR = Paths.get("D:/CODE_WEB/CODE_WEB/Web_xem_phim/public/image").toString();
 
     // Thêm mới phim
     public String saveImage(MultipartFile file) {
@@ -45,7 +45,7 @@ public class MovieService {
             file.transferTo(path.toFile());
 
             System.out.println("Ảnh đã lưu: " + path);
-            return "uploads/" + fileName;
+            return "/public/image/" + fileName;
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Lỗi khi lưu file: " + e.getMessage());
