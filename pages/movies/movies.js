@@ -12,7 +12,7 @@ async function fetchCategories() {
             throw new Error("Lỗi khi tải danh mục!");
         }
         const categories = await response.json();
-        let categorySelect = document.getElementById("categoryFilter");
+        let categorySelect = document.getElementById("category");
         categorySelect.innerHTML = `<option value="">Tất cả</option>`;
         categories.forEach(category => {
             categorySelect.innerHTML += `<option value="${category.id}">${category.name}</option>`;
@@ -21,6 +21,7 @@ async function fetchCategories() {
         console.error("Lỗi khi tải danh mục: ", error);
     }
 }
+
 
 // Lấy danh sách phim từ API
 async function fetchMovies(categoryId = "") {
@@ -123,66 +124,6 @@ function editMovie(id) {
 // === KHU VỰC PHIM === 
 
 // Lấy danh sách danh mục từ API 
-// document.addEventListener("DOMContentLoaded", async function() {
-    
-//     try {
-//         let response = await fetch("http://localhost:8080/api/categories/get");
-//         let data = await response.json();
-
-//         let categoriesDropdown = document.getElementById("category");
-//         data.forEach(category => {
-//             let option = document.createElement("option");
-//             option.value = category.id;
-//             option.textContent = category.name;
-//             categoriesDropdown.appendChild(option);
-//         });
-//     } catch (error) {
-//         console.error("Lỗi khi lấy danh mục: ", error);
-//     }
-// });
-
-// async function addMovie() {
-//     let form = document.getElementById("movieForm");
-//     let formData = new FormData(form);
-
-//     // Lấy id của category
-//     let categorySelect = document.getElementById("category");
-//     let categoryId = categorySelect.value; // Lấy giá trị (id) của option được chọn
-//     formData.set("category", categoryId); // Cập nhật giá trị category trong formData
-
-//     // Kiểm tra file có được chọn không
-//     let imageFile = formData.get("image");
-//     if (!imageFile || imageFile.size === 0) {
-//         console.error("Lỗi: Chưa chọn ảnh!");
-//         alert("Vui lòng chọn ảnh!");
-//         return;
-//     }
-
-//     console.log("Dữ liệu nhập vào form:");
-//     for (let [key, value] of formData.entries()) {
-//         console.log(`${key}:`, value);
-//     }
-
-//     console.log("Dữ liệu gửi đi:", [...formData.entries()]);
-
-//     try {
-//         let response = await fetch("http://localhost:8080/api/movies/add", {
-//             method: "POST",
-//             body: formData
-//         });
-
-//         let data = await response.text();
-//         console.log("Response:", data);
-
-//         if (response.ok) {
-//             document.getElementById("message").innerText = "Thêm phim thành công!";
-//         } else {
-//             document.getElementById("message").innerText = "Lỗi: " + data;
-//         }
-//     } catch (error) {
-//         console.error("Lỗi khi thêm phim: ", error);
-//     }
-// }
 
 function createMovieFormData(name, duration, categoryId, imageFile, description) {
     let formData = new FormData();
