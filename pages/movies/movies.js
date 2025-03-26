@@ -1,7 +1,9 @@
 // === LIST Danh sách phim ===
 document.addEventListener("DOMContentLoaded", async function (){
     await fetchCategories();
-    await fetchMovies();
+     fetchMovies();
+     loadCategories();
+     document.getElementById("categoryFilter").addEventListener("change", filterMovies);
 });
 
 // Lấy danh mục phim từ API
@@ -21,6 +23,59 @@ async function fetchCategories() {
         console.error("Lỗi khi tải danh mục: ", error);
     }
 }
+
+// Lấy Codes danh mục phim từ api (Filter)
+async function loadCategories() {
+    const response = await fetch("http://localhost:8080/api/categories/getCodes");
+    const categories = await response.json();
+    let categorySelect = document.getElementById("categoryFilter");
+
+    categories.forEach(code => {
+        const option = document.createElement("option");
+        option.value = code;
+        option.textContent = code;
+        categorySelect.appendChild(option);
+    });
+}
+async function filterMovies() {
+    const categoryCode = document.getElementById("categoryFilter").value;
+    const moviesList = document.getElementById("movieList");
+    moviesList.innerHTML = ""; 
+
+    let url = "http://localhost:8080/api/movies/get"; // API lấy tất cả phim
+
+    if (categoryCode !== "") { // Nếu không chọn "Tất cả", thì mới filter
+        url = `http://localhost:8080/api/movies/filter?categoryCode=${categoryCode}`;
+    }
+
+    const response = await fetch(url);
+    const movies = await response.json();
+
+    if (movies.length === 0) {
+        moviesList.innerHTML = "<tr><td colspan='7'>Không có phim nào!</td></tr>";
+        return;
+    }
+
+    movies.forEach(movie => {
+        let row = `
+            <tr>
+                <td><input type="checkbox" class="movieCheckbox"></td>
+                <td>${movie.movieId}</td>
+                <td>${movie.categoryId ? movie.categoryId.code : "Không có"}</td>
+                <td>${movie.name}</td>
+                <td><img src="${movie.imageUrl}" alt="Hình ảnh phim" width="50"></td>
+                <td>${movie.duration}</td>
+                <td>
+                    <button onclick="editMovie(${movie.movieId})">Sửa</button>
+                    <button onclick="deleteMovie(${movie.movieId})">Xóa</button>
+                </td>
+            </tr>
+        `;
+        moviesList.innerHTML += row;
+    });
+}
+
+
 
 
 // Lấy danh sách phim từ API
@@ -124,7 +179,6 @@ function editMovie(id) {
 // === KHU VỰC PHIM === 
 
 // Lấy danh sách danh mục từ API 
-
 function createMovieFormData(name, duration, categoryId, imageFile, description) {
     let formData = new FormData();
     formData.append("name", name);

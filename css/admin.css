@@ -21,6 +21,9 @@
   .mt {
     margin-top: 10px;
   }
+  .mt20 {
+    margin-top: 20px;
+  }
   .mb {
       margin-bottom: 20px;
   }
@@ -183,7 +186,32 @@
 
 
 /* ==== Category form ===  */
+button[onclick^="editCategory"] {
+    background-color: #444444;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px #252836 solid;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease-in-out;
+}
 
+button[onclick^="deleteCategory"] {
+    background-color: #444444;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px #252836 solid;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button[onclick^="editCategory"]:hover {
+    background-color: #666666;
+    cursor: pointer;
+}
+button[onclick^="deleteCategory"]:hover {
+    background-color: #666666;
+    cursor: pointer;
+}
 .list {
     display: flex;
     gap: 7px;
@@ -193,6 +221,15 @@
 }
 #categoryForm #name  {
     width: 300px;
+}
+
+.select_danhmuc label{
+    font-weight: bold;
+    font-size: 16px;
+}
+.select_danhmuc select{
+    width: 150px;
+    border-radius: 3px;
 }
 
 
@@ -208,3 +245,30 @@
     width: 200px;
 }
 
+button[onclick^="editMovie"] {
+    background-color: #444444;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px #252836 solid;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button[onclick^="deleteMovie"] {
+    background-color: #444444;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px #252836 solid;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button[onclick^="editMovie"]:hover {
+    background-color: #666666;
+    cursor: pointer;
+}
+
+button[onclick^="deleteMovie"]:hover {
+    background-color: #666666;
+    cursor: pointer;
+}

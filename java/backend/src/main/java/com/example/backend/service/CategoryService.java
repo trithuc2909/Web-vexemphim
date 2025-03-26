@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryService {
@@ -33,6 +34,11 @@ public class CategoryService {
     // Lấy toàn bộ danh sách thể loại phim
     public List<Category> getAllCategories(){
         return categoryRepository.findAll();
+    }
+
+    // Lấy toàn bộ danh sách mã thể loại phim
+    public List<String> getAllCategoryCodes() {
+        return categoryRepository.findAll().stream().map(Category::getCode).collect(Collectors.toList());
     }
 
     // Lấy dự liệu theo id

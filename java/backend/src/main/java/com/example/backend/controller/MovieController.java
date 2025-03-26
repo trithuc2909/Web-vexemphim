@@ -1,20 +1,25 @@
 package com.example.backend.controller;
 
+import com.example.backend.dto.MovieDTO;
 import com.example.backend.model.Category;
 import com.example.backend.model.Movie;
 import com.example.backend.repository.CategoryRepository;
 import com.example.backend.repository.MovieRepository;
 import com.example.backend.service.MovieService;
+import org.hibernate.sql.ast.tree.expression.Collation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequestMapping("/api/movies")
 @RestController
@@ -106,6 +111,16 @@ public class MovieController {
         }
     }
 
+    //API lọc phim theo danh mục
+    @GetMapping("/filter")
+    public ResponseEntity<List<Movie>> getMoviesByCategory(@RequestParam String categoryCode) {
+        Category category = categoryRepository.findByCode(categoryCode);
+        if (category == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
+        }
+        List<Movie> movies = movieRepository.findByCategory_Id(category.getId());
+        return ResponseEntity.ok(movies);
+    }
 
     // API xóa tất cả phim
     @DeleteMapping("/delete")

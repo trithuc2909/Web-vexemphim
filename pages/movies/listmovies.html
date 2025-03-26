@@ -21,11 +21,13 @@
                 <li><a href="#">Thống kê</a></li>
             </ul>
         </div>
-         <!-- Tìm kiếm theo danh mục -->
-         <div class="row mb10">
+        <!-- Tìm kiếm theo danh mục -->
+        <div class="row mt20 select_danhmuc">
             <label for="categoryFilter">Chọn danh mục: </label>
-            <select id="categoryFilter"></select>
-            <button onclick="filterMoviesByCategory()">Tìm kiếm</button>
+            <select id="categoryFilter">
+                <option value="" selected>Tất cả</option>
+            </select>
+
         </div>
         <div class="row form_noidung">
             <div class="row mb10 form_dsloai">

@@ -38,6 +38,12 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
+    //api Get all thể loại phim
+    @GetMapping("/getCodes")
+    public List<String> getAllCategoryCodes(){
+        return categoryService.getAllCategoryCodes();
+    }
+
     // api Get Category by id
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getCategory(@PathVariable Long id) {
