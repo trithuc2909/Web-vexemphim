@@ -1,8 +1,12 @@
 package com.example.backend.service;
 
+import com.example.backend.model.Category;
 import com.example.backend.model.Movie;
+import com.example.backend.repository.CategoryRepository;
 import com.example.backend.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -19,9 +23,12 @@ import java.util.Optional;
 public class MovieService {
     private final MovieRepository movieRepository;
 
+    private final CategoryRepository categoryRepository;
+
     @Autowired
-    public MovieService(MovieRepository movieRepository){
+    public MovieService(MovieRepository movieRepository, CategoryRepository categoryRepository){
         this.movieRepository = movieRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     private static final String UPLOAD_DIR = Paths.get("D:/CODE_WEB/CODE_WEB/Web_xem_phim/public/image").toString();
@@ -82,6 +89,48 @@ public class MovieService {
     public List<Movie> searchMovies (String name) {
         List<Movie> movies = movieRepository.findByNameContainingIgnoreCase(name);
         return movies.isEmpty() ? new ArrayList<>() : movies;
+    }
+
+    // UPDATE Movie theo id
+    public Movie getMovieById(Long movieId) {
+        return movieRepository.findById(movieId).orElse(null);
+    }
+
+//    public boolean updateMovie(Long movieId, Movie updatedMovie){
+//        Optional<Movie> movieOptional = movieRepository.findById(movieId);
+//        if (movieOptional.isPresent()){
+//            Movie movie = movieOptional.get();
+//            movie.setName(updatedMovie.getName());
+//            movie.setDuration(updatedMovie.getDuration());
+//            movie.setImageUrl(updatedMovie.getImageUrl());
+//            movie.setDescription(updatedMovie.getDescription());
+//            movie.setCategory(updatedMovie.getCategory());
+//            movieRepository.save(movie);
+//            return true;
+//        }
+//        return false;
+//    }
+
+    public boolean updateMovie(Long movieId, Movie updatedMovie, MultipartFile imageFile) {
+        Optional<Movie> optionalMovie = movieRepository.findById(movieId);
+        if (optionalMovie.isPresent()) {
+            Movie movie = optionalMovie.get();
+            movie.setName(updatedMovie.getName());
+            movie.setDuration(updatedMovie.getDuration());
+            movie.setDescription(updatedMovie.getDescription());
+
+            Category category = categoryRepository.findById(updatedMovie.getCategory().getId()).orElse(null);
+            movie.setCategory(category);
+
+            if (imageFile != null && !imageFile.isEmpty()) {
+                String imageUrl = saveImage(imageFile);
+                movie.setImageUrl(imageUrl);
+            }
+
+            movieRepository.save(movie);
+            return true;
+        }
+        return false;
     }
 
 }

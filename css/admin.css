@@ -183,7 +183,31 @@
     width: 100%;
 }
 
+button[onclick^="deleteUser"] {
+    background-color: #444444;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px #252836 solid;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+button[onclick^="editUser"] {
+    background-color: #444444;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px #252836 solid;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease-in-out;
+}
 
+button[onclick^="editUser"]:hover {
+    background-color: #666666;
+    cursor: pointer;
+}
+button[onclick^="deleteUser"]:hover {
+    background-color: #666666;
+    cursor: pointer;
+}
 
 /* ==== Category form ===  */
 button[onclick^="editCategory"] {

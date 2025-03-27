@@ -328,9 +328,9 @@ async function deleteCategory(id) {
 }
 
 // Chọn tất cả
-function selectAll() {
-    document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = true);
-}
+    function selectAll() {
+        document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = true);
+    }
 
 // Bỏ chọn tất cả
 function deselectAll() {

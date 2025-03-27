@@ -101,13 +101,22 @@ public class MovieController {
         return ResponseEntity.ok(movies); // Trả về danh sách phim
     }
 
-    @GetMapping("/get/{id}")
-    public ResponseEntity<?> getMovie(@PathVariable Long id){
-        Optional<Movie> movie = movieService.getMovie(id);
-        if (movie.isPresent()){
-            return new ResponseEntity<>(movie.get(),HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Không tìm thấy phim!",HttpStatus.NOT_FOUND );
+    @GetMapping("/get/{movieId}")
+    public ResponseEntity<?> getMovie(@PathVariable Long movieId) {
+        try {
+            Optional<Movie> movie = movieService.getMovie(movieId);
+            if (movie.isPresent()) {
+                // Thêm log để kiểm tra dữ liệu
+                System.out.println("Movie data: " + movie.get());
+                return ResponseEntity.ok(movie.get());
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body("Không tìm thấy phim với ID: " + movieId);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError()
+                    .body("Lỗi server khi lấy thông tin phim");
         }
     }
 
@@ -139,4 +148,50 @@ public class MovieController {
         movieRepository.deleteById(movieId);
         return "Phim đã xóa !";
     }
+
+//    //API UPDATE MOVIE theo id
+//    @PutMapping("/update/{movieId}")
+//    public ResponseEntity<String> updateMovie(@PathVariable Long movieId, @RequestBody Movie updatedMovie, @RequestParam(value = "image", required = false) MultipartFile imageFile) {
+//        System.out.println("Cập nhật phim ID: " + movieId);
+//        System.out.println("Dữ liệu nhận được: " + updatedMovie);
+//
+//        boolean updated = movieService.updateMovie(movieId, updatedMovie, imageFile);
+//        if (updated) {
+//            return ResponseEntity.ok("Cập nhật thành công!");
+//        } else {
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cập nhật thất bại!");
+//        }
+//    }
+
+    @PutMapping(value = "/update/{movieId}", consumes = "multipart/form-data")
+    public ResponseEntity<String> updateMovie(
+            @PathVariable Long movieId,
+            @RequestParam("name") String name,
+            @RequestParam("duration") String duration,
+            @RequestParam(value = "image", required = false) MultipartFile imageFile,
+            @RequestParam("description") String description,
+            @RequestParam("category") Long categoryId) {
+
+        try {
+            Category category = categoryRepository.findById(categoryId)
+                    .orElseThrow(() -> new RuntimeException("Không tìm thấy category với ID: " + categoryId));
+
+            Movie updatedMovie = new Movie();
+            updatedMovie.setName(name);
+            updatedMovie.setDuration(duration);
+            updatedMovie.setDescription(description);
+            updatedMovie.setCategory(category);
+
+            boolean updated = movieService.updateMovie(movieId, updatedMovie, imageFile);
+            if (updated) {
+                return ResponseEntity.ok("Cập nhật thành công!");
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cập nhật thất bại!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().body("Lỗi hệ thống: " + e.getMessage());
+        }
+    }
+
 }

@@ -119,7 +119,6 @@ async function fetchMovies(categoryId = "") {
 
 
 
-
 // Tìm kiếm theo danh mục
 function filterMoviesByCategory() {
     const categoryId = document.getElementById("categoryFilter").value;
@@ -238,3 +237,95 @@ function handleSubmit() {
 }
 
 
+// UPDATE PHIM
+function getMovieIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id");
+}
+
+async function loadMovieData() {
+    const movieId = getMovieIdFromUrl();
+    if (!movieId) {
+        document.getElementById("message").innerText = "Không tìm thấy ID phim!";
+        return;
+    }
+
+    try {
+        // Load categories first
+        const categoriesResponse = await fetch("http://localhost:8080/api/categories/get");
+        if (!categoriesResponse.ok) {
+            throw new Error("Không thể tải danh mục!");
+        }
+        const categories = await categoriesResponse.json();
+        
+        const categorySelect = document.getElementById("category");
+        categorySelect.innerHTML = '';
+        categories.forEach(category => {
+            const option = document.createElement("option");
+            option.value = category.id;
+            option.textContent = category.name;
+            categorySelect.appendChild(option);
+        });
+
+        // Then load movie data
+        const response = await fetch(`http://localhost:8080/api/movies/get/${movieId}`);
+        if (!response.ok) {
+            throw new Error("Không thể tải dữ liệu phim!");
+        }
+        const movie = await response.json();
+
+        // Fill the form
+        document.getElementById("name").value = movie.name;
+        document.getElementById("duration").value = movie.duration;
+        document.getElementById("description").value = movie.description;
+        document.getElementById("category").value = movie.category.id;
+
+        if (movie.imageUrl) {
+            document.getElementById("imagePreview").src = movie.imageUrl;
+            document.getElementById("imagePreview").style.width = '200px';
+        }
+    } catch (error) {
+        document.getElementById("message").innerText = error.message;
+    }
+}
+
+// Call this when the page loads
+document.addEventListener("DOMContentLoaded", loadMovieData);
+
+async function handleMovieSubmit() {
+    const movieId = getMovieIdFromUrl();
+    if (!movieId) {
+        document.getElementById("message").innerText = "Không tìm thấy ID phim!";
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", document.getElementById("name").value);
+    formData.append("duration", document.getElementById("duration").value);
+    formData.append("description", document.getElementById("description").value);
+    formData.append("category", document.getElementById("category").value);
+    
+    const imageFile = document.getElementById("image").files[0];
+    if (imageFile) {
+        formData.append("image", imageFile);
+    }
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/movies/update/${movieId}`, {
+            method: "PUT",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error(await response.text());
+        }
+
+        const message = await response.text();
+        document.getElementById("message").innerText = message;
+        setTimeout(() => {
+            window.location.href = '../movies/listmovies.html';
+        }, 1500);
+    } catch (error) {
+        document.getElementById("message").innerText = error.message;
+    }
+}
